@@ -13,7 +13,7 @@ export class RestClient {
     this.headers = headers;
   }
 
-  async init() {
+  async init(): Promise<void> {
     if (!this.context) {
       this.context = await request.newContext({
         baseURL: this.host,
@@ -22,26 +22,32 @@ export class RestClient {
     }
   }
 
-  async dispose() {
+  async dispose(): Promise<void> {
     if (this.context) {
       await this.context.dispose();
       this.context = undefined;
     }
   }
 
-  async get(path: string, options?: Parameters<APIRequestContext['get']>[1]) {
+  async get(path: string, options?: Parameters<APIRequestContext['get']>[1]): Promise<APIResponse> {
     return this._sendRequest('GET', path, options);
   }
 
-  async post(path: string, options?: Parameters<APIRequestContext['post']>[1]) {
+  async post(
+    path: string,
+    options?: Parameters<APIRequestContext['post']>[1],
+  ): Promise<APIResponse> {
     return this._sendRequest('POST', path, options);
   }
 
-  async put(path: string, options?: Parameters<APIRequestContext['put']>[1]) {
+  async put(path: string, options?: Parameters<APIRequestContext['put']>[1]): Promise<APIResponse> {
     return this._sendRequest('PUT', path, options);
   }
 
-  async delete(path: string, options?: Parameters<APIRequestContext['delete']>[1]) {
+  async delete(
+    path: string,
+    options?: Parameters<APIRequestContext['delete']>[1],
+  ): Promise<APIResponse> {
     return this._sendRequest('DELETE', path, options);
   }
 
