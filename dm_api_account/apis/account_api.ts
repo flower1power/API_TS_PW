@@ -1,4 +1,5 @@
-import { APIRequestContext, APIResponse, request } from 'playwright';
+import { APIRequestContext, APIResponse } from 'playwright';
+import { RestClient } from '../../rest_client/client';
 
 export interface UserCredentials {
   login: string;
@@ -6,31 +7,36 @@ export interface UserCredentials {
   password: string;
 }
 
-export class AccountApi {
-  host: string;
-  headers: string | null;
-
-  constructor(host: string, headers: string | null = null) {
-    this.host = host;
-    this.headers = headers;
+export class AccountApi extends RestClient {
+  async postV1Account(
+    jsonData: UserCredentials,
+    options?: Parameters<APIRequestContext['post']>[1],
+  ): Promise<APIResponse> {
+    return this.post(`/v1/account`, {
+      data: jsonData,
+      headers: { ...options?.headers },
+      ...options,
+    });
   }
 
-  async postV1Account(jsonData: UserCredentials): Promise<APIResponse> {
-    const context = await request.newContext();
-    return context.post(`${this.host}/v1/account`, { data: jsonData });
+  async putV1AccountToken(
+    token: string,
+    options?: Parameters<APIRequestContext['put']>[1],
+  ): Promise<APIResponse> {
+    return this.put(`/v1/account/${token}`, {
+      headers: { accept: 'text/plain', ...options?.headers },
+      ...options,
+    });
   }
 
-  async putV1AccountToken(token: string): Promise<APIResponse> {
-    const headers = {
-      accept: 'text/plain',
-    };
-
-    const context = await request.newContext();
-    return context.put(`${this.host}/v1/account/${token}`, { headers: headers });
-  }
-
-  async putV1AccountChangeEmail(jsonData: UserCredentials): Promise<APIResponse> {
-    const context = await request.newContext();
-    return context.put(`${this.host}/v1/account/email`, { data: jsonData });
+  async putV1AccountChangeEmail(
+    jsonData: UserCredentials,
+    options?: Parameters<APIRequestContext['put']>[1],
+  ): Promise<APIResponse> {
+    return this.put(`/v1/account/email`, {
+      data: jsonData,
+      headers: { ...options?.headers },
+      ...options,
+    });
   }
 }

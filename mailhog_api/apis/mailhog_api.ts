@@ -1,23 +1,20 @@
-import { APIRequestContext, APIResponse, request } from 'playwright';
+import { APIRequestContext, APIResponse } from 'playwright';
+import { RestClient } from '../../rest_client/client';
 
-export class MailhogApi {
-  host: string;
-  headers: string | null;
-
-  constructor(host: string, headers: string | null = null) {
-    this.host = host;
-    this.headers = headers;
-  }
-
-  async getApiV2Message(limit = 50): Promise<APIResponse> {
+export class MailhogApi extends RestClient {
+  async getApiV2Message(
+    limit = 50,
+    options?: Parameters<APIRequestContext['get']>[1],
+  ): Promise<APIResponse> {
     const params = {
       limit: limit,
     };
 
-    const context = await request.newContext();
-    return context.get(`${this.host}/api/v2/messages`, {
+    return this.get(`/api/v2/messages`, {
       params: params,
       ignoreHTTPSErrors: true,
+      headers: { ...options?.headers },
+      ...options,
     });
   }
 }
