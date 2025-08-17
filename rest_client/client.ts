@@ -1,18 +1,35 @@
 import { randomUUID } from 'crypto';
 import { APIRequestContext, APIResponse, request } from 'playwright';
+import { Configuration } from './configuration';
 
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
 
+/**
+ * Базовый HTTP клиент для работы с REST API.
+ *
+ * Предоставляет методы для выполнения HTTP запросов (GET, POST, PUT, DELETE)
+ * с автоматическим логированием, генерацией cURL команд и обработкой ответов.
+ * Поддерживает настройку заголовков, базового URL и отключение логирования.
+ */
 export class RestClient {
   private context?: APIRequestContext;
   private readonly host: string;
-  private readonly headers: Record<string, string>;
+  private headers: Record<string, string> = {};
+  private readonly disableLog: boolean;
 
-  constructor(host: string, headers = {}) {
-    this.host = host;
-    this.headers = headers;
+  constructor(configuration: Configuration) {
+    this.host = configuration.host;
+    this.headers = configuration.headers ?? {};
+    this.disableLog = configuration.disableLog;
   }
 
+  setHeaders(headers: Record<string, string>): void {
+    this.headers = headers;
+  }
+  /**
+   * Инициализация контекста запроса Playwright.
+   * Создает новый контекст с базовым URL и заголовками.
+   */
   async init(): Promise<void> {
     if (!this.context) {
       this.context = await request.newContext({
@@ -22,6 +39,9 @@ export class RestClient {
     }
   }
 
+  /**
+   * Освобождение ресурсов контекста запроса.
+   */
   async dispose(): Promise<void> {
     if (this.context) {
       await this.context.dispose();
@@ -29,10 +49,24 @@ export class RestClient {
     }
   }
 
+  /**
+   * Выполнение GET запроса.
+   *
+   * @param path - Путь к эндпоинту API
+   * @param options - Дополнительные параметры для HTTP запроса (params, headers, timeout и т.д.)
+   * @returns HTTP ответ от сервера
+   */
   async get(path: string, options?: Parameters<APIRequestContext['get']>[1]): Promise<APIResponse> {
     return this._sendRequest('GET', path, options);
   }
 
+  /**
+   * Выполнение POST запроса.
+   *
+   * @param path - Путь к эндпоинту API
+   * @param options - Дополнительные параметры для HTTP запроса (json, data, headers, timeout и т.д.)
+   * @returns HTTP ответ от сервера
+   */
   async post(
     path: string,
     options?: Parameters<APIRequestContext['post']>[1],
@@ -40,10 +74,24 @@ export class RestClient {
     return this._sendRequest('POST', path, options);
   }
 
+  /**
+   * Выполнение PUT запроса.
+   *
+   * @param path - Путь к эндпоинту API
+   * @param options - Дополнительные параметры для HTTP запроса (json, data, headers, timeout и т.д.)
+   * @returns HTTP ответ от сервера
+   */
   async put(path: string, options?: Parameters<APIRequestContext['put']>[1]): Promise<APIResponse> {
     return this._sendRequest('PUT', path, options);
   }
 
+  /**
+   * Выполнение DELETE запроса.
+   *
+   * @param path - Путь к эндпоинту API
+   * @param options - Дополнительные параметры для HTTP запроса (headers, timeout и т.д.)
+   * @returns HTTP ответ от сервера
+   */
   async delete(
     path: string,
     options?: Parameters<APIRequestContext['delete']>[1],
@@ -51,14 +99,89 @@ export class RestClient {
     return this._sendRequest('DELETE', path, options);
   }
 
+  /**
+   * Внутренний метод для выполнения HTTP запросов.
+   *
+   * Выполняет запрос, логирует детали запроса и ответа,
+   * генерирует cURL команду для отладки.
+   *
+   * @param method - HTTP метод (GET, POST, PUT, DELETE)
+   * @param path - Путь к эндпоинту API
+   * @param options - Параметры для HTTP запроса
+   * @returns HTTP ответ от сервера
+   */
   private async _sendRequest(
     method: HttpMethod,
     path: string,
     options: Record<string, any> = {},
   ): Promise<APIResponse> {
     const eventId = randomUUID();
-    const fullUrl = this.host + (path.startsWith('/') ? path : `/${path}`);
+    const fullUrl = this._buildFullUrl(path);
 
+    await this.init();
+
+    if (!this.context) {
+      throw new Error('Не удалось инициализировать контекст запроса');
+    }
+
+    const requestOptions: Record<string, any> = {
+      ...options,
+      headers: {
+        ...this.headers,
+        ...options.headers,
+      },
+    };
+
+    if (this.disableLog) {
+      return this.context.fetch(path, { method, ...requestOptions });
+    }
+
+    // Логирование запроса
+    this._logRequest(eventId, method, fullUrl, requestOptions);
+
+    // Генерация cURL команды
+    console.log(
+      this._toCurl(
+        method,
+        fullUrl,
+        requestOptions.headers,
+        requestOptions.data || requestOptions.json,
+      ),
+    );
+
+    const response = await this.context.fetch(path, { method, ...requestOptions });
+
+    // Логирование ответа
+    this._logResponse(eventId, response);
+
+    return response;
+  }
+
+  /**
+   * Построение полного URL для запроса.
+   *
+   * @param path - Путь к эндпоинту
+   * @returns Полный URL
+   */
+  private _buildFullUrl(path: string): string {
+    const cleanPath = path.startsWith('/') ? path : `/${path}`;
+    return this.host + cleanPath;
+  }
+
+  /**
+   * Логирование деталей HTTP запроса.
+   *
+   * @param eventId - Уникальный идентификатор события
+   * @param method - HTTP метод
+   * @param fullUrl - Полный URL запроса
+   * @param options - Параметры запроса
+   */
+  private _logRequest(
+    eventId: string,
+    method: HttpMethod,
+    fullUrl: string,
+    options: Record<string, any>,
+  ): void {
     console.log(
       JSON.stringify(
         {
@@ -68,23 +191,22 @@ export class RestClient {
           fullUrl,
           params: options.params,
           headers: options.headers,
-          json: options.data,
-          data: options.data,
+          json: options.data || options.json,
+          data: options.data || options.json,
         },
         null,
         4,
       ),
     );
+  }
 
-    console.log(this.toCurl(method, fullUrl, options.headers, options.data));
-    await this.init();
-
-    if (!this.context) {
-      throw new Error('Не удалось инициализировать контекст запроса');
-    }
-
-    const response = await this.context.fetch(path, { method, ...options });
-
+  /**
+   * Логирование деталей HTTP ответа.
+   *
+   * @param eventId - Уникальный идентификатор события
+   * @param response - HTTP ответ
+   */
+  private async _logResponse(eventId: string, response: APIResponse): Promise<void> {
     let responseJson: any;
     try {
       responseJson = await response.json();
@@ -105,11 +227,18 @@ export class RestClient {
         4,
       ),
     );
-
-    return response;
   }
 
-  private toCurl(
+  /**
+   * Генерация cURL команды для отладки.
+   *
+   * @param method - HTTP метод
+   * @param url - URL запроса
+   * @param headers - Заголовки запроса
+   * @param data - Данные запроса
+   * @returns cURL команда в виде строки
+   */
+  private _toCurl(
     method: string,
     url: string,
     headers: Record<string, string> = {},

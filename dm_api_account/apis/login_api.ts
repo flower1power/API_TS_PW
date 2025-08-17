@@ -18,4 +18,16 @@ export class LoginApi extends RestClient {
       ...options,
     });
   }
+
+  async deleteV1AccountLogin(
+    options?: Parameters<APIRequestContext['delete']>[1],
+  ): Promise<APIResponse> {
+    return this.delete('/v1/account/login', { ...options });
+  }
+
+  async deleteV1AccountLoginAll(
+    options?: Parameters<APIRequestContext['delete']>[1],
+  ): Promise<APIResponse> {
+    return this.delete('/v1/account/login/all', { ...options });
+  }
 }
