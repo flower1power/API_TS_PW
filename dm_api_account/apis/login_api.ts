@@ -1,22 +1,25 @@
 import { APIRequestContext, APIResponse } from 'playwright';
 import { RestClient } from '../../rest_client/client';
-
-export interface UserLoginData {
-  login: string;
-  password: string;
-  rememberMe: boolean;
-}
+import { LoginCredentialsDTO } from '../models/loginCredentials';
+import { UserEnvelopeDTO, UserEnvelopeSchema } from '../models/userDetails';
 
 export class LoginApi extends RestClient {
   async postV1AccountLogin(
-    jsonData: UserLoginData,
+    jsonData: LoginCredentialsDTO,
+    validateResponse = true,
     options?: Parameters<APIRequestContext['post']>[1],
-  ): Promise<APIResponse> {
-    return this.post(`/v1/account/login`, {
+  ): Promise<APIResponse | UserEnvelopeDTO> {
+    const response = await this.post(`/v1/account/login`, {
       data: jsonData,
       headers: { ...options?.headers },
       ...options,
     });
+
+    if (validateResponse) {
+      return UserEnvelopeSchema.parse(await response.json());
+    }
+
+    return response;
   }
 
   async deleteV1AccountLogin(

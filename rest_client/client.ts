@@ -133,7 +133,13 @@ export class RestClient {
     };
 
     if (this.disableLog) {
-      return this.context.fetch(path, { method, ...requestOptions });
+      const response = await this.context.fetch(path, { method, ...requestOptions });
+      if (!response.ok()) {
+        const error: any = new Error(`API Error: ${response.status()} ${response.statusText()}`);
+        error.response = response;
+        throw error;
+      }
+      return response;
     }
 
     // Логирование запроса
@@ -154,6 +160,12 @@ export class RestClient {
     // Логирование ответа
     this._logResponse(eventId, response);
 
+    if (!response.ok()) {
+      const error: any = new Error(`API Error: ${response.status()} ${response.statusText()}`);
+      error.response = response;
+      throw error;
+    }
+
     return response;
   }
 
@@ -164,8 +176,13 @@ export class RestClient {
    * @returns Полный URL
    */
   private _buildFullUrl(path: string): string {
-    const cleanPath = path.startsWith('/') ? path : `/${path}`;
-    return this.host + cleanPath;
+    let cleanPath: string;
+    if (path) {
+      cleanPath = path.startsWith('/') ? path : `/${path}`;
+      return this.host + cleanPath;
+    }
+
+    return this.host;
   }
 
   /**
