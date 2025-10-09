@@ -1,12 +1,13 @@
+import { ChangeEmailDTO } from '../clients/http/dm_api_account/models/changeEmail';
+import { ChangePasswordDTO } from '../clients/http/dm_api_account/models/changePassword';
+import { LoginCredentialsDTO } from '../clients/http/dm_api_account/models/loginCredentials';
+import { RegistrationDTO } from '../clients/http/dm_api_account/models/registration';
+import { ResetPasswordDTO } from '../clients/http/dm_api_account/models/resetPassword';
+import { UserEnvelopeDTO } from '../clients/http/dm_api_account/models/userDetails';
+import { step } from '../fixture/playwrightFixture';
 import { ApiDmAccount } from '../service/api_dm_account';
 import { ApiMailhog } from '../service/api_mailhog';
 import { APIResponse, expect } from 'playwright/test';
-import { RegistrationDTO } from '../dm_api_account/models/registration';
-import { LoginCredentialsDTO } from '../dm_api_account/models/loginCredentials';
-import { UserEnvelopeDTO, UserEnvelopeSchema } from '../dm_api_account/models/userDetails';
-import { ResetPasswordDTO } from '../dm_api_account/models/resetPassword';
-import { ChangePasswordDTO } from '../dm_api_account/models/changePassword';
-import { ChangeEmailDTO } from '../dm_api_account/models/changeEmail';
 
 /**
  * Вспомогательный класс для работы с аккаунтами пользователей.
@@ -49,28 +50,31 @@ export class AccountHelpers {
     email: string,
     validateResponse: boolean,
   ): Promise<APIResponse | UserEnvelopeDTO> {
-    const credentialsData: RegistrationDTO = {
-      login: login,
-      email: email,
-      password: password,
-    };
+    return step('Регистрация нового пользователя с последующей активацией', async () => {
+      const credentialsData: RegistrationDTO = {
+        login: login,
+        email: email,
+        password: password,
+      };
 
-    await this.apiDmAccount.accountApi.postV1Account(credentialsData);
+      await this.apiDmAccount.accountApi.postV1Account(credentialsData);
 
-    const token = await this.getActivationTokenByLogin(login);
-    expect(token, {
-      message: `Токен для пользователя ${login}, не был получен`,
-    }).not.toBeUndefined();
+      const token = await this.getActivationTokenByLogin(login);
+      expect(token, `Токен для пользователя ${login} = ${token}`).not.toBeUndefined();
 
-    const response = await this.apiDmAccount.accountApi.putV1AccountToken(token!, validateResponse);
+      const response = await this.apiDmAccount.accountApi.putV1AccountToken(
+        token!,
+        validateResponse,
+      );
 
-    if (!validateResponse) {
-      expect((response as APIResponse).status(), {
-        message: 'Пользователь не был активирован',
-      }).toEqual(200);
-    }
+      if (!validateResponse) {
+        expect((response as APIResponse).status(), {
+          message: 'Пользователь не был активирован',
+        }).toEqual(200);
+      }
 
-    return response;
+      return response;
+    });
   }
 
   /**
@@ -102,22 +106,24 @@ export class AccountHelpers {
     validateResponse = false,
     validateHeader = false,
   ): Promise<APIResponse | UserEnvelopeDTO> {
-    const loginData: LoginCredentialsDTO = {
-      login: login,
-      password: password,
-      rememberMe: rememberMe,
-    };
+    return step('Авторизация пользователя в системе', async () => {
+      const loginData: LoginCredentialsDTO = {
+        login: login,
+        password: password,
+        rememberMe: rememberMe,
+      };
 
-    const response = await this.apiDmAccount.loginApi.postV1AccountLogin(
-      loginData,
-      validateResponse,
-    );
+      const response = await this.apiDmAccount.loginApi.postV1AccountLogin(
+        loginData,
+        validateResponse,
+      );
 
-    if (!validateResponse && validateHeader) {
-      expect((response as APIResponse).headers()['x-dm-auth-token']).toBeTruthy();
-    }
+      if (!validateResponse && validateHeader) {
+        expect((response as APIResponse).headers()['x-dm-auth-token']).toBeTruthy();
+      }
 
-    return response;
+      return response;
+    });
   }
 
   /**
@@ -130,15 +136,17 @@ export class AccountHelpers {
    * @param password - Пароль пользователя
    */
   async authUser(login: string, password: string, rememberMe = true): Promise<void> {
-    const response = await this.userLogin(login, password, rememberMe, false, false);
+    return step('Авторизация клиента и установка токена аутентификации в заголовки', async () => {
+      const response = await this.userLogin(login, password, rememberMe, false, false);
 
-    const headers = response.headers();
-    const token = {
-      'x-dm-auth-token': headers['x-dm-auth-token'],
-    };
+      const headers = response.headers();
+      const token = {
+        'x-dm-auth-token': headers['x-dm-auth-token'],
+      };
 
-    this.apiDmAccount.accountApi.setHeaders(token);
-    this.apiDmAccount.loginApi.setHeaders(token);
+      this.apiDmAccount.accountApi.setHeaders(token);
+      this.apiDmAccount.loginApi.setHeaders(token);
+    });
   }
 
   /**
@@ -152,22 +160,24 @@ export class AccountHelpers {
    */
   @retries(5)
   async getActivationTokenByLogin(login: string): Promise<string | undefined> {
-    const response = await this.apiMailhog.mailhogApi.getApiV2Message();
-    expect(response.status(), { message: 'Письма не были получены' }).toEqual(200);
+    return step('Получение токена активации для пользователя по логину', async () => {
+      const response = await this.apiMailhog.mailhogApi.getApiV2Message();
+      expect(response.status(), `statusCode: ${response.status()}, ожидался: 200`).toEqual(200);
 
-    const responseJson = await response.json();
+      const responseJson = await response.json();
 
-    for (const item of responseJson.items) {
-      const userData = JSON.parse(item.Content.Body);
-      const userLogin = userData.Login;
+      for (const item of responseJson.items) {
+        const userData = JSON.parse(item.Content.Body);
+        const userLogin = userData.Login;
 
-      if (userLogin === login) {
-        const token = userData.ConfirmationLinkUrl.split('/').at(-1);
-        return token;
+        if (userLogin === login) {
+          const token = userData.ConfirmationLinkUrl.split('/').at(-1);
+          return token;
+        }
       }
-    }
 
-    return undefined;
+      return undefined;
+    });
   }
 
   /**
@@ -182,24 +192,26 @@ export class AccountHelpers {
    */
   @retries(5)
   async getResetPasswordTokenByLogin(login: string): Promise<string | undefined> {
-    const response = await this.apiMailhog.mailhogApi.getApiV2Message();
-    expect(response.status(), { message: 'Письма не были получены' }).toEqual(200);
+    return step('Получение токена сброса пароля для пользователя по логину', async () => {
+      const response = await this.apiMailhog.mailhogApi.getApiV2Message();
+      expect(response.status(), `statusCode: ${response.status()}, ожидался: 200`).toEqual(200);
 
-    const responseJson = await response.json();
+      const responseJson = await response.json();
 
-    for (const item of responseJson.items) {
-      const userData = JSON.parse(item.Content.Body);
-      const userLogin = userData.Login;
+      for (const item of responseJson.items) {
+        const userData = JSON.parse(item.Content.Body);
+        const userLogin = userData.Login;
 
-      if (userLogin === login) {
-        if ('ConfirmationLinkUri' in userData) {
-          const token = userData.ConfirmationLinkUri.split('/').at(-1);
-          return token;
+        if (userLogin === login) {
+          if ('ConfirmationLinkUri' in userData) {
+            const token = userData.ConfirmationLinkUri.split('/').at(-1);
+            return token;
+          }
         }
       }
-    }
 
-    return undefined;
+      return undefined;
+    });
   }
 
   /**
@@ -223,40 +235,42 @@ export class AccountHelpers {
     newPassword: string,
     validateResponse = true,
   ): Promise<APIResponse | UserEnvelopeDTO> {
-    const loginData: ResetPasswordDTO = {
-      login: login,
-      email: email,
-    };
-    await this.apiDmAccount.accountApi.postV1AccountPassword(loginData, validateResponse);
+    return step('Смена пароля пользователя с использованием токена сброса пароля', async () => {
+      const loginData: ResetPasswordDTO = {
+        login: login,
+        email: email,
+      };
+      await this.apiDmAccount.accountApi.postV1AccountPassword(loginData, validateResponse);
 
-    const resetToken = await this.getResetPasswordTokenByLogin(login);
+      const resetToken = await this.getResetPasswordTokenByLogin(login);
 
-    expect(resetToken, {
-      message: `Токен для сброса пароля пользователя ${login} не был получен`,
-    }).not.toBeUndefined();
+      expect(resetToken, {
+        message: `Токен для сброса пароля пользователя ${login} не был получен`,
+      }).not.toBeUndefined();
 
-    const changePasswordData: ChangePasswordDTO = {
-      login: login,
-      token: resetToken!,
-      oldPassword: oldPassword,
-      newPassword: newPassword,
-    };
+      const changePasswordData: ChangePasswordDTO = {
+        login: login,
+        token: resetToken!,
+        oldPassword: oldPassword,
+        newPassword: newPassword,
+      };
 
-    let response = await this.apiDmAccount.accountApi.putV1AccountChangePassword(
-      changePasswordData,
-      validateResponse,
-    );
+      let response = await this.apiDmAccount.accountApi.putV1AccountChangePassword(
+        changePasswordData,
+        validateResponse,
+      );
 
-    if (validateResponse) {
-      response = response as UserEnvelopeDTO;
+      if (validateResponse) {
+        response = response as UserEnvelopeDTO;
+
+        return response;
+      }
+
+      response = response as APIResponse;
+      expect(response.status(), { message: 'Не удалось изменить пароль' }).toEqual(200);
 
       return response;
-    }
-
-    response = response as APIResponse;
-    expect(response.status(), { message: 'Не удалось изменить пароль' }).toEqual(200);
-
-    return response;
+    });
   }
 
   /**
@@ -273,27 +287,29 @@ export class AccountHelpers {
     newEmail: string,
     validateResponse = true,
   ): Promise<APIResponse | UserEnvelopeDTO> {
-    const changeEmailData: ChangeEmailDTO = {
-      login: login,
-      password: password,
-      email: newEmail,
-    };
+    return step('Изменение email адреса пользователя', async () => {
+      const changeEmailData: ChangeEmailDTO = {
+        login: login,
+        password: password,
+        email: newEmail,
+      };
 
-    let response = await this.apiDmAccount.accountApi.putV1AccountChangeEmail(
-      changeEmailData,
-      validateResponse,
-    );
+      let response = await this.apiDmAccount.accountApi.putV1AccountChangeEmail(
+        changeEmailData,
+        validateResponse,
+      );
 
-    if (validateResponse) {
-      response = response as UserEnvelopeDTO;
+      if (validateResponse) {
+        response = response as UserEnvelopeDTO;
+
+        return response;
+      }
+
+      response = response as APIResponse;
+      expect(response.status(), { message: 'Не удалось изменить почту' }).toEqual(200);
 
       return response;
-    }
-
-    response = response as APIResponse;
-    expect(response.status(), { message: 'Не удалось изменить почту' }).toEqual(200);
-
-    return response;
+    });
   }
 
   /**
@@ -308,15 +324,17 @@ export class AccountHelpers {
    * @returns HTTP ответ от сервера с результатом выхода
    */
   async logoutUser(token?: string, options: Record<string, any> = {}): Promise<APIResponse> {
-    if (token) {
-      options.headers = { ...options.headers, 'x-dm-auth-token': token };
-    }
+    return step('Выход пользователя из системы на текущем устройстве', async () => {
+      if (token) {
+        options.headers = { ...options.headers, 'x-dm-auth-token': token };
+      }
 
-    const response = await this.apiDmAccount.loginApi.deleteV1AccountLogin(options);
-    console.log(response);
-    expect(response.status(), { message: 'Не удалось выйти из аккаунта' }).toEqual(204);
+      const response = await this.apiDmAccount.loginApi.deleteV1AccountLogin(options);
+      console.log(response);
+      expect(response.status(), `statusCode: ${response.status()}, ожидалось: 200`).toEqual(204);
 
-    return response;
+      return response;
+    });
   }
 
   /**
@@ -335,14 +353,16 @@ export class AccountHelpers {
     token?: string,
     options: Record<string, any> = {},
   ): Promise<APIResponse> {
-    if (token) {
-      options.headers = { ...options.headers, 'x-dm-auth-token': token };
-    }
+    return step('Выход пользователя из системы на всех устройствах', async () => {
+      if (token) {
+        options.headers = { ...options.headers, 'x-dm-auth-token': token };
+      }
 
-    const response = await this.apiDmAccount.loginApi.deleteV1AccountLoginAll();
-    expect(response.status(), { message: 'Не удалось выйти из аккаунта' }).toEqual(204);
+      const response = await this.apiDmAccount.loginApi.deleteV1AccountLoginAll();
+      expect(response.status(), `statusCode: ${response.status()}, ожидалось: 200`).toEqual(204);
 
-    return response;
+      return response;
+    });
   }
 
   /**
@@ -355,17 +375,19 @@ export class AccountHelpers {
     token: string,
     validateResponse = true,
   ): Promise<APIResponse | UserEnvelopeDTO> {
-    let response = await this.apiDmAccount.accountApi.putV1AccountToken(token, validateResponse);
+    return step('Активация зарегистрированного пользователя по токену', async () => {
+      let response = await this.apiDmAccount.accountApi.putV1AccountToken(token, validateResponse);
 
-    if (validateResponse) {
+      if (validateResponse) {
+        response = response as APIResponse;
+        return response;
+      }
+
       response = response as APIResponse;
+      expect(response.status(), { message: 'Пользователь не был активирован' }).toEqual(200);
+
       return response;
-    }
-
-    response = response as APIResponse;
-    expect(response.status(), { message: 'Пользователь не был активирован' }).toEqual(200);
-
-    return response;
+    });
   }
 }
 

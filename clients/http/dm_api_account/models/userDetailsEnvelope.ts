@@ -34,8 +34,8 @@ export enum ColorSchema {
 
 const InfoBbTextSchema = z
   .object({
-    value: z.string().optional().default(undefined),
-    parseMode: z.nativeEnum(DbParseMode),
+    value: z.string().optional(),
+    parseMode: z.enum(Object.values(DbParseMode) as [string, ...string[]]),
   })
   .strict();
 
@@ -51,27 +51,27 @@ const PagingSettingsSchema = z
 
 const UserSettingsSchema = z
   .object({
-    colorSchema: z.nativeEnum(ColorSchema),
-    nannyGreetingsMessage: z.string().optional().default(undefined),
+    colorSchema: z.enum(Object.values(ColorSchema) as [string, ...string[]]),
+    nannyGreetingsMessage: z.string().optional(),
     paging: PagingSettingsSchema,
   })
   .strict();
 
 const UserDetailsSchema = z
   .object({
-    login: z.string().optional().default(undefined),
-    roles: z.array(z.enum(UserRole)),
-    mediumPictureUrl: z.string().optional().default(undefined),
-    smallPictureUrl: z.string().optional().default(undefined),
-    status: z.string().optional().default(undefined),
+    login: z.string().optional(),
+    roles: z.array(z.enum(Object.values(UserRole) as [string, ...string[]])),
+    mediumPictureUrl: z.string().optional(),
+    smallPictureUrl: z.string().optional(),
+    status: z.string().optional(),
     rating: RatingSchema,
-    online: z.coerce.date().optional().default(undefined),
-    name: z.string().optional().default(undefined),
-    location: z.string().optional().default(undefined),
-    registration: z.coerce.date().optional().default(undefined),
-    icq: z.string().optional().default(undefined),
-    skype: z.string().optional().default(undefined),
-    originalPictureUrl: z.string().optional().default(undefined),
+    online: z.coerce.date().optional(),
+    name: z.string().optional(),
+    location: z.string().optional(),
+    registration: z.coerce.date().optional(),
+    icq: z.string().optional(),
+    skype: z.string().optional(),
+    originalPictureUrl: z.string().optional(),
     info: z.string(),
     settings: UserSettingsSchema,
   })
@@ -80,7 +80,7 @@ const UserDetailsSchema = z
 export const UserDetailsEnvelopeSchema = z
   .object({
     resource: UserDetailsSchema,
-    metadata: z.string().optional().default(undefined),
+    metadata: z.string().optional(),
   })
   .strict();
 

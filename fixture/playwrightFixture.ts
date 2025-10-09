@@ -1,9 +1,13 @@
 import { test as base } from '@playwright/test';
+import * as allure from 'allure-js-commons';
 import { ApiMailhog } from '../service/api_mailhog';
 import { ApiDmAccount } from '../service/api_dm_account';
 import { AccountHelpers } from '../helpers/account_helpers';
-import { Configuration } from '../rest_client/configuration';
+import { Configuration } from '../packages/rest_client/configuration';
 import { faker } from '@faker-js/faker';
+import path from 'path';
+let pactum: any;
+let psc: any;
 export { expect } from '@playwright/test';
 
 type MyFixtureType = {
@@ -12,6 +16,7 @@ type MyFixtureType = {
   accountHelper: AccountHelpers;
   authAccountHelper: AccountHelpers;
   prepareUser: { login: string; password: string; email: string };
+  allure: typeof allure;
 };
 
 export const test = base.extend<MyFixtureType>({
@@ -21,6 +26,11 @@ export const test = base.extend<MyFixtureType>({
     const client = new ApiMailhog(config);
 
     use(client);
+  },
+
+  // eslint-disable-next-line no-empty-pattern
+  allure: async ({}, use) => {
+    use(allure);
   },
 
   // eslint-disable-next-line no-empty-pattern
@@ -74,3 +84,7 @@ export const test = base.extend<MyFixtureType>({
     use(user);
   },
 });
+
+export * from 'allure-js-commons';
+
+//

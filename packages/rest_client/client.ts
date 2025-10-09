@@ -1,6 +1,7 @@
 import { randomUUID } from 'crypto';
 import { APIRequestContext, APIResponse, request } from 'playwright';
 import { Configuration } from './configuration';
+import { attachment, ContentType } from '../../fixture/playwrightFixture';
 
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
 
@@ -16,6 +17,17 @@ export class RestClient {
   private readonly host: string;
   private headers: Record<string, string> = {};
   private readonly disableLog: boolean;
+
+  /**
+   * Безопасное добавление вложения в Allure. Игнорирует ошибки контекста теста.
+   */
+  private async _safeAttachment(name: string, content: string, type: ContentType): Promise<void> {
+    try {
+      await attachment(name, content, type);
+    } catch (err) {
+      // Вложение доступно только в контексте выполняющегося теста. Вне теста — пропускаем.
+    }
+  }
 
   constructor(configuration: Configuration) {
     this.host = configuration.host;
@@ -143,22 +155,23 @@ export class RestClient {
     }
 
     // Логирование запроса
-    this._logRequest(eventId, method, fullUrl, requestOptions);
+    await this._logRequest(eventId, method, fullUrl, requestOptions);
 
     // Генерация cURL команды
-    console.log(
-      this._toCurl(
-        method,
-        fullUrl,
-        requestOptions.headers,
-        requestOptions.data || requestOptions.json,
-      ),
+    const curl = this._toCurl(
+      method,
+      fullUrl,
+      requestOptions.headers,
+      requestOptions.data || requestOptions.json,
     );
+    console.log(curl);
+
+    await this._safeAttachment('Curl', curl, ContentType.TEXT);
 
     const response = await this.context.fetch(path, { method, ...requestOptions });
 
     // Логирование ответа
-    this._logResponse(eventId, response);
+    await this._logResponse(eventId, response);
 
     if (!response.ok()) {
       const error: any = new Error(`API Error: ${response.status()} ${response.statusText()}`);
@@ -193,28 +206,32 @@ export class RestClient {
    * @param fullUrl - Полный URL запроса
    * @param options - Параметры запроса
    */
-  private _logRequest(
+  private async _logRequest(
     eventId: string,
     method: HttpMethod,
     fullUrl: string,
     options: Record<string, any>,
-  ): void {
-    console.log(
-      JSON.stringify(
-        {
-          event: 'Request',
-          eventId,
-          method,
-          fullUrl,
-          params: options.params,
-          headers: options.headers,
-          json: options.data || options.json,
-          data: options.data || options.json,
-        },
-        null,
-        4,
-      ),
+  ): Promise<void> {
+    const textLog = JSON.stringify(
+      {
+        event: 'Request',
+        eventId,
+        method,
+        fullUrl,
+        params: options.params,
+        headers: options.headers,
+        json: options.data || options.json,
+        data: options.data || options.json,
+      },
+      null,
+      4,
     );
+
+    console.log(textLog);
+
+    await this._safeAttachment('Request', textLog, ContentType.JSON);
+
+    //
   }
 
   /**
@@ -231,19 +248,23 @@ export class RestClient {
       responseJson = {};
     }
 
-    console.log(
-      JSON.stringify(
-        {
-          event: 'Response',
-          eventId,
-          status_code: response.status(),
-          headers: response.headers(),
-          json: responseJson,
-        },
-        null,
-        4,
-      ),
+    const textLog = JSON.stringify(
+      {
+        event: 'Response',
+        eventId,
+        status_code: response.status(),
+        headers: response.headers(),
+        json: responseJson,
+      },
+      null,
+      4,
     );
+
+    console.log(textLog);
+
+    await this._safeAttachment('Response', textLog, ContentType.JSON);
+
+    //
   }
 
   /**
