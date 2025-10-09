@@ -16,7 +16,7 @@
     "format:check": "prettier . --check",
     "allure_generate": "allure generate allure-results --clean",
     "allure_open": "allure open allure-report",
-    "posttest": "npm run allure_generate && ts-node packages/notifier/bot.ts"
+    "posttest": "ts-node packages/notifier/bot.ts"
   },
   "dependencies": {
     "@faker-js/faker": "^10.0.0",
