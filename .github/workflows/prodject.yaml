@@ -111,7 +111,7 @@ jobs:
   generate-report:
     name: Generate Allure Report
     runs-on: ubuntu-latest
-    if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.test_type == 'smoke' || github.event.inputs.test_type == 'report' }} # запускается после smoke или при ручном запуске отчета
+    if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.test_type == 'smoke' || github.event.inputs.test_type == 'regression' || github.event.inputs.test_type == 'parallel' || github.event.inputs.test_type == 'report' }} # запускается после любых тестов или при ручном запуске отчета
     needs: [smoke-tests]
     steps:
       - uses: actions/setup-java@v4
