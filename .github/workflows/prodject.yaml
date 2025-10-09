@@ -150,6 +150,23 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
         continue-on-error: true
 
+      - name: Create empty directories for missing artifacts
+        run: |
+          mkdir -p smoke-results regression-results parallel-results
+          # Создаем пустые директории если артефакты не скачались
+          if [ ! -d "smoke-results" ] || [ -z "$(ls -A smoke-results 2>/dev/null)" ]; then
+            echo "No smoke results found, creating empty directory"
+            mkdir -p smoke-results
+          fi
+          if [ ! -d "regression-results" ] || [ -z "$(ls -A regression-results 2>/dev/null)" ]; then
+            echo "No regression results found, creating empty directory"
+            mkdir -p regression-results
+          fi
+          if [ ! -d "parallel-results" ] || [ -z "$(ls -A parallel-results 2>/dev/null)" ]; then
+            echo "No parallel results found, creating empty directory"
+            mkdir -p parallel-results
+          fi
+
       - name: Debug - List downloaded artifacts
         run: |
           echo "=== Downloaded artifacts structure ==="
@@ -164,7 +181,15 @@ jobs:
       - name: Merge test results
         run: |
           mkdir -p allure-results
-          find smoke-results regression-results parallel-results -name "*.json" -exec cp {} allure-results/ \; 2>/dev/null || true
+          # Копируем все JSON файлы из всех директорий
+          for dir in smoke-results regression-results parallel-results; do
+            if [ -d "$dir" ] && [ "$(ls -A "$dir" 2>/dev/null)" ]; then
+              echo "Copying results from $dir"
+              find "$dir" -name "*.json" -type f -exec cp {} allure-results/ \;
+            else
+              echo "Directory $dir is empty or doesn't exist, skipping"
+            fi
+          done
           echo "=== Merged results ==="
           ls -la allure-results/
           echo "=== Total JSON files found ==="
