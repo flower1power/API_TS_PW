@@ -155,6 +155,8 @@ jobs:
           # Создаем пустые директории если артефакты не скачались
           mkdir -p smoke-results regression-results parallel-results
           echo "✅ All artifact directories created successfully"
+          echo "ℹ️  Note: 'Artifact not found' errors above are expected when some test types haven't been run yet"
+          echo "ℹ️  This is normal behavior - the workflow will continue with available results"
 
       - name: Debug - List downloaded artifacts
         run: |
@@ -205,12 +207,23 @@ jobs:
       - name: Validate test results
         run: |
           if ! find allure-results -type f -name "*-result.json" | grep -q .; then
-            echo "❌ No Allure results found. Skipping report generation."
-            exit 1
+            echo "❌ No Allure results found. Creating empty report."
+            mkdir -p _site
+            echo "<html><body><h1>No test results available</h1><p>No test results were found to generate a report.</p></body></html>" > _site/index.html
+            exit 0
           fi
 
       - name: Generate Allure report
         run: allure generate -c allure-results -o _site
+        continue-on-error: true
+
+      - name: Create fallback report if Allure failed
+        run: |
+          if [ ! -f "_site/index.html" ]; then
+            echo "Allure report generation failed, creating fallback report"
+            mkdir -p _site
+            echo "<html><body><h1>Test Report</h1><p>Report generation failed. Please check the logs for details.</p></body></html>" > _site/index.html
+          fi
 
       - name: Upload report artifact
         uses: actions/upload-artifact@v4
@@ -224,6 +237,7 @@ jobs:
     name: Publish Docker Test Report
     runs-on: ubuntu-latest
     needs: generate-report
+    if: always() && needs.generate-report.result != 'cancelled'
     steps:
       - name: Download site report
         uses: actions/download-artifact@v4
