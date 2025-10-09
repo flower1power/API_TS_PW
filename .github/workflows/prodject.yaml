@@ -8,13 +8,13 @@ on:
       test_type:
         description: 'Type of tests to run'
         required: true
-        default: 'smoke'   # smoke по умолчанию
+        default: 'smoke' # smoke по умолчанию
         type: choice
         options:
           - smoke
           - regression
           - parallel
-          - report   # специальный вариант для ручного запуска отчёта
+          - report # специальный вариант для ручного запуска отчёта
 
 permissions:
   contents: read
@@ -111,7 +111,7 @@ jobs:
   generate-report:
     name: Generate Allure Report
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.test_type != '' }}  # можно запускать вручную или после smoke
+    if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.test_type == 'smoke' || github.event.inputs.test_type == 'report' }} # запускается после smoke или при ручном запуске отчета
     needs: [smoke-tests]
     steps:
       - uses: actions/setup-java@v4
