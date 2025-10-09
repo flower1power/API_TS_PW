@@ -150,33 +150,40 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
         continue-on-error: true
 
-      - name: Create empty directories for missing artifacts
+      - name: Suppress artifact download errors
         run: |
-          mkdir -p smoke-results regression-results parallel-results
           # Создаем пустые директории если артефакты не скачались
-          if [ ! -d "smoke-results" ] || [ -z "$(ls -A smoke-results 2>/dev/null)" ]; then
-            echo "No smoke results found, creating empty directory"
-            mkdir -p smoke-results
-          fi
-          if [ ! -d "regression-results" ] || [ -z "$(ls -A regression-results 2>/dev/null)" ]; then
-            echo "No regression results found, creating empty directory"
-            mkdir -p regression-results
-          fi
-          if [ ! -d "parallel-results" ] || [ -z "$(ls -A parallel-results 2>/dev/null)" ]; then
-            echo "No parallel results found, creating empty directory"
-            mkdir -p parallel-results
-          fi
+          mkdir -p smoke-results regression-results parallel-results
+          echo "✅ All artifact directories created successfully"
 
       - name: Debug - List downloaded artifacts
         run: |
           echo "=== Downloaded artifacts structure ==="
           find . -name "*.json" -type f | head -20
+          echo ""
           echo "=== Smoke results ==="
-          ls -la smoke-results/ 2>/dev/null || echo "No smoke results"
+          if [ -d "smoke-results" ] && [ "$(ls -A smoke-results 2>/dev/null)" ]; then
+            ls -la smoke-results/
+            echo "✅ Smoke results found: $(find smoke-results -name "*.json" | wc -l) files"
+          else
+            echo "❌ No smoke results found"
+          fi
+          echo ""
           echo "=== Regression results ==="
-          ls -la regression-results/ 2>/dev/null || echo "No regression results"
+          if [ -d "regression-results" ] && [ "$(ls -A regression-results 2>/dev/null)" ]; then
+            ls -la regression-results/
+            echo "✅ Regression results found: $(find regression-results -name "*.json" | wc -l) files"
+          else
+            echo "❌ No regression results found"
+          fi
+          echo ""
           echo "=== Parallel results ==="
-          ls -la parallel-results/ 2>/dev/null || echo "No parallel results"
+          if [ -d "parallel-results" ] && [ "$(ls -A parallel-results 2>/dev/null)" ]; then
+            ls -la parallel-results/
+            echo "✅ Parallel results found: $(find parallel-results -name "*.json" | wc -l) files"
+          else
+            echo "❌ No parallel results found"
+          fi
 
       - name: Merge test results
         run: |
