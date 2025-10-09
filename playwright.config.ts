@@ -40,12 +40,10 @@ export default defineConfig({
     {
       name: 'smoke',
       testDir: './tests/smoke',
-      use: { ...devices['Desktop Chrome'] },
     },
     {
       name: 'regression',
       testDir: './tests/regression',
-      use: { ...devices['Desktop Chrome'] },
     },
   ],
 
