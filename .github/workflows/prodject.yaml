@@ -111,8 +111,8 @@ jobs:
   generate-report:
     name: Generate Allure Report
     runs-on: ubuntu-latest
-    if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.test_type == 'smoke' || github.event.inputs.test_type == 'regression' || github.event.inputs.test_type == 'parallel' || github.event.inputs.test_type == 'report' }} # запускается после любых тестов или при ручном запуске отчета
-    needs: [smoke-tests]
+    if: always() && (github.event_name != 'workflow_dispatch' || github.event.inputs.test_type == 'smoke' || github.event.inputs.test_type == 'regression' || github.event.inputs.test_type == 'parallel' || github.event.inputs.test_type == 'report') # запускается после любых тестов или при ручном запуске отчета
+    needs: [smoke-tests, regression-tests, parallel-tests]
     steps:
       - uses: actions/setup-java@v4
         with:
@@ -131,6 +131,7 @@ jobs:
         with:
           name: smoke-allure-results
           path: smoke-results
+          github-token: ${{ secrets.GITHUB_TOKEN }}
         continue-on-error: true
 
       - name: Download regression test results
@@ -138,6 +139,7 @@ jobs:
         with:
           name: regression-allure-results
           path: regression-results
+          github-token: ${{ secrets.GITHUB_TOKEN }}
         continue-on-error: true
 
       - name: Download parallel test results
@@ -145,12 +147,28 @@ jobs:
         with:
           name: parallel-allure-results
           path: parallel-results
+          github-token: ${{ secrets.GITHUB_TOKEN }}
         continue-on-error: true
+
+      - name: Debug - List downloaded artifacts
+        run: |
+          echo "=== Downloaded artifacts structure ==="
+          find . -name "*.json" -type f | head -20
+          echo "=== Smoke results ==="
+          ls -la smoke-results/ 2>/dev/null || echo "No smoke results"
+          echo "=== Regression results ==="
+          ls -la regression-results/ 2>/dev/null || echo "No regression results"
+          echo "=== Parallel results ==="
+          ls -la parallel-results/ 2>/dev/null || echo "No parallel results"
 
       - name: Merge test results
         run: |
           mkdir -p allure-results
           find smoke-results regression-results parallel-results -name "*.json" -exec cp {} allure-results/ \; 2>/dev/null || true
+          echo "=== Merged results ==="
+          ls -la allure-results/
+          echo "=== Total JSON files found ==="
+          find allure-results -name "*.json" | wc -l
 
       - name: Validate test results
         run: |
