@@ -32,12 +32,15 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    - name: Ensure Docker Compose v2 (plugin) is available
+      uses: docker/setup-compose-action@v1
+
     - name: Build Docker image
-      run: docker-compose build smoke-tests
+      run: docker compose build smoke-tests
 
     - name: Run Smoke tests
       run: |
-        PROJECT=smoke WORKERS=4 docker-compose up smoke-tests
+        PROJECT=smoke WORKERS=4 docker compose up smoke-tests
       continue-on-error: true
 
     - name: Archive smoke test results
@@ -59,12 +62,15 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    - name: Ensure Docker Compose v2 (plugin) is available
+      uses: docker/setup-compose-action@v1
+
     - name: Build Docker image
-      run: docker-compose build regression-tests
+      run: docker compose build regression-tests
 
     - name: Run Regression tests
       run: |
-        PROJECT=regression WORKERS=4 docker-compose up regression-tests
+        PROJECT=regression WORKERS=4 docker compose up regression-tests
       continue-on-error: true
 
     - name: Archive regression test results
@@ -86,11 +92,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    - name: Ensure Docker Compose v2 (plugin) is available
+      uses: docker/setup-compose-action@v1
+
     - name: Build Docker images
-      run: docker-compose build
+      run: docker compose build
 
     - name: Run all tests in parallel
-      run: docker-compose up
+      run: docker compose up
       continue-on-error: true
 
     - name: Archive test results
@@ -198,4 +207,5 @@ jobs:
       uses: actions/deploy-pages@v4
 
     - name: Show report URL
-      run: echo "🐳 Docker Test Report https://flower1power.github.io/API_TS_PW/"
+      run: |
+        echo '🐳 Docker Test Report: https://flower1power.github.io/API_TS_PW/'
