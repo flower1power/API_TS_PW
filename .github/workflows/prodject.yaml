@@ -1,6 +1,6 @@
 name: Docker Tests
 
-on: 
+on:
   push:
   pull_request:
   workflow_dispatch:
@@ -103,7 +103,7 @@ jobs:
 
   generate-report:
     runs-on: ubuntu-latest
-    needs: [smoke-tests, regression-tests, parallel-tests]
+    needs: [ smoke-tests, regression-tests, parallel-tests ]
     name: Generate Allure Report
     env:
       TELEGRAM_BOT_CHAT_ID: ${{ secrets.TELEGRAM_BOT_CHAT_ID }}
@@ -198,4 +198,4 @@ jobs:
       uses: actions/deploy-pages@v4
 
     - name: Show report URL
-      run: echo "🐳 Docker Test Report: https://flower1power.github.io/API_TS_PW/"
+      run: echo "🐳 Docker Test Report https://flower1power.github.io/API_TS_PW/"
