@@ -22,7 +22,7 @@ jobs:
       run: npm run lint
 
     - name: Run Playwright tests
-      run: npm test
+      run: npm run test
       continue-on-error: true
 
     - name: Archive allure results
@@ -101,6 +101,5 @@ jobs:
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
-
     # - name: Show report URL
     #   run: echo "https://flower1power.github.io/API_Lessons/"
