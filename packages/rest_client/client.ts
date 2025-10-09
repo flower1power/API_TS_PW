@@ -263,8 +263,6 @@ export class RestClient {
     console.log(textLog);
 
     await this._safeAttachment('Response', textLog, ContentType.JSON);
-
-    //
   }
 
   /**
