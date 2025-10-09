@@ -131,21 +131,21 @@ jobs:
         with:
           name: smoke-allure-results
           path: smoke-results
-          if-no-files-found: ignore
+        continue-on-error: true
 
       - name: Download regression test results
         uses: actions/download-artifact@v4
         with:
           name: regression-allure-results
           path: regression-results
-          if-no-files-found: ignore
+        continue-on-error: true
 
       - name: Download parallel test results
         uses: actions/download-artifact@v4
         with:
           name: parallel-allure-results
           path: parallel-results
-          if-no-files-found: ignore
+        continue-on-error: true
 
       - name: Merge test results
         run: |
