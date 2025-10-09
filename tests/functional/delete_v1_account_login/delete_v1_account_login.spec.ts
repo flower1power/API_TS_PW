@@ -12,5 +12,6 @@ test.describe('Тесты на проверку метода DELETE v1/account/l
     );
     await accountHelper.authUser(prepareUser.login, prepareUser.password);
     await accountHelper.logoutUser();
+    //
   });
 });
