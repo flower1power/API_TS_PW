@@ -1,4 +1,3 @@
-// eslint.config.js
 import js from '@eslint/js';
 import tslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
@@ -6,7 +5,16 @@ import prettier from 'eslint-plugin-prettier';
 import globals from 'globals';
 
 export default [
-  { ignores: ['dist', 'node_modules', 'tsconfig.json'] },
+  {
+    ignores: [
+      'dist',
+      'node_modules',
+      'tsconfig.json',
+      'allure-report',
+      'allure-results',
+      'test-results',
+    ],
+  },
 
   js.configs.recommended,
 
