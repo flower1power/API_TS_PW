@@ -5,8 +5,13 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./:/usr/workspace
-    command: ['sh', '-c', 'npx playwright test --project=$$PROJECT --workers=$$WORKERS']
+      - ./allure-results:/usr/workspace/allure-results
+    command:
+      [
+        "sh",
+        "-c",
+        "npx playwright test --project=$$PROJECT --workers=$$WORKERS",
+      ]
     environment:
       PROJECT: ${PROJECT:-smoke}
       WORKERS: ${WORKERS:-4}
@@ -16,7 +21,12 @@ services:
     build: .
     volumes:
       - ./allure-results:/usr/workspace/allure-results
-    command: ['sh', '-c', 'npx playwright test --project=$$PROJECT --workers=$$WORKERS']
+    command:
+      [
+        "sh",
+        "-c",
+        "npx playwright test --project=$$PROJECT --workers=$$WORKERS",
+      ]
     environment:
       PROJECT: ${PROJECT:-regression}
       WORKERS: ${WORKERS:-4}
