@@ -8,6 +8,10 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
+    "test:smoke": "npx playwright test --project=smoke",
+    "test:regression": "npx playwright test --project=regression",
+    "docker:all": "docker-compose up",
+    "docker:build": "docker-compose build",
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint .",

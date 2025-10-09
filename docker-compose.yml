@@ -1,0 +1,23 @@
+services:
+  smoke-tests:
+    image: test_pw:v1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/workspace
+    command: ['sh', '-c', 'npx playwright test --project=$$PROJECT --workers=$$WORKERS']
+    environment:
+      PROJECT: ${PROJECT:-smoke}
+      WORKERS: ${WORKERS:-4}
+    tty: true
+
+  regression-tests:
+    build: .
+    volumes:
+      - ./allure-results:/usr/workspace/allure-results
+    command: ['sh', '-c', 'npx playwright test --project=$$PROJECT --workers=$$WORKERS']
+    environment:
+      PROJECT: ${PROJECT:-regression}
+      WORKERS: ${WORKERS:-4}
+    tty: true

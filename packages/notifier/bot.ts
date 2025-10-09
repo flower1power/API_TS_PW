@@ -78,6 +78,7 @@ export async function sendTelegramReport(): Promise<void> {
     '',
     '',
     '------- Additional fields -------',
+    'report: https://flower1power.github.io/API_TS_PW/',
   ];
 
   if (process.env.REPORT_ENV) lines.push(`▪ enviroment: ${process.env.REPORT_ENV}`);
