@@ -45,6 +45,10 @@ export default defineConfig({
       name: 'regression',
       testDir: './tests/regression',
     },
+    {
+      name: 'all',
+      testDir: './tests',
+    },
   ],
 
   /* Run your local dev server before starting the tests */

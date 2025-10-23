@@ -1,12 +1,20 @@
-FROM node:24-bookworm-slim
-
-WORKDIR /usr/workspace
+FROM node:20-bookworm-slim
 
 ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
 
-COPY ["package.json", "package-lock.json", "/usr/workspace/"]
-RUN npm ci && rm -rf /root/.npm /tmp/*
+WORKDIR /usr/workspace
 
-COPY . /usr/workspace
+COPY package.json package-lock.json ./
 
-# RUN node -e "console.log('playwright in dependencies?', !!require('./package.json').dependencies.playwright || !!require('./package.json').devDependencies.playwright)"
+RUN apt-get update && \
+    apt-get install -y openjdk-11-jre curl tar && \
+    curl -o allure-2.13.8.tgz -Ls https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.13.8/allure-commandline-2.13.8.tgz && \
+    tar -zxvf allure-2.13.8.tgz -C /opt/ && \
+    ln -s /opt/allure-2.13.8/bin/allure /usr/bin/allure && \
+    rm allure-2.13.8.tgz && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN npm ci
+
+COPY . .

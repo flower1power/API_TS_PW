@@ -1,370 +1,83 @@
-name: Docker Compose Tests
+name: API Tests
+run-name: Test ${{ github.event.inputs.ENV }} | ${{ github.event.inputs.PROJECT }} marker | ${{ github.event.inputs.WORKERS }} threads
 
 on:
-  push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main, develop]
   workflow_dispatch:
     inputs:
-      test_type:
-        description: 'Тип тестов для запуска'
+      ENV:
+        description: 'Выбор env'
         required: true
+        type: environment
+
+      PROJECT:
+        description: 'Выбор проект для запуска'
+        required: false
         default: 'smoke'
-        type: choice
+        type: 'choice'
         options:
           - smoke
           - regression
           - all
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+      WORKERS:
+        description: 'Выбор количество потоков'
+        required: false
+        default: '1'
+        type: 'choice'
+        options:
+          - '1'
+          - '3'
+          - '5'
 
 jobs:
-  smoke-tests:
-    name: Smoke Tests
+  api-tests:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.test_type == 'smoke' }}
-    env:
-      TELEGRAM_BOT_CHAT_ID: ${{ secrets.TELEGRAM_BOT_CHAT_ID }}
-      TELEGRAM_BOT_ACCESS_TOKEN: ${{ secrets.TELEGRAM_BOT_ACCESS_TOKEN }}
+    environment: ${{inputs.ENV}}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Docker Compose
-        uses: docker/setup-compose-action@v1
-
-      - name: Build Docker image
-        run: docker compose build smoke-tests
-
-      - name: Run Smoke tests
-        run: |
-          PROJECT=smoke WORKERS=4 docker compose up --abort-on-container-exit smoke-tests
-        continue-on-error: true
-
-      - name: Copy test results from container
-        run: |
-          echo "📦 Checking allure-results directory..."
-          if [ -d "allure-results" ]; then
-            ls -la allure-results/
-            echo "✅ Found $(find allure-results -type f | wc -l) files"
-          else
-            echo "❌ allure-results directory not found"
-            mkdir -p allure-results
-          fi
-
-      - name: Archive smoke test results
-        uses: actions/upload-artifact@v4
-        with:
-          name: smoke-allure-results
-          path: allure-results/
-          retention-days: 7
-          if-no-files-found: warn
-
-      - name: Cleanup Docker
-        if: always()
-        run: docker compose down -v
-
-  regression-tests:
-    name: Regression Tests
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.test_type == 'regression' }}
-    env:
-      TELEGRAM_BOT_CHAT_ID: ${{ secrets.TELEGRAM_BOT_CHAT_ID }}
-      TELEGRAM_BOT_ACCESS_TOKEN: ${{ secrets.TELEGRAM_BOT_ACCESS_TOKEN }}
-    steps:
-      - name: Checkout code
+      - name: Checkout code page
         uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: ./.github/gh-pages
 
-      - name: Setup Docker Compose
-        uses: docker/setup-compose-action@v1
-
-      - name: Build Docker image
-        run: docker compose build regression-tests
-
-      - name: Run Regression tests
+      - name: Prepare Allure environment
         run: |
-          PROJECT=regression WORKERS=4 docker compose up --abort-on-container-exit regression-tests
-        continue-on-error: true
+          mkdir -p allure-results
+          echo "Branch=${{ github.ref_name }}" > allure-results/environment.properties
+          echo "Commit=${{ github.sha }}" >> allure-results/environment.properties
+          echo "Environment=${{ secrets.ENV }}" >> allure-results/environment.properties
 
-      - name: Copy test results from container
+      - name: Run API tests via docker
+        env:
+          # STAGE: ${{secrets.STAGE}}
+          TELEGRAM_BOT_CHAT_ID: ${{secrets.TELEGRAM_BOT_CHAT_ID}}
+          TELEGRAM_BOT_ACCESS_TOKEN: ${{secrets.TELEGRAM_BOT_ACCESS_TOKEN}}
+        run: docker-compose up tests
+
+      - name: Copy Allure history
         run: |
-          echo "📦 Checking allure-results directory..."
-          if [ -d "allure-results" ]; then
-            ls -la allure-results/
-            echo "✅ Found $(find allure-results -type f | wc -l) files"
-          else
-            echo "❌ allure-results directory not found"
-            mkdir -p allure-results
+          mkdir -p allure-results/history
+          if [ -d "./.github/gh-pages/history" ]; then
+            cp -R ./.github/gh-pages/history/* allure-results/history/
           fi
 
-      - name: Archive regression test results
-        uses: actions/upload-artifact@v4
+      - name: Generate Allure-report
+        env:
+          STAGE: ${{ secrets.STAGE }}
+          CI_COMMIT_REF_NAME: ${{ github.ref_name }}
+          CI_COMMIT_SHORT_SHA: ${{ github.sha }}
+        run: docker compose up report
+
+      - name: Deploy to Github Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
-          name: regression-allure-results
-          path: allure-results/
-          retention-days: 7
-          if-no-files-found: warn
+          token: ${{ secrets.CI_TOKEN }}
+          branch: gh-pages
+          folder: allure-report
+          clean: false
 
-      - name: Cleanup Docker
-        if: always()
-        run: docker compose down -v
-
-  all-tests:
-    name: All Tests (Smoke + Regression)
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.test_type == 'all' }}
-    env:
-      TELEGRAM_BOT_CHAT_ID: ${{ secrets.TELEGRAM_BOT_CHAT_ID }}
-      TELEGRAM_BOT_ACCESS_TOKEN: ${{ secrets.TELEGRAM_BOT_ACCESS_TOKEN }}
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Docker Compose
-        uses: docker/setup-compose-action@v1
-
-      - name: Build Docker images
-        run: docker compose build
-
-      - name: Clean previous results
-        run: rm -rf allure-results && mkdir -p allure-results
-
-      - name: Run Smoke tests
-        run: |
-          PROJECT=smoke WORKERS=4 docker compose up --abort-on-container-exit smoke-tests
-        continue-on-error: true
-
-      - name: Run Regression tests
-        run: |
-          PROJECT=regression WORKERS=4 docker compose up --abort-on-container-exit regression-tests
-        continue-on-error: true
-
-      - name: Copy test results from container
-        run: |
-          echo "📦 Checking allure-results directory..."
-          if [ -d "allure-results" ]; then
-            ls -la allure-results/
-            echo "✅ Found $(find allure-results -type f | wc -l) files"
-          else
-            echo "❌ allure-results directory not found"
-            mkdir -p allure-results
-          fi
-
-      - name: Archive all test results
-        uses: actions/upload-artifact@v4
-        with:
-          name: all-allure-results
-          path: allure-results/
-          retention-days: 7
-          if-no-files-found: warn
-
-      - name: Cleanup Docker
-        if: always()
-        run: docker compose down -v
-
-  generate-report:
-    name: Generate Allure Report
-    runs-on: ubuntu-latest
-    if: always()
-    needs: [smoke-tests, regression-tests, all-tests]
-    steps:
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'microsoft'
-          java-version: '17'
-
-      - name: Install Allure CLI
-        run: |
-          wget -q https://github.com/allure-framework/allure2/releases/download/2.35.1/allure-2.35.1.tgz
-          sudo tar -xzf allure-2.35.1.tgz -C /opt/
-          sudo ln -sf /opt/allure-2.35.1/bin/allure /usr/bin/allure
-          allure --version
-
-      - name: Create directories
-        run: |
-          mkdir -p smoke-results regression-results all-results allure-results
-
-      - name: Download smoke test results
-        uses: actions/download-artifact@v4
-        with:
-          name: smoke-allure-results
-          path: smoke-results
-        continue-on-error: true
-
-      - name: Download regression test results
-        uses: actions/download-artifact@v4
-        with:
-          name: regression-allure-results
-          path: regression-results
-        continue-on-error: true
-
-      - name: Download all test results
-        uses: actions/download-artifact@v4
-        with:
-          name: all-allure-results
-          path: all-results
-        continue-on-error: true
-
-      - name: Debug - Show downloaded artifacts
-        run: |
-          echo "=== Smoke results ==="
-          if [ -d "smoke-results" ] && [ "$(ls -A smoke-results 2>/dev/null)" ]; then
-            ls -la smoke-results/ | head -20
-            echo "✅ Files: $(find smoke-results -type f | wc -l)"
-          else
-            echo "❌ Empty or missing"
-          fi
-
-          echo ""
-          echo "=== Regression results ==="
-          if [ -d "regression-results" ] && [ "$(ls -A regression-results 2>/dev/null)" ]; then
-            ls -la regression-results/ | head -20
-            echo "✅ Files: $(find regression-results -type f | wc -l)"
-          else
-            echo "❌ Empty or missing"
-          fi
-
-          echo ""
-          echo "=== All results ==="
-          if [ -d "all-results" ] && [ "$(ls -A all-results 2>/dev/null)" ]; then
-            ls -la all-results/ | head -20
-            echo "✅ Files: $(find all-results -type f | wc -l)"
-          else
-            echo "❌ Empty or missing"
-          fi
-
-      - name: Merge test results
-        run: |
-          echo "🔄 Merging test results..."
-          for dir in smoke-results regression-results all-results; do
-            if [ -d "$dir" ] && [ "$(ls -A "$dir" 2>/dev/null)" ]; then
-              echo "Copying from $dir..."
-              cp -r "$dir"/* allure-results/ 2>/dev/null || true
-            fi
-          done
-
-          echo ""
-          echo "=== Merged results ==="
-          ls -la allure-results/ | head -30
-          echo ""
-          echo "📊 Total files: $(find allure-results -type f | wc -l)"
-          echo "📋 JSON files: $(find allure-results -name "*.json" -type f | wc -l)"
-
-      - name: Validate test results
-        id: validate
-        run: |
-          json_count=$(find allure-results -name "*-result.json" -type f | wc -l)
-          echo "json_files=$json_count" >> $GITHUB_OUTPUT
-
-          if [ "$json_count" -eq 0 ]; then
-            echo "⚠️ No test result files found"
-            echo "has_results=false" >> $GITHUB_OUTPUT
-          else
-            echo "✅ Found $json_count test result files"
-            echo "has_results=true" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Generate Allure report
-        if: steps.validate.outputs.has_results == 'true'
-        run: |
-          echo "🎨 Generating Allure report..."
-          allure generate --clean allure-results -o _site
-          echo "✅ Report generated successfully"
-
-      - name: Create empty report if no results
-        if: steps.validate.outputs.has_results == 'false'
-        run: |
-          mkdir -p _site
-          cat > _site/index.html << 'EOF'
-          <!DOCTYPE html>
-          <html lang="ru">
-          <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Нет результатов тестов</title>
-            <style>
-              body {
-                font-family: Arial, sans-serif;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin: 0;
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-              }
-              .container {
-                text-align: center;
-                background: white;
-                padding: 3rem;
-                border-radius: 10px;
-                box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-              }
-              h1 { color: #333; margin-bottom: 1rem; }
-              p { color: #666; font-size: 1.1rem; }
-              .icon { font-size: 4rem; margin-bottom: 1rem; }
-            </style>
-          </head>
-          <body>
-            <div class="container">
-              <div class="icon">📊</div>
-              <h1>Результаты тестов отсутствуют</h1>
-              <p>Тесты не были запущены или не сгенерировали результаты.</p>
-              <p>Проверьте логи workflow для получения подробной информации.</p>
-            </div>
-          </body>
-          </html>
-          EOF
-          echo "📄 Created fallback report"
-
-      - name: Upload report artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-report
-          path: _site/
-          retention-days: 14
-          if-no-files-found: error
-
-  publish-report:
-    name: Publish to GitHub Pages
-    runs-on: ubuntu-latest
-    needs: generate-report
-    if: always() && needs.generate-report.result != 'cancelled'
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Download Allure report
-        uses: actions/download-artifact@v4
-        with:
-          name: allure-report
-          path: _site
-
-      - name: Verify report
-        run: |
-          if [ ! -f "_site/index.html" ]; then
-            echo "❌ index.html not found!"
-            exit 1
-          fi
-          echo "✅ Report verified"
-          ls -lah _site/
-
-      - name: Upload to GitHub Pages
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-
-      - name: Report URL
-        run: |
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "🎉 Отчёт опубликован!"
-          echo "🔗 URL: https://flower1power.github.io/API_TS_PW/"
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+      - name: Push TG
+        run: ts-node packages/notifier/bot.ts

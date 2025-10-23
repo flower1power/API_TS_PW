@@ -1,30 +1,25 @@
 services:
-  smoke-tests:
+  tests:
     image: test_pw:v1
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./allure-results:/usr/workspace/allure-results
-    command: ['sh', '-c', 'npx playwright test --project=$$PROJECT --workers=$$WORKERS']
+      - ./:/usr/workspace
     environment:
-      PROJECT: ${PROJECT:-smoke}
+      PROJECT: ${PROJECT:-all}
       WORKERS: ${WORKERS:-4}
       TELEGRAM_BOT_CHAT_ID: ${TELEGRAM_BOT_CHAT_ID}
       TELEGRAM_BOT_ACCESS_TOKEN: ${TELEGRAM_BOT_ACCESS_TOKEN}
+    command: ['sh', '-c', 'npx playwright test --project=$$PROJECT --workers=$$WORKERS']
     tty: true
 
-  regression-tests:
+  report:
     image: test_pw:v1
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./allure-results:/usr/workspace/allure-results
-    command: ['sh', '-c', 'npx playwright test --project=$$PROJECT --workers=$$WORKERS']
-    environment:
-      PROJECT: ${PROJECT:-regression}
-      WORKERS: ${WORKERS:-4}
-      TELEGRAM_BOT_CHAT_ID: ${TELEGRAM_BOT_CHAT_ID}
-      TELEGRAM_BOT_ACCESS_TOKEN: ${TELEGRAM_BOT_ACCESS_TOKEN}
-    tty: true
+      - ./:/usr/workspace
+    command: sh -c "ls -la && allure generate allure-results --clean o allure-report"
+    working_dir: /usr/workspace
