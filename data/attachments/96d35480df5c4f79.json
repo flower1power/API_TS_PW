@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "b65d0769-a241-40b3-93bf-294265f96b18",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:46:53 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Theodore.Brakus2223_10_2025__16_46_53"
+    },
+    "json": {}
+}

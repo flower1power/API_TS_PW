@@ -1,0 +1,111 @@
+{
+    "event": "Request",
+    "eventId": "b65d0769-a241-40b3-93bf-294265f96b18",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Theodore.Brakus2223_10_2025__16_46_53",
+        "email": "Theodore.Brakus2223_10_2025__16_46_53_Pacocha51@yahoo.com",
+        "password": "yumoletuhu"
+    },
+    "data": {
+        "login": "Theodore.Brakus2223_10_2025__16_46_53",
+        "email": "Theodore.Brakus2223_10_2025__16_46_53_Pacocha51@yahoo.com",
+        "password": "yumoletuhu"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"Theodore.Brakus2223_10_2025__16_46_53","email":"Theodore.Brakus2223_10_2025__16_46_53_Pacocha51@yahoo.com","password":"yumoletuhu"}'
+{
+    "event": "Response",
+    "eventId": "b65d0769-a241-40b3-93bf-294265f96b18",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:46:53 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Theodore.Brakus2223_10_2025__16_46_53"
+    },
+    "json": {}
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "bac14d60-2594-42c5-b480-d150c5096cc6",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/c9eb654e-66df-4461-bd96-dda12187c49d",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/c9eb654e-66df-4461-bd96-dda12187c49d' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "bac14d60-2594-42c5-b480-d150c5096cc6",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:46:53 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Theodore.Brakus2223_10_2025__16_46_53",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "c8f5bb2b-19ee-4609-998a-5aabeb86b4c8",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Theodore.Brakus2223_10_2025__16_46_53",
+        "password": "yumoletuhu",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Theodore.Brakus2223_10_2025__16_46_53",
+        "password": "yumoletuhu",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Theodore.Brakus2223_10_2025__16_46_53","password":"yumoletuhu","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "c8f5bb2b-19ee-4609-998a-5aabeb86b4c8",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:46:54 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5APQ7UHPIkLcU39E6yRhn4gXLPSG+Ww66sJ0eg6pBXxCUapgz5QYOBR5aStH2PJHPs3boDKUF8kb94rn77HlsIInvO5nAkqHmr0bC8iSbObKqLwKl6wrHBoTE9D/7zrET4="
+    },
+    "json": {
+        "resource": {
+            "login": "Theodore.Brakus2223_10_2025__16_46_53",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:46:53.240826+00:00"
+        }
+    }
+}

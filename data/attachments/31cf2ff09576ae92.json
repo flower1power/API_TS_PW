@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "c8f5bb2b-19ee-4609-998a-5aabeb86b4c8",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Theodore.Brakus2223_10_2025__16_46_53",
+        "password": "yumoletuhu",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Theodore.Brakus2223_10_2025__16_46_53",
+        "password": "yumoletuhu",
+        "rememberMe": true
+    }
+}

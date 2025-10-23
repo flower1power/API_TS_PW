@@ -1,0 +1,1 @@
+curl -X GET 'http://5.63.153.31:5051/v1/account' -H 'x-dm-auth-token: IQJh+zgzF5AAl1YZPBAu/b5aCw2Uk5wx2a1gDdhiCLwNAHZIZkCDXHc8ea0Zn3SkSsWd3eNwPLQUZJYV/MWndHZmyjlm2lOaiCdn/O2gimX9FhIjyIwfVPfufpxIfXP52bGnkYq16gI='

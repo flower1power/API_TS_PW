@@ -1,0 +1,25 @@
+{
+    "event": "Response",
+    "eventId": "4e459c97-697c-4393-b35f-1a672c0a41f1",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:46:53 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Serena.Dickens23_10_2025__16_46_52",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}

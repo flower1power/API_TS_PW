@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "299bea69-4045-4145-9aae-760a36c69466",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Serena.Dickens23_10_2025__16_46_52",
+        "password": "kuleyanexi",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Serena.Dickens23_10_2025__16_46_52",
+        "password": "kuleyanexi",
+        "rememberMe": true
+    }
+}

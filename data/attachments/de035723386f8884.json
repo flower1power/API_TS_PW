@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "404c258e-49b1-4527-9140-502dd47cda4f",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "G",
+        "email": "Tatum19@hotmail.com",
+        "password": "HcxCBQm0QM"
+    },
+    "data": {
+        "login": "G",
+        "email": "Tatum19@hotmail.com",
+        "password": "HcxCBQm0QM"
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "event": "Response",
+    "eventId": "bac14d60-2594-42c5-b480-d150c5096cc6",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:46:53 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Theodore.Brakus2223_10_2025__16_46_53",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}

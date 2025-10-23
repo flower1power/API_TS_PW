@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "b65d0769-a241-40b3-93bf-294265f96b18",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Theodore.Brakus2223_10_2025__16_46_53",
+        "email": "Theodore.Brakus2223_10_2025__16_46_53_Pacocha51@yahoo.com",
+        "password": "yumoletuhu"
+    },
+    "data": {
+        "login": "Theodore.Brakus2223_10_2025__16_46_53",
+        "email": "Theodore.Brakus2223_10_2025__16_46_53_Pacocha51@yahoo.com",
+        "password": "yumoletuhu"
+    }
+}

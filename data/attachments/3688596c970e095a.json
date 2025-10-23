@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "9487ffc6-8194-45aa-b2d3-e04bc8f970bb",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "DorisSmitham_23.10.2025,_16_46_52",
+        "email": "Hoyt_McKenzie@yahoo.com",
+        "password": "p3hiC"
+    },
+    "data": {
+        "login": "DorisSmitham_23.10.2025,_16_46_52",
+        "email": "Hoyt_McKenzie@yahoo.com",
+        "password": "p3hiC"
+    }
+}

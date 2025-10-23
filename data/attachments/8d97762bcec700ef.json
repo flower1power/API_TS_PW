@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "7e730be5-c2c9-4479-b10e-02882821f81d",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "GermanBruen_23.10.2025,_16_46_52",
+        "email": "Donato30yahoo.com",
+        "password": "_dbr_oRNJX"
+    },
+    "data": {
+        "login": "GermanBruen_23.10.2025,_16_46_52",
+        "email": "Donato30yahoo.com",
+        "password": "_dbr_oRNJX"
+    }
+}

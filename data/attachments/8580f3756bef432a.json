@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "fc39f66b-4505-4942-9da9-81c5c423b930",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:46:52 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Serena.Dickens23_10_2025__16_46_52"
+    },
+    "json": {}
+}
