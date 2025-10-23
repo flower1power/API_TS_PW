@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./:/usr/workspace
+      - /usr/workspace/node_modules
     environment:
       PROJECT: ${PROJECT:-all}
       WORKERS: ${WORKERS:-4}
@@ -21,5 +22,6 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./:/usr/workspace
-    command: sh -c "ls -la && allure generate allure-results --clean o allure-report"
+      - /usr/workspace/node_modules
+    command: sh -c "ls -la && allure generate allure-results --clean -o allure-report"
     working_dir: /usr/workspace
