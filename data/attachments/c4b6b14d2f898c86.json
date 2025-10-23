@@ -1,0 +1,27 @@
+{
+    "event": "Response",
+    "eventId": "79adc16c-d17c-4918-8728-14fc9eb1f9cc",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 17:07:10 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5ConGU2fpFxd4Khd50PBgW+XMRTeXyhaxUa8kNROwGpn/WspJMKGU1Owu8LmRH8uXZu1izIePVdkd/4zXgsBhBGlhyBnALTCFq0vh22diSji7hHKVEGefQhDYF4GzH2PFk="
+    },
+    "json": {
+        "resource": {
+            "login": "Seth_Rutherford23_10_2025__17_07_08",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T17:07:09.520949+00:00"
+        }
+    }
+}

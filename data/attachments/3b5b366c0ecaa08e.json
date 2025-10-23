@@ -1,0 +1,11 @@
+{
+    "event": "Response",
+    "eventId": "eb484769-8163-40f3-a664-d1e3c93d856b",
+    "status_code": 204,
+    "headers": {
+        "date": "Thu, 23 Oct 2025 17:07:11 GMT",
+        "server": "Kestrel",
+        "x-dm-auth-token": "IQJh+zgzF5ConGU2fpFxd4Khd50PBgW+XMRTeXyhaxUa8kNROwGpn/WspJMKGU1Owu8LmRH8uXZu1izIePVdkd/4zXgsBhBGlhyBnALTCFq0vh22diSji7hHKVEGefQhDYF4GzH2PFk="
+    },
+    "json": {}
+}

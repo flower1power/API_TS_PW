@@ -1,0 +1,28 @@
+{
+    "event": "Response",
+    "eventId": "2c7aeb08-6d75-4f0c-ad7f-2824e6741e5d",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 17:07:12 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5DKsub7GTL4IZX8ZdVgpGqzLX2r65ryq5l4xemj2QlEgwi/vQ4WCl9BZoUS7tXkQBxNMkg7BNkB02hr78QQm6GS/SiqdsxRT62Gm5fABQPllBUnUAK13FY9tVYslGTxkAE="
+    },
+    "json": {
+        "resource": {
+            "login": "Roger_Lemke1223_10_2025__17_07_08",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "online": "2025-10-23T17:07:11.546571+00:00",
+            "registration": "2025-10-23T17:07:09.512429+00:00"
+        }
+    }
+}

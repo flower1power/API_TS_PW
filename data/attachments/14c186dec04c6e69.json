@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "7bac02d6-d64c-473e-b5f4-9d5ce2b2a5d3",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Oliver.Walker9723_10_2025__17_07_08",
+        "email": "Oliver.Walker9723_10_2025__17_07_08.Pagac@yahoo.com",
+        "password": "newuqahuci"
+    },
+    "data": {
+        "login": "Oliver.Walker9723_10_2025__17_07_08",
+        "email": "Oliver.Walker9723_10_2025__17_07_08.Pagac@yahoo.com",
+        "password": "newuqahuci"
+    }
+}

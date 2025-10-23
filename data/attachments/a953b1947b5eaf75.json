@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "387d29f6-b222-4474-ae23-4c3dfbda80aa",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Oliver.Walker9723_10_2025__17_07_08",
+        "password": "newuqahuci",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Oliver.Walker9723_10_2025__17_07_08",
+        "password": "newuqahuci",
+        "rememberMe": true
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "99b2fad1-28a1-4bf2-bb95-86b079ae1f9b",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 17:07:09 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Seth_Rutherford23_10_2025__17_07_08"
+    },
+    "json": {}
+}

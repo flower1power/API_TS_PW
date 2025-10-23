@@ -1,0 +1,19 @@
+{
+    "event": "Request",
+    "eventId": "2c7aeb08-6d75-4f0c-ad7f-2824e6741e5d",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5DKsub7GTL4IZX8ZdVgpGqzLX2r65ryq5l4xemj2QlEgwi/vQ4WCl9BZoUS7tXkQBy46bDIDlZ7kyGYSB9TVtVBB5/35D4bcT+pXWYtpvqVVl5n+xQ+l1ceTK5QnIKyoLw="
+    },
+    "json": {
+        "login": "Roger_Lemke1223_10_2025__17_07_08",
+        "password": "gutifejuwi",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Roger_Lemke1223_10_2025__17_07_08",
+        "password": "gutifejuwi",
+        "rememberMe": true
+    }
+}

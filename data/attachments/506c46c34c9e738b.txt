@@ -1,0 +1,1 @@
+curl -X PUT 'http://5.63.153.31:5051/v1/account/password' -H 'x-dm-auth-token: IQJh+zgzF5DKsub7GTL4IZX8ZdVgpGqzLX2r65ryq5l4xemj2QlEgwi/vQ4WCl9BZoUS7tXkQBy46bDIDlZ7kyGYSB9TVtVBB5/35D4bcT+pXWYtpvqVVl5n+xQ+l1ceTK5QnIKyoLw=' -d '{"login":"Roger_Lemke1223_10_2025__17_07_08","token":"76b33dd4-1a2c-44a0-aca2-fbdf180b5e65","oldPassword":"gisovesupa","newPassword":"gutifejuwi"}'

@@ -1,0 +1,25 @@
+{
+    "event": "Response",
+    "eventId": "b9099c08-c4d6-42bb-8aa0-08d20f2e5c2f",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 17:07:11 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Oliver.Walker9723_10_2025__17_07_08",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}

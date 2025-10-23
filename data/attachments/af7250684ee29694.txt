@@ -1,0 +1,270 @@
+{
+    "event": "Request",
+    "eventId": "7bac02d6-d64c-473e-b5f4-9d5ce2b2a5d3",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Oliver.Walker9723_10_2025__17_07_08",
+        "email": "Oliver.Walker9723_10_2025__17_07_08.Pagac@yahoo.com",
+        "password": "newuqahuci"
+    },
+    "data": {
+        "login": "Oliver.Walker9723_10_2025__17_07_08",
+        "email": "Oliver.Walker9723_10_2025__17_07_08.Pagac@yahoo.com",
+        "password": "newuqahuci"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"Oliver.Walker9723_10_2025__17_07_08","email":"Oliver.Walker9723_10_2025__17_07_08.Pagac@yahoo.com","password":"newuqahuci"}'
+{
+    "event": "Response",
+    "eventId": "7bac02d6-d64c-473e-b5f4-9d5ce2b2a5d3",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 17:07:08 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Oliver.Walker9723_10_2025__17_07_08"
+    },
+    "json": {}
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "3dfa0caa-5841-4cf3-920c-c4768e42544e",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/9bcb0060-f40c-4769-9434-2001b8e0903b",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/9bcb0060-f40c-4769-9434-2001b8e0903b' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "3dfa0caa-5841-4cf3-920c-c4768e42544e",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 17:07:09 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Oliver.Walker9723_10_2025__17_07_08",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "4ccfb690-066a-4ba5-a4f5-981203eece33",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Oliver.Walker9723_10_2025__17_07_08",
+        "password": "newuqahuci",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Oliver.Walker9723_10_2025__17_07_08",
+        "password": "newuqahuci",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Oliver.Walker9723_10_2025__17_07_08","password":"newuqahuci","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "4ccfb690-066a-4ba5-a4f5-981203eece33",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 17:07:10 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5AA4lq8OS9ZCscUKY31C6divJ7FlY9P8w9by5WJTR/FsP8K7emm1N1D/tdfS+1+ljjy10iPzfidgSp7SzVX33LN87D84XGwHelga3lsvE0cjcVD622T+yUsTbXKasWhf3Y="
+    },
+    "json": {
+        "resource": {
+            "login": "Oliver.Walker9723_10_2025__17_07_08",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T17:07:09.329353+00:00"
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "b9099c08-c4d6-42bb-8aa0-08d20f2e5c2f",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/email",
+    "headers": {},
+    "json": {
+        "login": "Oliver.Walker9723_10_2025__17_07_08",
+        "password": "newuqahuci",
+        "email": "Oliver.Walker9723_10_2025__17_07_08yZPur@mail.ru"
+    },
+    "data": {
+        "login": "Oliver.Walker9723_10_2025__17_07_08",
+        "password": "newuqahuci",
+        "email": "Oliver.Walker9723_10_2025__17_07_08yZPur@mail.ru"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/email' -d '{"login":"Oliver.Walker9723_10_2025__17_07_08","password":"newuqahuci","email":"Oliver.Walker9723_10_2025__17_07_08yZPur@mail.ru"}'
+{
+    "event": "Response",
+    "eventId": "b9099c08-c4d6-42bb-8aa0-08d20f2e5c2f",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 17:07:11 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Oliver.Walker9723_10_2025__17_07_08",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "b5203446-ebda-4ffb-9791-598eda42b020",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Oliver.Walker9723_10_2025__17_07_08",
+        "password": "newuqahuci",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Oliver.Walker9723_10_2025__17_07_08",
+        "password": "newuqahuci",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Oliver.Walker9723_10_2025__17_07_08","password":"newuqahuci","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "b5203446-ebda-4ffb-9791-598eda42b020",
+    "status_code": 403,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 17:07:11 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "type": "https://tools.ietf.org/html/rfc7231#section-6.5.3",
+        "title": "User is inactive. Address the technical support for more details",
+        "status": 403,
+        "traceId": "00-2ebaf64740bf15695d2a6cf7b9df29e6-ef594d1cc50552ac-01"
+    }
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "b1d8bdb0-c11c-4b37-9004-7d65bfe5e462",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/e2707025-4b3b-4944-9e58-10fb12642b45",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/e2707025-4b3b-4944-9e58-10fb12642b45' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "b1d8bdb0-c11c-4b37-9004-7d65bfe5e462",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 17:07:12 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Oliver.Walker9723_10_2025__17_07_08",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "387d29f6-b222-4474-ae23-4c3dfbda80aa",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Oliver.Walker9723_10_2025__17_07_08",
+        "password": "newuqahuci",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Oliver.Walker9723_10_2025__17_07_08",
+        "password": "newuqahuci",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Oliver.Walker9723_10_2025__17_07_08","password":"newuqahuci","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "387d29f6-b222-4474-ae23-4c3dfbda80aa",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 17:07:12 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5AA4lq8OS9ZCscUKY31C6divJ7FlY9P8w9by5WJTR/FsP8K7emm1N1D/tdfS+1+ljg2MVgwATFK+p4fKgzflJtBAhmLFXKXd09CyHzTVtzrooel7jHDmaIqLrjogiROva4="
+    },
+    "json": {
+        "resource": {
+            "login": "Oliver.Walker9723_10_2025__17_07_08",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T17:07:09.329353+00:00"
+        }
+    }
+}

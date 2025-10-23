@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "7bac02d6-d64c-473e-b5f4-9d5ce2b2a5d3",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 17:07:08 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Oliver.Walker9723_10_2025__17_07_08"
+    },
+    "json": {}
+}

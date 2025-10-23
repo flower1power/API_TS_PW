@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "29770b58-e6f8-4643-8c7f-85c5c94c2e31",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Roger_Lemke1223_10_2025__17_07_08",
+        "password": "gisovesupa",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Roger_Lemke1223_10_2025__17_07_08",
+        "password": "gisovesupa",
+        "rememberMe": true
+    }
+}

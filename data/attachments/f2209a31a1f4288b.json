@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "ef9edc65-3c42-4f63-be45-6ce32d3efecd",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 17:07:09 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Ned_Jacobi3223_10_2025__17_07_09"
+    },
+    "json": {}
+}

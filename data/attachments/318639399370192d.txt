@@ -1,0 +1,66 @@
+{
+    "event": "Request",
+    "eventId": "32641efd-4253-471d-a70c-6196a411cbeb",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Bria_Kreiger23_10_2025__17_07_08",
+        "email": "Bria_Kreiger23_10_2025__17_07_086@hotmail.com",
+        "password": "juduzonuqo"
+    },
+    "data": {
+        "login": "Bria_Kreiger23_10_2025__17_07_08",
+        "email": "Bria_Kreiger23_10_2025__17_07_086@hotmail.com",
+        "password": "juduzonuqo"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"Bria_Kreiger23_10_2025__17_07_08","email":"Bria_Kreiger23_10_2025__17_07_086@hotmail.com","password":"juduzonuqo"}'
+{
+    "event": "Response",
+    "eventId": "32641efd-4253-471d-a70c-6196a411cbeb",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 17:07:08 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Bria_Kreiger23_10_2025__17_07_08"
+    },
+    "json": {}
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "02decad7-1b41-4881-96d8-eeb77b5f5de4",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/0c4a0e4f-d737-48b8-93ae-d5f436bb1b35",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/0c4a0e4f-d737-48b8-93ae-d5f436bb1b35' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "02decad7-1b41-4881-96d8-eeb77b5f5de4",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 17:07:09 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Bria_Kreiger23_10_2025__17_07_08",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}

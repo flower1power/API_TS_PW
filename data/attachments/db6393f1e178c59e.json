@@ -1,0 +1,27 @@
+{
+    "event": "Response",
+    "eventId": "d7ad907a-2ce3-449d-8b14-55c50a8e3557",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 17:07:11 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5DJXX9HJ3pyt+3bA5lD8E/RDe9olahWy2wdBEkSD2WqCoPwnTggLfBr24KxtxCLGPca0XVUTudo9NH2Ao9Lr72btd4PITvFu+YJs9jwUlijtKh9u7+MKQ4366nP/D3AWhU="
+    },
+    "json": {
+        "resource": {
+            "login": "Ned_Jacobi3223_10_2025__17_07_09",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T17:07:09.575722+00:00"
+        }
+    }
+}

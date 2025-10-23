@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "e77ec9fe-385d-48d3-983f-a07cd95f9e6b",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Roger_Lemke1223_10_2025__17_07_08",
+        "email": "Roger_Lemke1223_10_2025__17_07_08_Heidenreich66@yahoo.com",
+        "password": "gisovesupa"
+    },
+    "data": {
+        "login": "Roger_Lemke1223_10_2025__17_07_08",
+        "email": "Roger_Lemke1223_10_2025__17_07_08_Heidenreich66@yahoo.com",
+        "password": "gisovesupa"
+    }
+}

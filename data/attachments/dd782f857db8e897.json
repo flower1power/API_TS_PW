@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "32641efd-4253-471d-a70c-6196a411cbeb",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Bria_Kreiger23_10_2025__17_07_08",
+        "email": "Bria_Kreiger23_10_2025__17_07_086@hotmail.com",
+        "password": "juduzonuqo"
+    },
+    "data": {
+        "login": "Bria_Kreiger23_10_2025__17_07_08",
+        "email": "Bria_Kreiger23_10_2025__17_07_086@hotmail.com",
+        "password": "juduzonuqo"
+    }
+}

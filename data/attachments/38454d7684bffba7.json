@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "99b2fad1-28a1-4bf2-bb95-86b079ae1f9b",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Seth_Rutherford23_10_2025__17_07_08",
+        "email": "Seth_Rutherford23_10_2025__17_07_08.Walsh20@yahoo.com",
+        "password": "wawasewuvi"
+    },
+    "data": {
+        "login": "Seth_Rutherford23_10_2025__17_07_08",
+        "email": "Seth_Rutherford23_10_2025__17_07_08.Walsh20@yahoo.com",
+        "password": "wawasewuvi"
+    }
+}

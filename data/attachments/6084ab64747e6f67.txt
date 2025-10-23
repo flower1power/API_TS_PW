@@ -1,0 +1,258 @@
+{
+    "event": "Request",
+    "eventId": "e77ec9fe-385d-48d3-983f-a07cd95f9e6b",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Roger_Lemke1223_10_2025__17_07_08",
+        "email": "Roger_Lemke1223_10_2025__17_07_08_Heidenreich66@yahoo.com",
+        "password": "gisovesupa"
+    },
+    "data": {
+        "login": "Roger_Lemke1223_10_2025__17_07_08",
+        "email": "Roger_Lemke1223_10_2025__17_07_08_Heidenreich66@yahoo.com",
+        "password": "gisovesupa"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"Roger_Lemke1223_10_2025__17_07_08","email":"Roger_Lemke1223_10_2025__17_07_08_Heidenreich66@yahoo.com","password":"gisovesupa"}'
+{
+    "event": "Response",
+    "eventId": "e77ec9fe-385d-48d3-983f-a07cd95f9e6b",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 17:07:09 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Roger_Lemke1223_10_2025__17_07_08"
+    },
+    "json": {}
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "6163162b-2741-4828-a9bb-064a5d99e2e6",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/44e72286-cdce-4c6f-840c-74c1022d9be5",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/44e72286-cdce-4c6f-840c-74c1022d9be5' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "6163162b-2741-4828-a9bb-064a5d99e2e6",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 17:07:09 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Roger_Lemke1223_10_2025__17_07_08",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "29770b58-e6f8-4643-8c7f-85c5c94c2e31",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Roger_Lemke1223_10_2025__17_07_08",
+        "password": "gisovesupa",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Roger_Lemke1223_10_2025__17_07_08",
+        "password": "gisovesupa",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Roger_Lemke1223_10_2025__17_07_08","password":"gisovesupa","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "29770b58-e6f8-4643-8c7f-85c5c94c2e31",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 17:07:10 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5DKsub7GTL4IZX8ZdVgpGqzLX2r65ryq5l4xemj2QlEgwi/vQ4WCl9BZoUS7tXkQBy46bDIDlZ7kyGYSB9TVtVBB5/35D4bcT+pXWYtpvqVVl5n+xQ+l1ceTK5QnIKyoLw="
+    },
+    "json": {
+        "resource": {
+            "login": "Roger_Lemke1223_10_2025__17_07_08",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T17:07:09.512429+00:00"
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "bd0084c3-7ad4-4cda-a34b-2426fa425b1d",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/password",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5DKsub7GTL4IZX8ZdVgpGqzLX2r65ryq5l4xemj2QlEgwi/vQ4WCl9BZoUS7tXkQBy46bDIDlZ7kyGYSB9TVtVBB5/35D4bcT+pXWYtpvqVVl5n+xQ+l1ceTK5QnIKyoLw="
+    },
+    "json": {
+        "login": "Roger_Lemke1223_10_2025__17_07_08",
+        "email": "Roger_Lemke1223_10_2025__17_07_08_Heidenreich66@yahoo.com"
+    },
+    "data": {
+        "login": "Roger_Lemke1223_10_2025__17_07_08",
+        "email": "Roger_Lemke1223_10_2025__17_07_08_Heidenreich66@yahoo.com"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/password' -H 'x-dm-auth-token: IQJh+zgzF5DKsub7GTL4IZX8ZdVgpGqzLX2r65ryq5l4xemj2QlEgwi/vQ4WCl9BZoUS7tXkQBy46bDIDlZ7kyGYSB9TVtVBB5/35D4bcT+pXWYtpvqVVl5n+xQ+l1ceTK5QnIKyoLw=' -d '{"login":"Roger_Lemke1223_10_2025__17_07_08","email":"Roger_Lemke1223_10_2025__17_07_08_Heidenreich66@yahoo.com"}'
+{
+    "event": "Response",
+    "eventId": "bd0084c3-7ad4-4cda-a34b-2426fa425b1d",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 17:07:11 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5DKsub7GTL4IZX8ZdVgpGqzLX2r65ryq5l4xemj2QlEgwi/vQ4WCl9BZoUS7tXkQBy46bDIDlZ7kyGYSB9TVtVBB5/35D4bcT+pXWYtpvqVVl5n+xQ+l1ceTK5QnIKyoLw="
+    },
+    "json": {
+        "resource": {
+            "login": "Roger_Lemke1223_10_2025__17_07_08",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "online": "2025-10-23T17:07:11.546571+00:00",
+            "registration": "2025-10-23T17:07:09.512429+00:00"
+        },
+        "metadata": {
+            "email": "Ro..6@ya..m"
+        }
+    }
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "c7808ef9-731d-4120-ac96-450685e9ef60",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/password",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5DKsub7GTL4IZX8ZdVgpGqzLX2r65ryq5l4xemj2QlEgwi/vQ4WCl9BZoUS7tXkQBy46bDIDlZ7kyGYSB9TVtVBB5/35D4bcT+pXWYtpvqVVl5n+xQ+l1ceTK5QnIKyoLw="
+    },
+    "json": {
+        "login": "Roger_Lemke1223_10_2025__17_07_08",
+        "token": "76b33dd4-1a2c-44a0-aca2-fbdf180b5e65",
+        "oldPassword": "gisovesupa",
+        "newPassword": "gutifejuwi"
+    },
+    "data": {
+        "login": "Roger_Lemke1223_10_2025__17_07_08",
+        "token": "76b33dd4-1a2c-44a0-aca2-fbdf180b5e65",
+        "oldPassword": "gisovesupa",
+        "newPassword": "gutifejuwi"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/password' -H 'x-dm-auth-token: IQJh+zgzF5DKsub7GTL4IZX8ZdVgpGqzLX2r65ryq5l4xemj2QlEgwi/vQ4WCl9BZoUS7tXkQBy46bDIDlZ7kyGYSB9TVtVBB5/35D4bcT+pXWYtpvqVVl5n+xQ+l1ceTK5QnIKyoLw=' -d '{"login":"Roger_Lemke1223_10_2025__17_07_08","token":"76b33dd4-1a2c-44a0-aca2-fbdf180b5e65","oldPassword":"gisovesupa","newPassword":"gutifejuwi"}'
+{
+    "event": "Response",
+    "eventId": "c7808ef9-731d-4120-ac96-450685e9ef60",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 17:07:11 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5DKsub7GTL4IZX8ZdVgpGqzLX2r65ryq5l4xemj2QlEgwi/vQ4WCl9BZoUS7tXkQBy46bDIDlZ7kyGYSB9TVtVBB5/35D4bcT+pXWYtpvqVVl5n+xQ+l1ceTK5QnIKyoLw="
+    },
+    "json": {
+        "resource": {
+            "login": "Roger_Lemke1223_10_2025__17_07_08",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "online": "2025-10-23T17:07:11.546571+00:00"
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "2c7aeb08-6d75-4f0c-ad7f-2824e6741e5d",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5DKsub7GTL4IZX8ZdVgpGqzLX2r65ryq5l4xemj2QlEgwi/vQ4WCl9BZoUS7tXkQBy46bDIDlZ7kyGYSB9TVtVBB5/35D4bcT+pXWYtpvqVVl5n+xQ+l1ceTK5QnIKyoLw="
+    },
+    "json": {
+        "login": "Roger_Lemke1223_10_2025__17_07_08",
+        "password": "gutifejuwi",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Roger_Lemke1223_10_2025__17_07_08",
+        "password": "gutifejuwi",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -H 'x-dm-auth-token: IQJh+zgzF5DKsub7GTL4IZX8ZdVgpGqzLX2r65ryq5l4xemj2QlEgwi/vQ4WCl9BZoUS7tXkQBy46bDIDlZ7kyGYSB9TVtVBB5/35D4bcT+pXWYtpvqVVl5n+xQ+l1ceTK5QnIKyoLw=' -d '{"login":"Roger_Lemke1223_10_2025__17_07_08","password":"gutifejuwi","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "2c7aeb08-6d75-4f0c-ad7f-2824e6741e5d",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 17:07:12 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5DKsub7GTL4IZX8ZdVgpGqzLX2r65ryq5l4xemj2QlEgwi/vQ4WCl9BZoUS7tXkQBxNMkg7BNkB02hr78QQm6GS/SiqdsxRT62Gm5fABQPllBUnUAK13FY9tVYslGTxkAE="
+    },
+    "json": {
+        "resource": {
+            "login": "Roger_Lemke1223_10_2025__17_07_08",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "online": "2025-10-23T17:07:11.546571+00:00",
+            "registration": "2025-10-23T17:07:09.512429+00:00"
+        }
+    }
+}

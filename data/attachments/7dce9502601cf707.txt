@@ -1,0 +1,132 @@
+{
+    "event": "Request",
+    "eventId": "99b2fad1-28a1-4bf2-bb95-86b079ae1f9b",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Seth_Rutherford23_10_2025__17_07_08",
+        "email": "Seth_Rutherford23_10_2025__17_07_08.Walsh20@yahoo.com",
+        "password": "wawasewuvi"
+    },
+    "data": {
+        "login": "Seth_Rutherford23_10_2025__17_07_08",
+        "email": "Seth_Rutherford23_10_2025__17_07_08.Walsh20@yahoo.com",
+        "password": "wawasewuvi"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"Seth_Rutherford23_10_2025__17_07_08","email":"Seth_Rutherford23_10_2025__17_07_08.Walsh20@yahoo.com","password":"wawasewuvi"}'
+{
+    "event": "Response",
+    "eventId": "99b2fad1-28a1-4bf2-bb95-86b079ae1f9b",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 17:07:09 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Seth_Rutherford23_10_2025__17_07_08"
+    },
+    "json": {}
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "885778dd-85f6-43f6-a842-f51f2a90d327",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/dce056b5-c398-4460-94a0-2acdb428cfdd",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/dce056b5-c398-4460-94a0-2acdb428cfdd' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "885778dd-85f6-43f6-a842-f51f2a90d327",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 17:07:09 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Seth_Rutherford23_10_2025__17_07_08",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "79adc16c-d17c-4918-8728-14fc9eb1f9cc",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Seth_Rutherford23_10_2025__17_07_08",
+        "password": "wawasewuvi",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Seth_Rutherford23_10_2025__17_07_08",
+        "password": "wawasewuvi",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Seth_Rutherford23_10_2025__17_07_08","password":"wawasewuvi","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "79adc16c-d17c-4918-8728-14fc9eb1f9cc",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 17:07:10 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5ConGU2fpFxd4Khd50PBgW+XMRTeXyhaxUa8kNROwGpn/WspJMKGU1Owu8LmRH8uXZu1izIePVdkd/4zXgsBhBGlhyBnALTCFq0vh22diSji7hHKVEGefQhDYF4GzH2PFk="
+    },
+    "json": {
+        "resource": {
+            "login": "Seth_Rutherford23_10_2025__17_07_08",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T17:07:09.520949+00:00"
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "eb484769-8163-40f3-a664-d1e3c93d856b",
+    "method": "DELETE",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login/all",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5ConGU2fpFxd4Khd50PBgW+XMRTeXyhaxUa8kNROwGpn/WspJMKGU1Owu8LmRH8uXZu1izIePVdkd/4zXgsBhBGlhyBnALTCFq0vh22diSji7hHKVEGefQhDYF4GzH2PFk="
+    }
+}
+curl -X DELETE 'http://5.63.153.31:5051/v1/account/login/all' -H 'x-dm-auth-token: IQJh+zgzF5ConGU2fpFxd4Khd50PBgW+XMRTeXyhaxUa8kNROwGpn/WspJMKGU1Owu8LmRH8uXZu1izIePVdkd/4zXgsBhBGlhyBnALTCFq0vh22diSji7hHKVEGefQhDYF4GzH2PFk='
+{
+    "event": "Response",
+    "eventId": "eb484769-8163-40f3-a664-d1e3c93d856b",
+    "status_code": 204,
+    "headers": {
+        "date": "Thu, 23 Oct 2025 17:07:11 GMT",
+        "server": "Kestrel",
+        "x-dm-auth-token": "IQJh+zgzF5ConGU2fpFxd4Khd50PBgW+XMRTeXyhaxUa8kNROwGpn/WspJMKGU1Owu8LmRH8uXZu1izIePVdkd/4zXgsBhBGlhyBnALTCFq0vh22diSji7hHKVEGefQhDYF4GzH2PFk="
+    },
+    "json": {}
+}

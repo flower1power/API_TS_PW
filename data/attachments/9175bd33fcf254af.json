@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "d7ad907a-2ce3-449d-8b14-55c50a8e3557",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Ned_Jacobi3223_10_2025__17_07_09",
+        "password": "rawuyiduca",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Ned_Jacobi3223_10_2025__17_07_09",
+        "password": "rawuyiduca",
+        "rememberMe": true
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "32641efd-4253-471d-a70c-6196a411cbeb",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 17:07:08 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Bria_Kreiger23_10_2025__17_07_08"
+    },
+    "json": {}
+}

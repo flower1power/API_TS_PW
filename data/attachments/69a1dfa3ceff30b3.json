@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "e77ec9fe-385d-48d3-983f-a07cd95f9e6b",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 17:07:09 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Roger_Lemke1223_10_2025__17_07_08"
+    },
+    "json": {}
+}
