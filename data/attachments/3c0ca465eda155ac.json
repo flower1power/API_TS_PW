@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "723c7000-d691-49fa-9412-9221169b74fe",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Zaria_Stroman2523_10_2025__16_39_24",
+        "password": "fedarotori",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Zaria_Stroman2523_10_2025__16_39_24",
+        "password": "fedarotori",
+        "rememberMe": true
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "event": "Request",
+    "eventId": "7ecbe964-3258-493d-9ccc-1a9441b0a9cb",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/98d20acb-baeb-4ce1-8131-fcc96d6d238c",
+    "headers": {
+        "accept": "text/plain"
+    }
+}

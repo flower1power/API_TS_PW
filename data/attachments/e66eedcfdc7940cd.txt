@@ -1,0 +1,1 @@
+curl -X DELETE 'http://5.63.153.31:5051/v1/account/login' -H 'x-dm-auth-token: IQJh+zgzF5Ciqv9DQc8supgZiC+LkCRmRZM9gPvxYnJnnVY9CcwUbzFYR6gqWtq4QUaiBP1ip/mMEYngKUOpjWAtgj39oIlcV71+jGhynX+schT4ABd09JdFXU8/Rtw9os/sMqsbuWo='

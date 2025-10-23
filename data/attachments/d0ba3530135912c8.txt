@@ -1,0 +1,66 @@
+{
+    "event": "Request",
+    "eventId": "86ac1b8f-6663-4a5f-b15e-dc9f87c54eda",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Ari6723_10_2025__16_39_27",
+        "email": "Ari6723_10_2025__16_39_2729@yahoo.com",
+        "password": "nupovejubo"
+    },
+    "data": {
+        "login": "Ari6723_10_2025__16_39_27",
+        "email": "Ari6723_10_2025__16_39_2729@yahoo.com",
+        "password": "nupovejubo"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"Ari6723_10_2025__16_39_27","email":"Ari6723_10_2025__16_39_2729@yahoo.com","password":"nupovejubo"}'
+{
+    "event": "Response",
+    "eventId": "86ac1b8f-6663-4a5f-b15e-dc9f87c54eda",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:39:27 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Ari6723_10_2025__16_39_27"
+    },
+    "json": {}
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "539a629a-74e4-4456-b04b-9f85af8b5fd5",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/ceae36f6-5489-442a-8a1f-532abd9fc1f8",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/ceae36f6-5489-442a-8a1f-532abd9fc1f8' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "539a629a-74e4-4456-b04b-9f85af8b5fd5",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:39:27 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Ari6723_10_2025__16_39_27",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}

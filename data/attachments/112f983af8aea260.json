@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "fbf2d8f7-be0f-4c0a-a565-49d22e563e21",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:39:28 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Rey.Beahan23_10_2025__16_39_28"
+    },
+    "json": {}
+}

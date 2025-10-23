@@ -1,0 +1,27 @@
+{
+    "event": "Response",
+    "eventId": "723c7000-d691-49fa-9412-9221169b74fe",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:39:26 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5AwIYco3DDhp1uVvbo7xhN1E9ryQdXMzwStg2TZiO/5C0YuyzyDRNnJumgtLJBn431KEzm41uEsHqW8W+qX7IV5s6E4AHFi16u2zPIwERgfeBfgJnBKGbuLAbaWc5NKpOI="
+    },
+    "json": {
+        "resource": {
+            "login": "Zaria_Stroman2523_10_2025__16_39_24",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:39:25.209033+00:00"
+        }
+    }
+}

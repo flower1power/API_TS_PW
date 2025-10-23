@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "861ee80d-9b70-4ff2-a16b-d369e7517298",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Nathaniel_Bergnaum23_10_2025__16_39_24",
+        "password": "pazawiyuhe",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Nathaniel_Bergnaum23_10_2025__16_39_24",
+        "password": "pazawiyuhe",
+        "rememberMe": true
+    }
+}

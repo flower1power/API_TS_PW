@@ -1,0 +1,9 @@
+{
+    "event": "Request",
+    "eventId": "c48dfae0-e9c3-47b5-9ea8-cf9e578a74ee",
+    "method": "GET",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5AAl1YZPBAu/b5aCw2Uk5wx2a1gDdhiCLwNAHZIZkCDXHc8ea0Zn3SkSsWd3eNwPLRK2wMW0lYtADKXEAZUIQQNJSRssi3jNEohcMzKjyBdgJkIKKfrmEx1aAP9lmEagZo="
+    }
+}

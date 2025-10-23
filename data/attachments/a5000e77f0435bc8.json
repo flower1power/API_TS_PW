@@ -1,0 +1,28 @@
+{
+    "event": "Response",
+    "eventId": "6a451b7c-d330-451b-a15a-0d6c89e827bc",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:39:28 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5C/e3fF9K6soxCyQ/LNIVQo7843pFG8IvgSz+vZtz7VD98gQ6mBW2dLc6j4Jr838wiZdN9L1Dz138WyaEl7u8CD3OJRJDSZ8AGVcIfyhJJK2CPRhRA2V6vu/bjEORTSOXs="
+    },
+    "json": {
+        "resource": {
+            "login": "Nathaniel_Bergnaum23_10_2025__16_39_24",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "online": "2025-10-23T16:39:26.79088+00:00",
+            "registration": "2025-10-23T16:39:25.177946+00:00"
+        }
+    }
+}

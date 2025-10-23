@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "06f81d61-b86f-4376-a4d4-9a44d44d2458",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "DarrenDalton12_08_2025_22_43_04",
+        "password": "C^Uy3BbI8h",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "DarrenDalton12_08_2025_22_43_04",
+        "password": "C^Uy3BbI8h",
+        "rememberMe": true
+    }
+}

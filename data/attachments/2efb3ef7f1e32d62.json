@@ -1,0 +1,19 @@
+{
+    "event": "Request",
+    "eventId": "6a451b7c-d330-451b-a15a-0d6c89e827bc",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5C/e3fF9K6soxCyQ/LNIVQo7843pFG8IvgSz+vZtz7VD98gQ6mBW2dLc6j4Jr838wiXWtD3g5/wxMx3YGdkcmWy/6K7aMHGkNsG8HBP3Jk/VMneE//Rqg0K18E/GNbpHcc="
+    },
+    "json": {
+        "login": "Nathaniel_Bergnaum23_10_2025__16_39_24",
+        "password": "tibakemoce",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Nathaniel_Bergnaum23_10_2025__16_39_24",
+        "password": "tibakemoce",
+        "rememberMe": true
+    }
+}

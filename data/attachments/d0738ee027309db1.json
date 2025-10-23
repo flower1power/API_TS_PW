@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "ebf15ab0-d6d2-4c55-b91a-4bc3f71915e7",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Porter.Reinger8823_10_2025__16_39_24",
+        "password": "yunikacoce",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Porter.Reinger8823_10_2025__16_39_24",
+        "password": "yunikacoce",
+        "rememberMe": true
+    }
+}

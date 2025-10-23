@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "5f61580c-5698-43b2-ba18-9dbfef9085a5",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Toby2423_10_2025__16_39_24",
+        "password": "gupifaholo",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Toby2423_10_2025__16_39_24",
+        "password": "gupifaholo",
+        "rememberMe": true
+    }
+}

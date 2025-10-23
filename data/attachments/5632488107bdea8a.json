@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "86ac1b8f-6663-4a5f-b15e-dc9f87c54eda",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Ari6723_10_2025__16_39_27",
+        "email": "Ari6723_10_2025__16_39_2729@yahoo.com",
+        "password": "nupovejubo"
+    },
+    "data": {
+        "login": "Ari6723_10_2025__16_39_27",
+        "email": "Ari6723_10_2025__16_39_2729@yahoo.com",
+        "password": "nupovejubo"
+    }
+}

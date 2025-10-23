@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "e042995c-e1b4-4d3a-965d-f039d753889e",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Toby2423_10_2025__16_39_24",
+        "email": "Toby2423_10_2025__16_39_24.Breitenberg@hotmail.com",
+        "password": "gupifaholo"
+    },
+    "data": {
+        "login": "Toby2423_10_2025__16_39_24",
+        "email": "Toby2423_10_2025__16_39_24.Breitenberg@hotmail.com",
+        "password": "gupifaholo"
+    }
+}

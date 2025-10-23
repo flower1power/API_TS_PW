@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "fbf2d8f7-be0f-4c0a-a565-49d22e563e21",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Rey.Beahan23_10_2025__16_39_28",
+        "email": "Rey.Beahan23_10_2025__16_39_28.Stiedemann-Schumm@yahoo.com",
+        "password": "xatihicito"
+    },
+    "data": {
+        "login": "Rey.Beahan23_10_2025__16_39_28",
+        "email": "Rey.Beahan23_10_2025__16_39_28.Stiedemann-Schumm@yahoo.com",
+        "password": "xatihicito"
+    }
+}

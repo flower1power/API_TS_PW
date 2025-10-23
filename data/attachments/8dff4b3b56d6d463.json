@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "8c66d402-ec27-4c8e-906c-7113eeead660",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:39:28 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Arlie_Blanda1623_10_2025__16_39_27"
+    },
+    "json": {}
+}

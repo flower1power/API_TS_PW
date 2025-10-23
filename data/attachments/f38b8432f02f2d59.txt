@@ -1,0 +1,1 @@
+curl -X POST 'http://5.63.153.31:5051/v1/account/password' -H 'x-dm-auth-token: IQJh+zgzF5C/e3fF9K6soxCyQ/LNIVQo7843pFG8IvgSz+vZtz7VD98gQ6mBW2dLc6j4Jr838wiXWtD3g5/wxMx3YGdkcmWy/6K7aMHGkNsG8HBP3Jk/VMneE//Rqg0K18E/GNbpHcc=' -d '{"login":"Nathaniel_Bergnaum23_10_2025__16_39_24","email":"Nathaniel_Bergnaum23_10_2025__16_39_2489@yahoo.com"}'

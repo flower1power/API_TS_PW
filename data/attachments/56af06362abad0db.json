@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "8c66d402-ec27-4c8e-906c-7113eeead660",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Arlie_Blanda1623_10_2025__16_39_27",
+        "email": "Arlie_Blanda1623_10_2025__16_39_27.Sawayn@gmail.com",
+        "password": "liwafisoho"
+    },
+    "data": {
+        "login": "Arlie_Blanda1623_10_2025__16_39_27",
+        "email": "Arlie_Blanda1623_10_2025__16_39_27.Sawayn@gmail.com",
+        "password": "liwafisoho"
+    }
+}

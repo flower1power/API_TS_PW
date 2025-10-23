@@ -1,0 +1,258 @@
+{
+    "event": "Request",
+    "eventId": "9fff83f9-2ff7-4ad3-9872-3d97259a67a4",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Nathaniel_Bergnaum23_10_2025__16_39_24",
+        "email": "Nathaniel_Bergnaum23_10_2025__16_39_2489@yahoo.com",
+        "password": "pazawiyuhe"
+    },
+    "data": {
+        "login": "Nathaniel_Bergnaum23_10_2025__16_39_24",
+        "email": "Nathaniel_Bergnaum23_10_2025__16_39_2489@yahoo.com",
+        "password": "pazawiyuhe"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"Nathaniel_Bergnaum23_10_2025__16_39_24","email":"Nathaniel_Bergnaum23_10_2025__16_39_2489@yahoo.com","password":"pazawiyuhe"}'
+{
+    "event": "Response",
+    "eventId": "9fff83f9-2ff7-4ad3-9872-3d97259a67a4",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:39:25 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Nathaniel_Bergnaum23_10_2025__16_39_24"
+    },
+    "json": {}
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "219648b4-91fa-401d-b265-5372ef8b76bb",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/e2b4def2-06fe-40b3-aebc-38e8a8d0d0a2",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/e2b4def2-06fe-40b3-aebc-38e8a8d0d0a2' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "219648b4-91fa-401d-b265-5372ef8b76bb",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:39:26 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Nathaniel_Bergnaum23_10_2025__16_39_24",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "861ee80d-9b70-4ff2-a16b-d369e7517298",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Nathaniel_Bergnaum23_10_2025__16_39_24",
+        "password": "pazawiyuhe",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Nathaniel_Bergnaum23_10_2025__16_39_24",
+        "password": "pazawiyuhe",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Nathaniel_Bergnaum23_10_2025__16_39_24","password":"pazawiyuhe","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "861ee80d-9b70-4ff2-a16b-d369e7517298",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:39:26 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5C/e3fF9K6soxCyQ/LNIVQo7843pFG8IvgSz+vZtz7VD98gQ6mBW2dLc6j4Jr838wiXWtD3g5/wxMx3YGdkcmWy/6K7aMHGkNsG8HBP3Jk/VMneE//Rqg0K18E/GNbpHcc="
+    },
+    "json": {
+        "resource": {
+            "login": "Nathaniel_Bergnaum23_10_2025__16_39_24",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:39:25.177946+00:00"
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "b0e407d2-d038-418b-9374-102eb50877c0",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/password",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5C/e3fF9K6soxCyQ/LNIVQo7843pFG8IvgSz+vZtz7VD98gQ6mBW2dLc6j4Jr838wiXWtD3g5/wxMx3YGdkcmWy/6K7aMHGkNsG8HBP3Jk/VMneE//Rqg0K18E/GNbpHcc="
+    },
+    "json": {
+        "login": "Nathaniel_Bergnaum23_10_2025__16_39_24",
+        "email": "Nathaniel_Bergnaum23_10_2025__16_39_2489@yahoo.com"
+    },
+    "data": {
+        "login": "Nathaniel_Bergnaum23_10_2025__16_39_24",
+        "email": "Nathaniel_Bergnaum23_10_2025__16_39_2489@yahoo.com"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/password' -H 'x-dm-auth-token: IQJh+zgzF5C/e3fF9K6soxCyQ/LNIVQo7843pFG8IvgSz+vZtz7VD98gQ6mBW2dLc6j4Jr838wiXWtD3g5/wxMx3YGdkcmWy/6K7aMHGkNsG8HBP3Jk/VMneE//Rqg0K18E/GNbpHcc=' -d '{"login":"Nathaniel_Bergnaum23_10_2025__16_39_24","email":"Nathaniel_Bergnaum23_10_2025__16_39_2489@yahoo.com"}'
+{
+    "event": "Response",
+    "eventId": "b0e407d2-d038-418b-9374-102eb50877c0",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:39:26 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5C/e3fF9K6soxCyQ/LNIVQo7843pFG8IvgSz+vZtz7VD98gQ6mBW2dLc6j4Jr838wiXWtD3g5/wxMx3YGdkcmWy/6K7aMHGkNsG8HBP3Jk/VMneE//Rqg0K18E/GNbpHcc="
+    },
+    "json": {
+        "resource": {
+            "login": "Nathaniel_Bergnaum23_10_2025__16_39_24",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "online": "2025-10-23T16:39:26.79088+00:00",
+            "registration": "2025-10-23T16:39:25.177946+00:00"
+        },
+        "metadata": {
+            "email": "Na..9@ya..m"
+        }
+    }
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "834731d7-5a8c-4623-86cd-8164736c5db2",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/password",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5C/e3fF9K6soxCyQ/LNIVQo7843pFG8IvgSz+vZtz7VD98gQ6mBW2dLc6j4Jr838wiXWtD3g5/wxMx3YGdkcmWy/6K7aMHGkNsG8HBP3Jk/VMneE//Rqg0K18E/GNbpHcc="
+    },
+    "json": {
+        "login": "Nathaniel_Bergnaum23_10_2025__16_39_24",
+        "token": "b78f8fd3-5aca-4e9d-8e30-13132ee470fc",
+        "oldPassword": "pazawiyuhe",
+        "newPassword": "tibakemoce"
+    },
+    "data": {
+        "login": "Nathaniel_Bergnaum23_10_2025__16_39_24",
+        "token": "b78f8fd3-5aca-4e9d-8e30-13132ee470fc",
+        "oldPassword": "pazawiyuhe",
+        "newPassword": "tibakemoce"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/password' -H 'x-dm-auth-token: IQJh+zgzF5C/e3fF9K6soxCyQ/LNIVQo7843pFG8IvgSz+vZtz7VD98gQ6mBW2dLc6j4Jr838wiXWtD3g5/wxMx3YGdkcmWy/6K7aMHGkNsG8HBP3Jk/VMneE//Rqg0K18E/GNbpHcc=' -d '{"login":"Nathaniel_Bergnaum23_10_2025__16_39_24","token":"b78f8fd3-5aca-4e9d-8e30-13132ee470fc","oldPassword":"pazawiyuhe","newPassword":"tibakemoce"}'
+{
+    "event": "Response",
+    "eventId": "834731d7-5a8c-4623-86cd-8164736c5db2",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:39:27 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5C/e3fF9K6soxCyQ/LNIVQo7843pFG8IvgSz+vZtz7VD98gQ6mBW2dLc6j4Jr838wiXWtD3g5/wxMx3YGdkcmWy/6K7aMHGkNsG8HBP3Jk/VMneE//Rqg0K18E/GNbpHcc="
+    },
+    "json": {
+        "resource": {
+            "login": "Nathaniel_Bergnaum23_10_2025__16_39_24",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "online": "2025-10-23T16:39:26.79088+00:00"
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "6a451b7c-d330-451b-a15a-0d6c89e827bc",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5C/e3fF9K6soxCyQ/LNIVQo7843pFG8IvgSz+vZtz7VD98gQ6mBW2dLc6j4Jr838wiXWtD3g5/wxMx3YGdkcmWy/6K7aMHGkNsG8HBP3Jk/VMneE//Rqg0K18E/GNbpHcc="
+    },
+    "json": {
+        "login": "Nathaniel_Bergnaum23_10_2025__16_39_24",
+        "password": "tibakemoce",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Nathaniel_Bergnaum23_10_2025__16_39_24",
+        "password": "tibakemoce",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -H 'x-dm-auth-token: IQJh+zgzF5C/e3fF9K6soxCyQ/LNIVQo7843pFG8IvgSz+vZtz7VD98gQ6mBW2dLc6j4Jr838wiXWtD3g5/wxMx3YGdkcmWy/6K7aMHGkNsG8HBP3Jk/VMneE//Rqg0K18E/GNbpHcc=' -d '{"login":"Nathaniel_Bergnaum23_10_2025__16_39_24","password":"tibakemoce","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "6a451b7c-d330-451b-a15a-0d6c89e827bc",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:39:28 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5C/e3fF9K6soxCyQ/LNIVQo7843pFG8IvgSz+vZtz7VD98gQ6mBW2dLc6j4Jr838wiZdN9L1Dz138WyaEl7u8CD3OJRJDSZ8AGVcIfyhJJK2CPRhRA2V6vu/bjEORTSOXs="
+    },
+    "json": {
+        "resource": {
+            "login": "Nathaniel_Bergnaum23_10_2025__16_39_24",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "online": "2025-10-23T16:39:26.79088+00:00",
+            "registration": "2025-10-23T16:39:25.177946+00:00"
+        }
+    }
+}

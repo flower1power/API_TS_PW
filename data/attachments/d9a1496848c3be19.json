@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "d5da63f3-ed1b-4da0-8082-83131bfdc119",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:39:25 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Porter.Reinger8823_10_2025__16_39_24"
+    },
+    "json": {}
+}

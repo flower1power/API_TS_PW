@@ -1,0 +1,111 @@
+{
+    "event": "Request",
+    "eventId": "fbf2d8f7-be0f-4c0a-a565-49d22e563e21",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Rey.Beahan23_10_2025__16_39_28",
+        "email": "Rey.Beahan23_10_2025__16_39_28.Stiedemann-Schumm@yahoo.com",
+        "password": "xatihicito"
+    },
+    "data": {
+        "login": "Rey.Beahan23_10_2025__16_39_28",
+        "email": "Rey.Beahan23_10_2025__16_39_28.Stiedemann-Schumm@yahoo.com",
+        "password": "xatihicito"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"Rey.Beahan23_10_2025__16_39_28","email":"Rey.Beahan23_10_2025__16_39_28.Stiedemann-Schumm@yahoo.com","password":"xatihicito"}'
+{
+    "event": "Response",
+    "eventId": "fbf2d8f7-be0f-4c0a-a565-49d22e563e21",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:39:28 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Rey.Beahan23_10_2025__16_39_28"
+    },
+    "json": {}
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "e7e7a417-bb89-40d1-b669-18683376fd26",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/574c4f21-d609-457d-b5f8-646833445d11",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/574c4f21-d609-457d-b5f8-646833445d11' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "e7e7a417-bb89-40d1-b669-18683376fd26",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:39:29 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Rey.Beahan23_10_2025__16_39_28",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "6921ad9e-2c46-49f6-a387-90861fc961b9",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Rey.Beahan23_10_2025__16_39_28",
+        "password": "xatihicito",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Rey.Beahan23_10_2025__16_39_28",
+        "password": "xatihicito",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Rey.Beahan23_10_2025__16_39_28","password":"xatihicito","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "6921ad9e-2c46-49f6-a387-90861fc961b9",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:39:29 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5Ab7INNSnlf2hKT0hSbU3RZSm5h182VWfkNAHo+lBlhlwPm+Y3bb/ZcPObVfYrW/KO3II7nAWfVdcrNobqU5vzBon0LC2+GKTc6guQiU9BJ6rasElbcZ9AaQTb/WwZB3GU="
+    },
+    "json": {
+        "resource": {
+            "login": "Rey.Beahan23_10_2025__16_39_28",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:39:28.889158+00:00"
+        }
+    }
+}

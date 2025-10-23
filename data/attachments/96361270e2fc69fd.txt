@@ -1,0 +1,40 @@
+{
+    "event": "Request",
+    "eventId": "1828ef60-fafa-41b0-81f6-74bffc98485b",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "G",
+        "email": "Florida.Howell64@yahoo.com",
+        "password": "irNYyk4kRK"
+    },
+    "data": {
+        "login": "G",
+        "email": "Florida.Howell64@yahoo.com",
+        "password": "irNYyk4kRK"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"G","email":"Florida.Howell64@yahoo.com","password":"irNYyk4kRK"}'
+{
+    "event": "Response",
+    "eventId": "1828ef60-fafa-41b0-81f6-74bffc98485b",
+    "status_code": 400,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:39:28 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "type": "https://tools.ietf.org/html/rfc7231#section-6.5.1",
+        "title": "Validation failed",
+        "status": 400,
+        "traceId": "00-e7701c23f8bcf259ad698466f43c888d-1e76545c4aa54489-01",
+        "errors": {
+            "Login": [
+                "Short"
+            ]
+        }
+    }
+}

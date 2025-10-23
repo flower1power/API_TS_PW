@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "ba087618-e6b9-4d3f-87a4-0258e0d942c3",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:39:25 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Zaria_Stroman2523_10_2025__16_39_24"
+    },
+    "json": {}
+}

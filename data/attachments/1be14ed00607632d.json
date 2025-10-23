@@ -1,0 +1,17 @@
+{
+    "event": "Response",
+    "eventId": "0fda63a0-bc60-42e9-b5ee-1f531becad44",
+    "status_code": 403,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:39:27 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "type": "https://tools.ietf.org/html/rfc7231#section-6.5.3",
+        "title": "User is inactive. Address the technical support for more details",
+        "status": 403,
+        "traceId": "00-900e108f494b01ac8edf50ce3fb1fb84-6ac6544de53aba97-01"
+    }
+}

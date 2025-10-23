@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "e042995c-e1b4-4d3a-965d-f039d753889e",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:39:25 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Toby2423_10_2025__16_39_24"
+    },
+    "json": {}
+}

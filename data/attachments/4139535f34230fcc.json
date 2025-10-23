@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "1828ef60-fafa-41b0-81f6-74bffc98485b",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "G",
+        "email": "Florida.Howell64@yahoo.com",
+        "password": "irNYyk4kRK"
+    },
+    "data": {
+        "login": "G",
+        "email": "Florida.Howell64@yahoo.com",
+        "password": "irNYyk4kRK"
+    }
+}

@@ -1,0 +1,1 @@
+curl -X PUT 'http://5.63.153.31:5051/v1/account/1bc571f6-98df-419f-8ff6-44c0e3252839' -H 'accept: text/plain'

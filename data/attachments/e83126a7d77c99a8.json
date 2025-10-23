@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "d5da63f3-ed1b-4da0-8082-83131bfdc119",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Porter.Reinger8823_10_2025__16_39_24",
+        "email": "Porter.Reinger8823_10_2025__16_39_24.Macejkovic50@gmail.com",
+        "password": "yunikacoce"
+    },
+    "data": {
+        "login": "Porter.Reinger8823_10_2025__16_39_24",
+        "email": "Porter.Reinger8823_10_2025__16_39_24.Macejkovic50@gmail.com",
+        "password": "yunikacoce"
+    }
+}

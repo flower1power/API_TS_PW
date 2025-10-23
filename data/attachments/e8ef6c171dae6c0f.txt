@@ -1,0 +1,132 @@
+{
+    "event": "Request",
+    "eventId": "ba087618-e6b9-4d3f-87a4-0258e0d942c3",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Zaria_Stroman2523_10_2025__16_39_24",
+        "email": "Zaria_Stroman2523_10_2025__16_39_24.Schmitt@gmail.com",
+        "password": "fedarotori"
+    },
+    "data": {
+        "login": "Zaria_Stroman2523_10_2025__16_39_24",
+        "email": "Zaria_Stroman2523_10_2025__16_39_24.Schmitt@gmail.com",
+        "password": "fedarotori"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"Zaria_Stroman2523_10_2025__16_39_24","email":"Zaria_Stroman2523_10_2025__16_39_24.Schmitt@gmail.com","password":"fedarotori"}'
+{
+    "event": "Response",
+    "eventId": "ba087618-e6b9-4d3f-87a4-0258e0d942c3",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:39:25 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Zaria_Stroman2523_10_2025__16_39_24"
+    },
+    "json": {}
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "5db02a1b-7057-4bbc-b690-2a051e2fdacf",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/ee794e6f-d9e6-4c42-989e-3bd98f83e978",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/ee794e6f-d9e6-4c42-989e-3bd98f83e978' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "5db02a1b-7057-4bbc-b690-2a051e2fdacf",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:39:26 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Zaria_Stroman2523_10_2025__16_39_24",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "723c7000-d691-49fa-9412-9221169b74fe",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Zaria_Stroman2523_10_2025__16_39_24",
+        "password": "fedarotori",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Zaria_Stroman2523_10_2025__16_39_24",
+        "password": "fedarotori",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Zaria_Stroman2523_10_2025__16_39_24","password":"fedarotori","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "723c7000-d691-49fa-9412-9221169b74fe",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:39:26 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5AwIYco3DDhp1uVvbo7xhN1E9ryQdXMzwStg2TZiO/5C0YuyzyDRNnJumgtLJBn431KEzm41uEsHqW8W+qX7IV5s6E4AHFi16u2zPIwERgfeBfgJnBKGbuLAbaWc5NKpOI="
+    },
+    "json": {
+        "resource": {
+            "login": "Zaria_Stroman2523_10_2025__16_39_24",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:39:25.209033+00:00"
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "f655042d-dce5-432b-a893-f45b305de94a",
+    "method": "DELETE",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login/all",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5AwIYco3DDhp1uVvbo7xhN1E9ryQdXMzwStg2TZiO/5C0YuyzyDRNnJumgtLJBn431KEzm41uEsHqW8W+qX7IV5s6E4AHFi16u2zPIwERgfeBfgJnBKGbuLAbaWc5NKpOI="
+    }
+}
+curl -X DELETE 'http://5.63.153.31:5051/v1/account/login/all' -H 'x-dm-auth-token: IQJh+zgzF5AwIYco3DDhp1uVvbo7xhN1E9ryQdXMzwStg2TZiO/5C0YuyzyDRNnJumgtLJBn431KEzm41uEsHqW8W+qX7IV5s6E4AHFi16u2zPIwERgfeBfgJnBKGbuLAbaWc5NKpOI='
+{
+    "event": "Response",
+    "eventId": "f655042d-dce5-432b-a893-f45b305de94a",
+    "status_code": 204,
+    "headers": {
+        "date": "Thu, 23 Oct 2025 16:39:26 GMT",
+        "server": "Kestrel",
+        "x-dm-auth-token": "IQJh+zgzF5AwIYco3DDhp1uVvbo7xhN1E9ryQdXMzwStg2TZiO/5C0YuyzyDRNnJumgtLJBn431KEzm41uEsHqW8W+qX7IV5s6E4AHFi16u2zPIwERgfeBfgJnBKGbuLAbaWc5NKpOI="
+    },
+    "json": {}
+}

@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "9fff83f9-2ff7-4ad3-9872-3d97259a67a4",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Nathaniel_Bergnaum23_10_2025__16_39_24",
+        "email": "Nathaniel_Bergnaum23_10_2025__16_39_2489@yahoo.com",
+        "password": "pazawiyuhe"
+    },
+    "data": {
+        "login": "Nathaniel_Bergnaum23_10_2025__16_39_24",
+        "email": "Nathaniel_Bergnaum23_10_2025__16_39_2489@yahoo.com",
+        "password": "pazawiyuhe"
+    }
+}

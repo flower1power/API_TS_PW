@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "c53fd61a-a4dd-4e82-8d53-ef44171a87c5",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "LaurineKessler_23.10.2025,_16_39_28",
+        "email": "Maximo35@yahoo.com",
+        "password": "MXM7U"
+    },
+    "data": {
+        "login": "LaurineKessler_23.10.2025,_16_39_28",
+        "email": "Maximo35@yahoo.com",
+        "password": "MXM7U"
+    }
+}
