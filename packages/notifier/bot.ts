@@ -83,6 +83,8 @@ export async function sendTelegramReport(): Promise<void> {
 
   if (process.env.REPORT_ENV) lines.push(`▪ enviroment: ${process.env.REPORT_ENV}`);
   if (process.env.REPORT_URL) lines.push(`▪ report: ${process.env.REPORT_URL}`);
+  if (process.env.DEPLOYMENT_STATUS) lines.push(`▪ Status: ${process.env.DEPLOYMENT_STATUS}`);
+  if (process.env.WORKFLOW_URL) lines.push(`▪ Workflow: ${process.env.WORKFLOW_URL}`);
 
   lines.push('', 'I CALL: -');
 
