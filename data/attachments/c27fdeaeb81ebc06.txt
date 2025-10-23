@@ -1,0 +1,258 @@
+{
+    "event": "Request",
+    "eventId": "55154472-ef8a-44cf-9050-ad58e9b6f1bd",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Myrtis.West3223_10_2025__16_53_48",
+        "email": "Myrtis.West3223_10_2025__16_53_4890@gmail.com",
+        "password": "sogihapesu"
+    },
+    "data": {
+        "login": "Myrtis.West3223_10_2025__16_53_48",
+        "email": "Myrtis.West3223_10_2025__16_53_4890@gmail.com",
+        "password": "sogihapesu"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"Myrtis.West3223_10_2025__16_53_48","email":"Myrtis.West3223_10_2025__16_53_4890@gmail.com","password":"sogihapesu"}'
+{
+    "event": "Response",
+    "eventId": "55154472-ef8a-44cf-9050-ad58e9b6f1bd",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:53:52 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Myrtis.West3223_10_2025__16_53_48"
+    },
+    "json": {}
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "6e90fc75-94f8-4e54-b8b1-d2971e8b6d7a",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/977ffe06-73de-4bea-8b23-eb1ab36e614d",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/977ffe06-73de-4bea-8b23-eb1ab36e614d' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "6e90fc75-94f8-4e54-b8b1-d2971e8b6d7a",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:53:53 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Myrtis.West3223_10_2025__16_53_48",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "e5dbf79f-de90-4e44-acde-30bd0470b65c",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Myrtis.West3223_10_2025__16_53_48",
+        "password": "sogihapesu",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Myrtis.West3223_10_2025__16_53_48",
+        "password": "sogihapesu",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Myrtis.West3223_10_2025__16_53_48","password":"sogihapesu","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "e5dbf79f-de90-4e44-acde-30bd0470b65c",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:53:54 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5CnLVxzSmEZiCdGgQ/KOAH+tzuo6cUZVO5uSS4p7Xm/B2ZQiu2eKe2mJ3JGdblXLB+v5zVDTxSkyUn6e4ieq8r2tS9YLD+ADLG+VHm7XlXXiBCPlf58tunJ7p8DPJU4nJs="
+    },
+    "json": {
+        "resource": {
+            "login": "Myrtis.West3223_10_2025__16_53_48",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:53:50.702595+00:00"
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "fddbfe66-ddad-4927-8f61-66d7f2b6b0a2",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/password",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5CnLVxzSmEZiCdGgQ/KOAH+tzuo6cUZVO5uSS4p7Xm/B2ZQiu2eKe2mJ3JGdblXLB+v5zVDTxSkyUn6e4ieq8r2tS9YLD+ADLG+VHm7XlXXiBCPlf58tunJ7p8DPJU4nJs="
+    },
+    "json": {
+        "login": "Myrtis.West3223_10_2025__16_53_48",
+        "email": "Myrtis.West3223_10_2025__16_53_4890@gmail.com"
+    },
+    "data": {
+        "login": "Myrtis.West3223_10_2025__16_53_48",
+        "email": "Myrtis.West3223_10_2025__16_53_4890@gmail.com"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/password' -H 'x-dm-auth-token: IQJh+zgzF5CnLVxzSmEZiCdGgQ/KOAH+tzuo6cUZVO5uSS4p7Xm/B2ZQiu2eKe2mJ3JGdblXLB+v5zVDTxSkyUn6e4ieq8r2tS9YLD+ADLG+VHm7XlXXiBCPlf58tunJ7p8DPJU4nJs=' -d '{"login":"Myrtis.West3223_10_2025__16_53_48","email":"Myrtis.West3223_10_2025__16_53_4890@gmail.com"}'
+{
+    "event": "Response",
+    "eventId": "fddbfe66-ddad-4927-8f61-66d7f2b6b0a2",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:53:54 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5CnLVxzSmEZiCdGgQ/KOAH+tzuo6cUZVO5uSS4p7Xm/B2ZQiu2eKe2mJ3JGdblXLB+v5zVDTxSkyUn6e4ieq8r2tS9YLD+ADLG+VHm7XlXXiBCPlf58tunJ7p8DPJU4nJs="
+    },
+    "json": {
+        "resource": {
+            "login": "Myrtis.West3223_10_2025__16_53_48",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "online": "2025-10-23T16:53:54.846978+00:00",
+            "registration": "2025-10-23T16:53:50.702595+00:00"
+        },
+        "metadata": {
+            "email": "My..0@gm..m"
+        }
+    }
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "535caf0d-188c-49be-a417-cec38bdbe5c7",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/password",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5CnLVxzSmEZiCdGgQ/KOAH+tzuo6cUZVO5uSS4p7Xm/B2ZQiu2eKe2mJ3JGdblXLB+v5zVDTxSkyUn6e4ieq8r2tS9YLD+ADLG+VHm7XlXXiBCPlf58tunJ7p8DPJU4nJs="
+    },
+    "json": {
+        "login": "Myrtis.West3223_10_2025__16_53_48",
+        "token": "e25272d5-2df6-42a8-acb3-7187e439f138",
+        "oldPassword": "sogihapesu",
+        "newPassword": "heciwawono"
+    },
+    "data": {
+        "login": "Myrtis.West3223_10_2025__16_53_48",
+        "token": "e25272d5-2df6-42a8-acb3-7187e439f138",
+        "oldPassword": "sogihapesu",
+        "newPassword": "heciwawono"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/password' -H 'x-dm-auth-token: IQJh+zgzF5CnLVxzSmEZiCdGgQ/KOAH+tzuo6cUZVO5uSS4p7Xm/B2ZQiu2eKe2mJ3JGdblXLB+v5zVDTxSkyUn6e4ieq8r2tS9YLD+ADLG+VHm7XlXXiBCPlf58tunJ7p8DPJU4nJs=' -d '{"login":"Myrtis.West3223_10_2025__16_53_48","token":"e25272d5-2df6-42a8-acb3-7187e439f138","oldPassword":"sogihapesu","newPassword":"heciwawono"}'
+{
+    "event": "Response",
+    "eventId": "535caf0d-188c-49be-a417-cec38bdbe5c7",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:53:55 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5CnLVxzSmEZiCdGgQ/KOAH+tzuo6cUZVO5uSS4p7Xm/B2ZQiu2eKe2mJ3JGdblXLB+v5zVDTxSkyUn6e4ieq8r2tS9YLD+ADLG+VHm7XlXXiBCPlf58tunJ7p8DPJU4nJs="
+    },
+    "json": {
+        "resource": {
+            "login": "Myrtis.West3223_10_2025__16_53_48",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "online": "2025-10-23T16:53:54.846978+00:00"
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "bffd7f64-2cc9-4ca7-b9c8-df45547968c0",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5CnLVxzSmEZiCdGgQ/KOAH+tzuo6cUZVO5uSS4p7Xm/B2ZQiu2eKe2mJ3JGdblXLB+v5zVDTxSkyUn6e4ieq8r2tS9YLD+ADLG+VHm7XlXXiBCPlf58tunJ7p8DPJU4nJs="
+    },
+    "json": {
+        "login": "Myrtis.West3223_10_2025__16_53_48",
+        "password": "heciwawono",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Myrtis.West3223_10_2025__16_53_48",
+        "password": "heciwawono",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -H 'x-dm-auth-token: IQJh+zgzF5CnLVxzSmEZiCdGgQ/KOAH+tzuo6cUZVO5uSS4p7Xm/B2ZQiu2eKe2mJ3JGdblXLB+v5zVDTxSkyUn6e4ieq8r2tS9YLD+ADLG+VHm7XlXXiBCPlf58tunJ7p8DPJU4nJs=' -d '{"login":"Myrtis.West3223_10_2025__16_53_48","password":"heciwawono","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "bffd7f64-2cc9-4ca7-b9c8-df45547968c0",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:53:55 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5CnLVxzSmEZiCdGgQ/KOAH+tzuo6cUZVO5uSS4p7Xm/B2ZQiu2eKe2mJ3JGdblXLB9esOPK2WUGVKP0jZ/QggYIzOFFF/eISsYtzDSGTd11AvIPUAC3j2nIgPQRlG7ogI8="
+    },
+    "json": {
+        "resource": {
+            "login": "Myrtis.West3223_10_2025__16_53_48",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "online": "2025-10-23T16:53:54.846978+00:00",
+            "registration": "2025-10-23T16:53:50.702595+00:00"
+        }
+    }
+}

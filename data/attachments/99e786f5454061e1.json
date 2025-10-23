@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "c69af556-d812-4de4-a04e-80941bbfb73c",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:53:52 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Fermin_Thompson7223_10_2025__16_53_48"
+    },
+    "json": {}
+}

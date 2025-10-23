@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "1bbf58ff-fe70-409c-8004-2bfec5637649",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Pamela.Nader23_10_2025__16_53_48",
+        "password": "nigokuwova",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Pamela.Nader23_10_2025__16_53_48",
+        "password": "nigokuwova",
+        "rememberMe": true
+    }
+}

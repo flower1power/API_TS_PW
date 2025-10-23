@@ -1,0 +1,1 @@
+curl -X PUT 'http://5.63.153.31:5051/v1/account/email' -d '{"login":"Pamela.Nader23_10_2025__16_53_48","password":"nigokuwova","email":"Pamela.Nader23_10_2025__16_53_48ZB@mail.ru"}'

@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "c69af556-d812-4de4-a04e-80941bbfb73c",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Fermin_Thompson7223_10_2025__16_53_48",
+        "email": "Fermin_Thompson7223_10_2025__16_53_484@gmail.com",
+        "password": "bexexemime"
+    },
+    "data": {
+        "login": "Fermin_Thompson7223_10_2025__16_53_48",
+        "email": "Fermin_Thompson7223_10_2025__16_53_484@gmail.com",
+        "password": "bexexemime"
+    }
+}

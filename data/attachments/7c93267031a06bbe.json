@@ -1,0 +1,27 @@
+{
+    "event": "Response",
+    "eventId": "365b887d-5651-4617-950a-3352e7a21a4c",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:53:55 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5AfjDIJ7pjXRDPum1GaNwen4IDXljuZh01V9DYu6N7dc1A+sVXBmXMQBoNG2BHkZDiegcIopO7a5U0/H7vSzfD7LJFp4bLqNz0FaYtWdcTXAuaKCnPMp3cRFzXAkQHQUGc="
+    },
+    "json": {
+        "resource": {
+            "login": "Pamela.Nader23_10_2025__16_53_48",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:53:48.912201+00:00"
+        }
+    }
+}

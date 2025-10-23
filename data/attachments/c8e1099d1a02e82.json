@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "a78babff-afa0-4ca4-8dde-60526b5153fd",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Ezequiel7823_10_2025__16_53_48",
+        "password": "picubizapu",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Ezequiel7823_10_2025__16_53_48",
+        "password": "picubizapu",
+        "rememberMe": true
+    }
+}

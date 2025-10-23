@@ -1,0 +1,132 @@
+{
+    "event": "Request",
+    "eventId": "11c4ab70-0fb0-47ce-a256-34cdc0cb57fd",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Ezequiel7823_10_2025__16_53_48",
+        "email": "Ezequiel7823_10_2025__16_53_48_Friesen@yahoo.com",
+        "password": "picubizapu"
+    },
+    "data": {
+        "login": "Ezequiel7823_10_2025__16_53_48",
+        "email": "Ezequiel7823_10_2025__16_53_48_Friesen@yahoo.com",
+        "password": "picubizapu"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"Ezequiel7823_10_2025__16_53_48","email":"Ezequiel7823_10_2025__16_53_48_Friesen@yahoo.com","password":"picubizapu"}'
+{
+    "event": "Response",
+    "eventId": "11c4ab70-0fb0-47ce-a256-34cdc0cb57fd",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:53:52 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Ezequiel7823_10_2025__16_53_48"
+    },
+    "json": {}
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "63622499-45a2-494c-bbf5-c96258bf8c90",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/2c90b35c-3200-4cbc-b267-e10b7f0ca7b8",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/2c90b35c-3200-4cbc-b267-e10b7f0ca7b8' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "63622499-45a2-494c-bbf5-c96258bf8c90",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:53:53 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Ezequiel7823_10_2025__16_53_48",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "a78babff-afa0-4ca4-8dde-60526b5153fd",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Ezequiel7823_10_2025__16_53_48",
+        "password": "picubizapu",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Ezequiel7823_10_2025__16_53_48",
+        "password": "picubizapu",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Ezequiel7823_10_2025__16_53_48","password":"picubizapu","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "a78babff-afa0-4ca4-8dde-60526b5153fd",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:53:54 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5D6gwM8X3AxqzRIzI30jW6hT6sXUUMO0SQNFPAFp7VUn6koDSVeij+ns66FW6UukaPisH6j00iGxkIL0JGyqRSmUeveGRT0LKJqtDcAGbgJO7TeVONgICbQiHlUzwqF0M0="
+    },
+    "json": {
+        "resource": {
+            "login": "Ezequiel7823_10_2025__16_53_48",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:53:49.043789+00:00"
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "b59f7591-c06c-4b33-bc18-214af3d6f606",
+    "method": "DELETE",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login/all",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5D6gwM8X3AxqzRIzI30jW6hT6sXUUMO0SQNFPAFp7VUn6koDSVeij+ns66FW6UukaPisH6j00iGxkIL0JGyqRSmUeveGRT0LKJqtDcAGbgJO7TeVONgICbQiHlUzwqF0M0="
+    }
+}
+curl -X DELETE 'http://5.63.153.31:5051/v1/account/login/all' -H 'x-dm-auth-token: IQJh+zgzF5D6gwM8X3AxqzRIzI30jW6hT6sXUUMO0SQNFPAFp7VUn6koDSVeij+ns66FW6UukaPisH6j00iGxkIL0JGyqRSmUeveGRT0LKJqtDcAGbgJO7TeVONgICbQiHlUzwqF0M0='
+{
+    "event": "Response",
+    "eventId": "b59f7591-c06c-4b33-bc18-214af3d6f606",
+    "status_code": 204,
+    "headers": {
+        "date": "Thu, 23 Oct 2025 16:53:54 GMT",
+        "server": "Kestrel",
+        "x-dm-auth-token": "IQJh+zgzF5D6gwM8X3AxqzRIzI30jW6hT6sXUUMO0SQNFPAFp7VUn6koDSVeij+ns66FW6UukaPisH6j00iGxkIL0JGyqRSmUeveGRT0LKJqtDcAGbgJO7TeVONgICbQiHlUzwqF0M0="
+    },
+    "json": {}
+}

@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "11c4ab70-0fb0-47ce-a256-34cdc0cb57fd",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Ezequiel7823_10_2025__16_53_48",
+        "email": "Ezequiel7823_10_2025__16_53_48_Friesen@yahoo.com",
+        "password": "picubizapu"
+    },
+    "data": {
+        "login": "Ezequiel7823_10_2025__16_53_48",
+        "email": "Ezequiel7823_10_2025__16_53_48_Friesen@yahoo.com",
+        "password": "picubizapu"
+    }
+}

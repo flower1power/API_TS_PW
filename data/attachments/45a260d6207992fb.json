@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "55154472-ef8a-44cf-9050-ad58e9b6f1bd",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:53:52 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Myrtis.West3223_10_2025__16_53_48"
+    },
+    "json": {}
+}

@@ -1,0 +1,270 @@
+{
+    "event": "Request",
+    "eventId": "87a347d6-7e4a-4fce-8160-e858f05c5333",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Pamela.Nader23_10_2025__16_53_48",
+        "email": "Pamela.Nader23_10_2025__16_53_48.Schumm14@yahoo.com",
+        "password": "nigokuwova"
+    },
+    "data": {
+        "login": "Pamela.Nader23_10_2025__16_53_48",
+        "email": "Pamela.Nader23_10_2025__16_53_48.Schumm14@yahoo.com",
+        "password": "nigokuwova"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"Pamela.Nader23_10_2025__16_53_48","email":"Pamela.Nader23_10_2025__16_53_48.Schumm14@yahoo.com","password":"nigokuwova"}'
+{
+    "event": "Response",
+    "eventId": "87a347d6-7e4a-4fce-8160-e858f05c5333",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:53:48 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Pamela.Nader23_10_2025__16_53_48"
+    },
+    "json": {}
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "a0baab92-6234-440b-8d2a-89cd4a5b7354",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/a0def41a-bccd-4504-9c0c-414ec8673355",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/a0def41a-bccd-4504-9c0c-414ec8673355' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "a0baab92-6234-440b-8d2a-89cd4a5b7354",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:53:52 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Pamela.Nader23_10_2025__16_53_48",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "1bbf58ff-fe70-409c-8004-2bfec5637649",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Pamela.Nader23_10_2025__16_53_48",
+        "password": "nigokuwova",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Pamela.Nader23_10_2025__16_53_48",
+        "password": "nigokuwova",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Pamela.Nader23_10_2025__16_53_48","password":"nigokuwova","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "1bbf58ff-fe70-409c-8004-2bfec5637649",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:53:53 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5AfjDIJ7pjXRDPum1GaNwen4IDXljuZh01V9DYu6N7dc1A+sVXBmXMQBoNG2BHkZDhXB10ISVBfbYAc/tyZadsRyz/wm7KJVmWPlzIOsc9ArGfxiLE4/zxey6Kpt7O7rQk="
+    },
+    "json": {
+        "resource": {
+            "login": "Pamela.Nader23_10_2025__16_53_48",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:53:48.912201+00:00"
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "d866e414-5b34-4c81-ae71-5d7dc7999357",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/email",
+    "headers": {},
+    "json": {
+        "login": "Pamela.Nader23_10_2025__16_53_48",
+        "password": "nigokuwova",
+        "email": "Pamela.Nader23_10_2025__16_53_48ZB@mail.ru"
+    },
+    "data": {
+        "login": "Pamela.Nader23_10_2025__16_53_48",
+        "password": "nigokuwova",
+        "email": "Pamela.Nader23_10_2025__16_53_48ZB@mail.ru"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/email' -d '{"login":"Pamela.Nader23_10_2025__16_53_48","password":"nigokuwova","email":"Pamela.Nader23_10_2025__16_53_48ZB@mail.ru"}'
+{
+    "event": "Response",
+    "eventId": "d866e414-5b34-4c81-ae71-5d7dc7999357",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:53:53 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Pamela.Nader23_10_2025__16_53_48",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "7e0d232d-fda5-4f2d-b960-c2641cfc7f2f",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Pamela.Nader23_10_2025__16_53_48",
+        "password": "nigokuwova",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Pamela.Nader23_10_2025__16_53_48",
+        "password": "nigokuwova",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Pamela.Nader23_10_2025__16_53_48","password":"nigokuwova","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "7e0d232d-fda5-4f2d-b960-c2641cfc7f2f",
+    "status_code": 403,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:53:53 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "type": "https://tools.ietf.org/html/rfc7231#section-6.5.3",
+        "title": "User is inactive. Address the technical support for more details",
+        "status": 403,
+        "traceId": "00-0cd6d2639965e83ea55a663b3b70201f-83dc5e148765d5a5-01"
+    }
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "414bc00e-aee7-41d8-8c74-eb4dc6207b2a",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/0031397d-714b-42ba-9d22-45fdabd40568",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/0031397d-714b-42ba-9d22-45fdabd40568' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "414bc00e-aee7-41d8-8c74-eb4dc6207b2a",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:53:54 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Pamela.Nader23_10_2025__16_53_48",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "365b887d-5651-4617-950a-3352e7a21a4c",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Pamela.Nader23_10_2025__16_53_48",
+        "password": "nigokuwova",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Pamela.Nader23_10_2025__16_53_48",
+        "password": "nigokuwova",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Pamela.Nader23_10_2025__16_53_48","password":"nigokuwova","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "365b887d-5651-4617-950a-3352e7a21a4c",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:53:55 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5AfjDIJ7pjXRDPum1GaNwen4IDXljuZh01V9DYu6N7dc1A+sVXBmXMQBoNG2BHkZDiegcIopO7a5U0/H7vSzfD7LJFp4bLqNz0FaYtWdcTXAuaKCnPMp3cRFzXAkQHQUGc="
+    },
+    "json": {
+        "resource": {
+            "login": "Pamela.Nader23_10_2025__16_53_48",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:53:48.912201+00:00"
+        }
+    }
+}

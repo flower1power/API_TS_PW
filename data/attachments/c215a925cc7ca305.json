@@ -1,0 +1,27 @@
+{
+    "event": "Response",
+    "eventId": "475b52f6-3bde-4212-bcbc-de40bfb76a21",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:53:54 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5AzkuC620p3HknPUXMVdhKe8WgcVxOqBV+deeCUaWNTxgDO5Hynr8oS+hMZQv8OJ/JnGwdD2EAkgxSwFNIhdOfsnYHVk23IMhP7QXcz1DTErli0G2UsFCh9Xzzea+Ejqo0="
+    },
+    "json": {
+        "resource": {
+            "login": "Fermin_Thompson7223_10_2025__16_53_48",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:53:50.70627+00:00"
+        }
+    }
+}

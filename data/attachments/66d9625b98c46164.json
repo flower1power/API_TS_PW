@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "87a347d6-7e4a-4fce-8160-e858f05c5333",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:53:48 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Pamela.Nader23_10_2025__16_53_48"
+    },
+    "json": {}
+}

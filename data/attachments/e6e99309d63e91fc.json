@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "e5dbf79f-de90-4e44-acde-30bd0470b65c",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Myrtis.West3223_10_2025__16_53_48",
+        "password": "sogihapesu",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Myrtis.West3223_10_2025__16_53_48",
+        "password": "sogihapesu",
+        "rememberMe": true
+    }
+}

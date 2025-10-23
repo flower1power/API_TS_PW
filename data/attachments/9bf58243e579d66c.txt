@@ -1,0 +1,1 @@
+curl -X PUT 'http://5.63.153.31:5051/v1/account/password' -H 'x-dm-auth-token: IQJh+zgzF5CnLVxzSmEZiCdGgQ/KOAH+tzuo6cUZVO5uSS4p7Xm/B2ZQiu2eKe2mJ3JGdblXLB+v5zVDTxSkyUn6e4ieq8r2tS9YLD+ADLG+VHm7XlXXiBCPlf58tunJ7p8DPJU4nJs=' -d '{"login":"Myrtis.West3223_10_2025__16_53_48","token":"e25272d5-2df6-42a8-acb3-7187e439f138","oldPassword":"sogihapesu","newPassword":"heciwawono"}'

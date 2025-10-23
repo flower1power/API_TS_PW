@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "11c4ab70-0fb0-47ce-a256-34cdc0cb57fd",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:53:52 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Ezequiel7823_10_2025__16_53_48"
+    },
+    "json": {}
+}

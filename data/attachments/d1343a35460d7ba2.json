@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "af0e4a22-1529-42a1-8518-bfd4b273da45",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Camylle_Lowe23_10_2025__16_53_48",
+        "email": "Camylle_Lowe23_10_2025__16_53_48.Pollich@yahoo.com",
+        "password": "fusogilego"
+    },
+    "data": {
+        "login": "Camylle_Lowe23_10_2025__16_53_48",
+        "email": "Camylle_Lowe23_10_2025__16_53_48.Pollich@yahoo.com",
+        "password": "fusogilego"
+    }
+}
