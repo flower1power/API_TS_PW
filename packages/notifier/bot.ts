@@ -38,6 +38,13 @@ export async function sendTelegramReport(): Promise<void> {
   const token = process.env.TELEGRAM_BOT_ACCESS_TOKEN;
   const chatId = process.env.TELEGRAM_BOT_CHAT_ID;
 
+  console.log('🔍 Переменные окружения:');
+  console.log('- DEPLOYMENT_STATUS:', process.env.DEPLOYMENT_STATUS || 'не установлен');
+  console.log('- REPORT_ENV:', process.env.REPORT_ENV || 'не установлен');
+  console.log('- PROJECT:', process.env.PROJECT || 'не установлен');
+  console.log('- WORKERS:', process.env.WORKERS || 'не установлен');
+  console.log('- GITHUB_ACTOR:', process.env.GITHUB_ACTOR || 'не установлен');
+
   if (!token || !chatId) {
     console.error('❌ TELEGRAM_BOT_ACCESS_TOKEN или TELEGRAM_BOT_CHAT_ID не установлены');
     return;
@@ -68,8 +75,8 @@ export async function sendTelegramReport(): Promise<void> {
   const failedAll = (st.failed || 0) + (st.broken || 0);
 
   // Определяем статус и эмодзи
-  const status = process.env.DEPLOYMENT_STATUS || 'unknown';
-  const statusEmoji = status === 'success' ? '✅' : status === 'failed' ? '❌' : '⚠️';
+  const status = process.env.DEPLOYMENT_STATUS || 'completed';
+  const statusEmoji = status === 'success' ? '✅' : status === 'failed' ? '❌' : '✅';
   const isSuccess = failedAll === 0 && total > 0;
 
   const lines = [
@@ -98,7 +105,10 @@ export async function sendTelegramReport(): Promise<void> {
   if (process.env.REPORT_URL) lines.push(`📊 Отчет: ${process.env.REPORT_URL}`);
   if (process.env.WORKFLOW_URL) lines.push(`🔄 Workflow: ${process.env.WORKFLOW_URL}`);
 
-  lines.push('', `${statusEmoji} Статус: ${status.toUpperCase()}`);
+  lines.push('');
+  if (status === 'success' || status === 'failed') {
+    lines.push(`${statusEmoji} Статус: ${status.toUpperCase()}`);
+  }
 
   const stickerOk = 'CAACAgIAAxkBAAEHLwhuj9603ykDs1koRNLhtXScXBl-ygACNwADxrpkA4PqaByeU1kyLQQ';
   const stickerFail = 'CAACAgIAAxkBAAEHLwzju96jPuGKRaneTpNOu-Rh0jtiAACMgADxrpkA-VxdzgJnnpLQQ';
