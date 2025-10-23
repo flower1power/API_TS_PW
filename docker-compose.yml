@@ -6,28 +6,25 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./allure-results:/usr/workspace/allure-results
-    command:
-      [
-        "sh",
-        "-c",
-        "npx playwright test --project=$$PROJECT --workers=$$WORKERS",
-      ]
+    command: ['sh', '-c', 'npx playwright test --project=$$PROJECT --workers=$$WORKERS']
     environment:
       PROJECT: ${PROJECT:-smoke}
       WORKERS: ${WORKERS:-4}
+      TELEGRAM_BOT_CHAT_ID: ${TELEGRAM_BOT_CHAT_ID}
+      TELEGRAM_BOT_ACCESS_TOKEN: ${TELEGRAM_BOT_ACCESS_TOKEN}
     tty: true
 
   regression-tests:
-    build: .
+    image: test_pw:v1
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - ./allure-results:/usr/workspace/allure-results
-    command:
-      [
-        "sh",
-        "-c",
-        "npx playwright test --project=$$PROJECT --workers=$$WORKERS",
-      ]
+    command: ['sh', '-c', 'npx playwright test --project=$$PROJECT --workers=$$WORKERS']
     environment:
       PROJECT: ${PROJECT:-regression}
       WORKERS: ${WORKERS:-4}
+      TELEGRAM_BOT_CHAT_ID: ${TELEGRAM_BOT_CHAT_ID}
+      TELEGRAM_BOT_ACCESS_TOKEN: ${TELEGRAM_BOT_ACCESS_TOKEN}
     tty: true
