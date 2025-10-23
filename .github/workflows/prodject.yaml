@@ -48,9 +48,13 @@ jobs:
           ref: gh-pages
           path: ./.github/gh-pages
 
-      - name: Prepare Allure environment
+      - name: Prepare Allure environment and history
         run: |
-          mkdir -p allure-results
+          rm -rf allure-results allure-report
+          mkdir -p allure-results/history
+          if [ -d "./.github/gh-pages/history" ]; then
+            cp -R ./.github/gh-pages/history/* allure-results/history/
+          fi
           echo "Branch=${{ github.ref_name }}" > allure-results/environment.properties
           echo "Commit=${{ github.sha }}" >> allure-results/environment.properties
           echo "Environment=${{ inputs.ENV }}" >> allure-results/environment.properties
@@ -66,13 +70,6 @@ jobs:
           TELEGRAM_BOT_CHAT_ID: ${{secrets.TELEGRAM_BOT_CHAT_ID}}
           TELEGRAM_BOT_ACCESS_TOKEN: ${{secrets.TELEGRAM_BOT_ACCESS_TOKEN}}
         run: docker compose up tests
-
-      - name: Copy Allure history
-        run: |
-          mkdir -p allure-results/history
-          if [ -d "./.github/gh-pages/history" ]; then
-            cp -R ./.github/gh-pages/history/* allure-results/history/
-          fi
 
       - name: Generate Allure-report
         env:
