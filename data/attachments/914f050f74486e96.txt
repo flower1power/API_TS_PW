@@ -1,0 +1,270 @@
+{
+    "event": "Request",
+    "eventId": "b71130fb-53b1-4513-a327-2cde93a889e4",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Curtis.Strosin1623_10_2025__16_23_06",
+        "email": "Curtis.Strosin1623_10_2025__16_23_06_McClure10@hotmail.com",
+        "password": "sobedenuju"
+    },
+    "data": {
+        "login": "Curtis.Strosin1623_10_2025__16_23_06",
+        "email": "Curtis.Strosin1623_10_2025__16_23_06_McClure10@hotmail.com",
+        "password": "sobedenuju"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"Curtis.Strosin1623_10_2025__16_23_06","email":"Curtis.Strosin1623_10_2025__16_23_06_McClure10@hotmail.com","password":"sobedenuju"}'
+{
+    "event": "Response",
+    "eventId": "b71130fb-53b1-4513-a327-2cde93a889e4",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:23:06 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Curtis.Strosin1623_10_2025__16_23_06"
+    },
+    "json": {}
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "f78e3587-b858-420d-8ac6-853476cf9e7f",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/663d9b17-8823-4bb5-b26d-c1832f7bb0f7",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/663d9b17-8823-4bb5-b26d-c1832f7bb0f7' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "f78e3587-b858-420d-8ac6-853476cf9e7f",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:23:08 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Curtis.Strosin1623_10_2025__16_23_06",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "f74d8f2f-b967-4779-ab5e-fca8bf1aeb15",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Curtis.Strosin1623_10_2025__16_23_06",
+        "password": "sobedenuju",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Curtis.Strosin1623_10_2025__16_23_06",
+        "password": "sobedenuju",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Curtis.Strosin1623_10_2025__16_23_06","password":"sobedenuju","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "f74d8f2f-b967-4779-ab5e-fca8bf1aeb15",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:23:08 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5AVE7iLSXfI3tzndS0uLNxByipX4J61/Y/ayt03MqiunX8rPT8WOIImZO9EdNnhJoRMaps1URBVaI+E4DmkQ7rFATvhk9EXwOGOZQwn/ROxqgqwrh4If/ntg8Bj/ejv1jA="
+    },
+    "json": {
+        "resource": {
+            "login": "Curtis.Strosin1623_10_2025__16_23_06",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:23:07.252788+00:00"
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "793f603d-ac0f-4123-ac95-4f708dee259b",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/email",
+    "headers": {},
+    "json": {
+        "login": "Curtis.Strosin1623_10_2025__16_23_06",
+        "password": "sobedenuju",
+        "email": "Curtis.Strosin1623_10_2025__16_23_06vFds@mail.ru"
+    },
+    "data": {
+        "login": "Curtis.Strosin1623_10_2025__16_23_06",
+        "password": "sobedenuju",
+        "email": "Curtis.Strosin1623_10_2025__16_23_06vFds@mail.ru"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/email' -d '{"login":"Curtis.Strosin1623_10_2025__16_23_06","password":"sobedenuju","email":"Curtis.Strosin1623_10_2025__16_23_06vFds@mail.ru"}'
+{
+    "event": "Response",
+    "eventId": "793f603d-ac0f-4123-ac95-4f708dee259b",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:23:09 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Curtis.Strosin1623_10_2025__16_23_06",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "99e34df9-cf31-49a5-9f8d-d2c097a2dd80",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Curtis.Strosin1623_10_2025__16_23_06",
+        "password": "sobedenuju",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Curtis.Strosin1623_10_2025__16_23_06",
+        "password": "sobedenuju",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Curtis.Strosin1623_10_2025__16_23_06","password":"sobedenuju","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "99e34df9-cf31-49a5-9f8d-d2c097a2dd80",
+    "status_code": 403,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:23:09 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "type": "https://tools.ietf.org/html/rfc7231#section-6.5.3",
+        "title": "User is inactive. Address the technical support for more details",
+        "status": 403,
+        "traceId": "00-cae6d7d7635c7aa44215d60021877ad0-9bec6e38bdaf5dc1-01"
+    }
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "cd4fd61e-c226-4e77-827e-4f2107b319bf",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/ac310d38-e99d-4c0f-8842-b5b2a492bbb1",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/ac310d38-e99d-4c0f-8842-b5b2a492bbb1' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "cd4fd61e-c226-4e77-827e-4f2107b319bf",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:23:09 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Curtis.Strosin1623_10_2025__16_23_06",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "8e89c87f-1d72-468e-9abe-3821c39ebfc0",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Curtis.Strosin1623_10_2025__16_23_06",
+        "password": "sobedenuju",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Curtis.Strosin1623_10_2025__16_23_06",
+        "password": "sobedenuju",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Curtis.Strosin1623_10_2025__16_23_06","password":"sobedenuju","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "8e89c87f-1d72-468e-9abe-3821c39ebfc0",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:23:10 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5AVE7iLSXfI3tzndS0uLNxByipX4J61/Y/ayt03MqiunX8rPT8WOIImZO9EdNnhJoR7pbSZlVSGVdejsL+ttglQDDzKjdG1q5XNsit++o7z7J2Ah4G0H269Lx0fH7LtgKA="
+    },
+    "json": {
+        "resource": {
+            "login": "Curtis.Strosin1623_10_2025__16_23_06",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:23:07.252788+00:00"
+        }
+    }
+}

@@ -1,0 +1,258 @@
+{
+    "event": "Request",
+    "eventId": "3f894ff4-3bcf-4284-a41c-4f5bd7f22034",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Lora7123_10_2025__16_23_06",
+        "email": "Lora7123_10_2025__16_23_06_Johns@gmail.com",
+        "password": "duqujalasu"
+    },
+    "data": {
+        "login": "Lora7123_10_2025__16_23_06",
+        "email": "Lora7123_10_2025__16_23_06_Johns@gmail.com",
+        "password": "duqujalasu"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"Lora7123_10_2025__16_23_06","email":"Lora7123_10_2025__16_23_06_Johns@gmail.com","password":"duqujalasu"}'
+{
+    "event": "Response",
+    "eventId": "3f894ff4-3bcf-4284-a41c-4f5bd7f22034",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:23:06 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Lora7123_10_2025__16_23_06"
+    },
+    "json": {}
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "5f3c6715-4f4f-4817-a2ed-ac6236a6f31c",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/727143bc-5d7a-4ffe-a89d-0c99d5d92f87",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/727143bc-5d7a-4ffe-a89d-0c99d5d92f87' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "5f3c6715-4f4f-4817-a2ed-ac6236a6f31c",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:23:08 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Lora7123_10_2025__16_23_06",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "49a95e9d-c4ab-4f1c-839f-5fe0703b9d3a",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Lora7123_10_2025__16_23_06",
+        "password": "duqujalasu",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Lora7123_10_2025__16_23_06",
+        "password": "duqujalasu",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Lora7123_10_2025__16_23_06","password":"duqujalasu","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "49a95e9d-c4ab-4f1c-839f-5fe0703b9d3a",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:23:08 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5B3KTCW57DqRNrpwefhFIJtadCUBkoQrW09SiAcSThnDwXnPkVlpDEUslfwFL53OKGRGPv/8d01MCCfk7oSsJeF09tPcvUpEi2PttqNmUvcHufTFISWcbQtpwOg/FV8obQ="
+    },
+    "json": {
+        "resource": {
+            "login": "Lora7123_10_2025__16_23_06",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:23:07.226755+00:00"
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "db500f89-9f33-485b-9f80-81f9aadde259",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/password",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5B3KTCW57DqRNrpwefhFIJtadCUBkoQrW09SiAcSThnDwXnPkVlpDEUslfwFL53OKGRGPv/8d01MCCfk7oSsJeF09tPcvUpEi2PttqNmUvcHufTFISWcbQtpwOg/FV8obQ="
+    },
+    "json": {
+        "login": "Lora7123_10_2025__16_23_06",
+        "email": "Lora7123_10_2025__16_23_06_Johns@gmail.com"
+    },
+    "data": {
+        "login": "Lora7123_10_2025__16_23_06",
+        "email": "Lora7123_10_2025__16_23_06_Johns@gmail.com"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/password' -H 'x-dm-auth-token: IQJh+zgzF5B3KTCW57DqRNrpwefhFIJtadCUBkoQrW09SiAcSThnDwXnPkVlpDEUslfwFL53OKGRGPv/8d01MCCfk7oSsJeF09tPcvUpEi2PttqNmUvcHufTFISWcbQtpwOg/FV8obQ=' -d '{"login":"Lora7123_10_2025__16_23_06","email":"Lora7123_10_2025__16_23_06_Johns@gmail.com"}'
+{
+    "event": "Response",
+    "eventId": "db500f89-9f33-485b-9f80-81f9aadde259",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:23:09 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5B3KTCW57DqRNrpwefhFIJtadCUBkoQrW09SiAcSThnDwXnPkVlpDEUslfwFL53OKGRGPv/8d01MCCfk7oSsJeF09tPcvUpEi2PttqNmUvcHufTFISWcbQtpwOg/FV8obQ="
+    },
+    "json": {
+        "resource": {
+            "login": "Lora7123_10_2025__16_23_06",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "online": "2025-10-23T16:23:09.887345+00:00",
+            "registration": "2025-10-23T16:23:07.226755+00:00"
+        },
+        "metadata": {
+            "email": "Lo..s@gm..m"
+        }
+    }
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "4509b83f-f4b3-406c-bb60-c1e3ea4e3057",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/password",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5B3KTCW57DqRNrpwefhFIJtadCUBkoQrW09SiAcSThnDwXnPkVlpDEUslfwFL53OKGRGPv/8d01MCCfk7oSsJeF09tPcvUpEi2PttqNmUvcHufTFISWcbQtpwOg/FV8obQ="
+    },
+    "json": {
+        "login": "Lora7123_10_2025__16_23_06",
+        "token": "cd937310-b488-4b76-9d7e-1202b54a2839",
+        "oldPassword": "duqujalasu",
+        "newPassword": "civapaqata"
+    },
+    "data": {
+        "login": "Lora7123_10_2025__16_23_06",
+        "token": "cd937310-b488-4b76-9d7e-1202b54a2839",
+        "oldPassword": "duqujalasu",
+        "newPassword": "civapaqata"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/password' -H 'x-dm-auth-token: IQJh+zgzF5B3KTCW57DqRNrpwefhFIJtadCUBkoQrW09SiAcSThnDwXnPkVlpDEUslfwFL53OKGRGPv/8d01MCCfk7oSsJeF09tPcvUpEi2PttqNmUvcHufTFISWcbQtpwOg/FV8obQ=' -d '{"login":"Lora7123_10_2025__16_23_06","token":"cd937310-b488-4b76-9d7e-1202b54a2839","oldPassword":"duqujalasu","newPassword":"civapaqata"}'
+{
+    "event": "Response",
+    "eventId": "4509b83f-f4b3-406c-bb60-c1e3ea4e3057",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:23:09 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5B3KTCW57DqRNrpwefhFIJtadCUBkoQrW09SiAcSThnDwXnPkVlpDEUslfwFL53OKGRGPv/8d01MCCfk7oSsJeF09tPcvUpEi2PttqNmUvcHufTFISWcbQtpwOg/FV8obQ="
+    },
+    "json": {
+        "resource": {
+            "login": "Lora7123_10_2025__16_23_06",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "online": "2025-10-23T16:23:09.887345+00:00"
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "a10aebbc-8ba3-4ce8-afe0-44b85238a304",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5B3KTCW57DqRNrpwefhFIJtadCUBkoQrW09SiAcSThnDwXnPkVlpDEUslfwFL53OKGRGPv/8d01MCCfk7oSsJeF09tPcvUpEi2PttqNmUvcHufTFISWcbQtpwOg/FV8obQ="
+    },
+    "json": {
+        "login": "Lora7123_10_2025__16_23_06",
+        "password": "civapaqata",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Lora7123_10_2025__16_23_06",
+        "password": "civapaqata",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -H 'x-dm-auth-token: IQJh+zgzF5B3KTCW57DqRNrpwefhFIJtadCUBkoQrW09SiAcSThnDwXnPkVlpDEUslfwFL53OKGRGPv/8d01MCCfk7oSsJeF09tPcvUpEi2PttqNmUvcHufTFISWcbQtpwOg/FV8obQ=' -d '{"login":"Lora7123_10_2025__16_23_06","password":"civapaqata","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "a10aebbc-8ba3-4ce8-afe0-44b85238a304",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:23:10 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5B3KTCW57DqRNrpwefhFIJtadCUBkoQrW09SiAcSThnDwXnPkVlpDEUslfwFL53OKEYvxkAd06VEYgEP5TQBL0z3mCEfQLW8+HYc/Gp4ocYdR37s+aDZmnvdrE5D4QEL2o="
+    },
+    "json": {
+        "resource": {
+            "login": "Lora7123_10_2025__16_23_06",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "online": "2025-10-23T16:23:09.887345+00:00",
+            "registration": "2025-10-23T16:23:07.226755+00:00"
+        }
+    }
+}

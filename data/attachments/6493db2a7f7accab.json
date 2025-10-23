@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "2bfa6c90-44c8-4f0a-8448-a6785f582a2d",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Amber8423_10_2025__16_23_06",
+        "email": "Amber8423_10_2025__16_23_06.Murazik@yahoo.com",
+        "password": "kiheduvapo"
+    },
+    "data": {
+        "login": "Amber8423_10_2025__16_23_06",
+        "email": "Amber8423_10_2025__16_23_06.Murazik@yahoo.com",
+        "password": "kiheduvapo"
+    }
+}

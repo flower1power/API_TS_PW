@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "6f70ad0e-7cff-40b4-b973-45581ab4ccb6",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Stacey1223_10_2025__16_23_10",
+        "password": "tukeyuyesu",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Stacey1223_10_2025__16_23_10",
+        "password": "tukeyuyesu",
+        "rememberMe": true
+    }
+}

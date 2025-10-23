@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "95583464-a97f-4211-9a12-7172103adb01",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "M",
+        "email": "Una.Baumbach0@yahoo.com",
+        "password": "h81wuBwX02"
+    },
+    "data": {
+        "login": "M",
+        "email": "Una.Baumbach0@yahoo.com",
+        "password": "h81wuBwX02"
+    }
+}

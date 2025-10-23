@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "793f603d-ac0f-4123-ac95-4f708dee259b",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/email",
+    "headers": {},
+    "json": {
+        "login": "Curtis.Strosin1623_10_2025__16_23_06",
+        "password": "sobedenuju",
+        "email": "Curtis.Strosin1623_10_2025__16_23_06vFds@mail.ru"
+    },
+    "data": {
+        "login": "Curtis.Strosin1623_10_2025__16_23_06",
+        "password": "sobedenuju",
+        "email": "Curtis.Strosin1623_10_2025__16_23_06vFds@mail.ru"
+    }
+}

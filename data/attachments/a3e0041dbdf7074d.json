@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "ce7109cc-5b71-4f66-9753-26d250e0c8d8",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:23:10 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Stacey1223_10_2025__16_23_10"
+    },
+    "json": {}
+}

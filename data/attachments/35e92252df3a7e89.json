@@ -1,0 +1,27 @@
+{
+    "event": "Response",
+    "eventId": "121686e3-1c59-445d-9f46-b796baf3f63d",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:23:11 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5AEN4tbLW9EGgCvLBUEQv2XdjQ8DiUvn8Kyd/dpMzmdls0fS0nJlsEskaVo0Yfs/BSlkWxfweTPRFoyztdy1OJvk1uju6l/0ryYBiIjaqpaWfccNUWcOri2yOunQXJK8Tg="
+    },
+    "json": {
+        "resource": {
+            "login": "Toni_Satterfield3823_10_2025__16_23_11",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:23:11.556603+00:00"
+        }
+    }
+}

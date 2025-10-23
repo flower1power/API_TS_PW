@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "3f894ff4-3bcf-4284-a41c-4f5bd7f22034",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:23:06 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Lora7123_10_2025__16_23_06"
+    },
+    "json": {}
+}

@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "e6bd8fcd-37a6-498f-b990-302e55bf5efb",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "GageHilpert_23.10.2025,_16_23_10",
+        "email": "Oliver59@gmail.com",
+        "password": "1H5yF"
+    },
+    "data": {
+        "login": "GageHilpert_23.10.2025,_16_23_10",
+        "email": "Oliver59@gmail.com",
+        "password": "1H5yF"
+    }
+}

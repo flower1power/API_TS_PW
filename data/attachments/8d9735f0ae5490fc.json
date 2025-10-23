@@ -1,0 +1,21 @@
+{
+    "event": "Request",
+    "eventId": "4509b83f-f4b3-406c-bb60-c1e3ea4e3057",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/password",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5B3KTCW57DqRNrpwefhFIJtadCUBkoQrW09SiAcSThnDwXnPkVlpDEUslfwFL53OKGRGPv/8d01MCCfk7oSsJeF09tPcvUpEi2PttqNmUvcHufTFISWcbQtpwOg/FV8obQ="
+    },
+    "json": {
+        "login": "Lora7123_10_2025__16_23_06",
+        "token": "cd937310-b488-4b76-9d7e-1202b54a2839",
+        "oldPassword": "duqujalasu",
+        "newPassword": "civapaqata"
+    },
+    "data": {
+        "login": "Lora7123_10_2025__16_23_06",
+        "token": "cd937310-b488-4b76-9d7e-1202b54a2839",
+        "oldPassword": "duqujalasu",
+        "newPassword": "civapaqata"
+    }
+}

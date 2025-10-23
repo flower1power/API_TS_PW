@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "4428f1c2-7819-4f75-92a1-6f1ccab1e73c",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Toni_Satterfield3823_10_2025__16_23_11",
+        "email": "Toni_Satterfield3823_10_2025__16_23_1136@gmail.com",
+        "password": "gipuxajeyo"
+    },
+    "data": {
+        "login": "Toni_Satterfield3823_10_2025__16_23_11",
+        "email": "Toni_Satterfield3823_10_2025__16_23_1136@gmail.com",
+        "password": "gipuxajeyo"
+    }
+}

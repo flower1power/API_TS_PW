@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "db500f89-9f33-485b-9f80-81f9aadde259",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/password",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5B3KTCW57DqRNrpwefhFIJtadCUBkoQrW09SiAcSThnDwXnPkVlpDEUslfwFL53OKGRGPv/8d01MCCfk7oSsJeF09tPcvUpEi2PttqNmUvcHufTFISWcbQtpwOg/FV8obQ="
+    },
+    "json": {
+        "login": "Lora7123_10_2025__16_23_06",
+        "email": "Lora7123_10_2025__16_23_06_Johns@gmail.com"
+    },
+    "data": {
+        "login": "Lora7123_10_2025__16_23_06",
+        "email": "Lora7123_10_2025__16_23_06_Johns@gmail.com"
+    }
+}

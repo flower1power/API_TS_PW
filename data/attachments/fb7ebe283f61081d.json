@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "49a95e9d-c4ab-4f1c-839f-5fe0703b9d3a",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Lora7123_10_2025__16_23_06",
+        "password": "duqujalasu",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Lora7123_10_2025__16_23_06",
+        "password": "duqujalasu",
+        "rememberMe": true
+    }
+}

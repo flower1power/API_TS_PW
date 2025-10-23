@@ -1,0 +1,19 @@
+{
+    "event": "Request",
+    "eventId": "a10aebbc-8ba3-4ce8-afe0-44b85238a304",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5B3KTCW57DqRNrpwefhFIJtadCUBkoQrW09SiAcSThnDwXnPkVlpDEUslfwFL53OKGRGPv/8d01MCCfk7oSsJeF09tPcvUpEi2PttqNmUvcHufTFISWcbQtpwOg/FV8obQ="
+    },
+    "json": {
+        "login": "Lora7123_10_2025__16_23_06",
+        "password": "civapaqata",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Lora7123_10_2025__16_23_06",
+        "password": "civapaqata",
+        "rememberMe": true
+    }
+}

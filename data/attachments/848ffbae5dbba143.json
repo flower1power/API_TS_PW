@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "b71130fb-53b1-4513-a327-2cde93a889e4",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:23:06 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Curtis.Strosin1623_10_2025__16_23_06"
+    },
+    "json": {}
+}

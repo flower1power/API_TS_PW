@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "eb0c26db-76d4-4f98-93f3-096d5f3e8daf",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Aurore.Ryan23_10_2025__16_23_09",
+        "email": "Aurore.Ryan23_10_2025__16_23_09_Kertzmann98@gmail.com",
+        "password": "hixuroyavo"
+    },
+    "data": {
+        "login": "Aurore.Ryan23_10_2025__16_23_09",
+        "email": "Aurore.Ryan23_10_2025__16_23_09_Kertzmann98@gmail.com",
+        "password": "hixuroyavo"
+    }
+}

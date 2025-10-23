@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "2bfa6c90-44c8-4f0a-8448-a6785f582a2d",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:23:06 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Amber8423_10_2025__16_23_06"
+    },
+    "json": {}
+}

@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "245602c8-7911-4f33-acb3-df2402111d8b",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "MoseDibbert_23.10.2025,_16_23_11",
+        "email": "Elta12hotmail.com",
+        "password": "4Wf8OeN9UJ"
+    },
+    "data": {
+        "login": "MoseDibbert_23.10.2025,_16_23_11",
+        "email": "Elta12hotmail.com",
+        "password": "4Wf8OeN9UJ"
+    }
+}

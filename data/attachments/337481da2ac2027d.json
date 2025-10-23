@@ -1,0 +1,28 @@
+{
+    "event": "Response",
+    "eventId": "a10aebbc-8ba3-4ce8-afe0-44b85238a304",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:23:10 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5B3KTCW57DqRNrpwefhFIJtadCUBkoQrW09SiAcSThnDwXnPkVlpDEUslfwFL53OKEYvxkAd06VEYgEP5TQBL0z3mCEfQLW8+HYc/Gp4ocYdR37s+aDZmnvdrE5D4QEL2o="
+    },
+    "json": {
+        "resource": {
+            "login": "Lora7123_10_2025__16_23_06",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "online": "2025-10-23T16:23:09.887345+00:00",
+            "registration": "2025-10-23T16:23:07.226755+00:00"
+        }
+    }
+}

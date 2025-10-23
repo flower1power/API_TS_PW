@@ -1,0 +1,1 @@
+curl -X PUT 'http://5.63.153.31:5051/v1/account/password' -H 'x-dm-auth-token: IQJh+zgzF5B3KTCW57DqRNrpwefhFIJtadCUBkoQrW09SiAcSThnDwXnPkVlpDEUslfwFL53OKGRGPv/8d01MCCfk7oSsJeF09tPcvUpEi2PttqNmUvcHufTFISWcbQtpwOg/FV8obQ=' -d '{"login":"Lora7123_10_2025__16_23_06","token":"cd937310-b488-4b76-9d7e-1202b54a2839","oldPassword":"duqujalasu","newPassword":"civapaqata"}'

@@ -1,0 +1,134 @@
+{
+    "event": "Request",
+    "eventId": "2bfa6c90-44c8-4f0a-8448-a6785f582a2d",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Amber8423_10_2025__16_23_06",
+        "email": "Amber8423_10_2025__16_23_06.Murazik@yahoo.com",
+        "password": "kiheduvapo"
+    },
+    "data": {
+        "login": "Amber8423_10_2025__16_23_06",
+        "email": "Amber8423_10_2025__16_23_06.Murazik@yahoo.com",
+        "password": "kiheduvapo"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"Amber8423_10_2025__16_23_06","email":"Amber8423_10_2025__16_23_06.Murazik@yahoo.com","password":"kiheduvapo"}'
+{
+    "event": "Response",
+    "eventId": "2bfa6c90-44c8-4f0a-8448-a6785f582a2d",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:23:06 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Amber8423_10_2025__16_23_06"
+    },
+    "json": {}
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "b4cd0f17-8caf-4894-ac47-c952f6898ee4",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/7e7c5d48-4220-438e-b83e-220a683c4cab",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/7e7c5d48-4220-438e-b83e-220a683c4cab' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "b4cd0f17-8caf-4894-ac47-c952f6898ee4",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:23:08 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Amber8423_10_2025__16_23_06",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "7029ac00-0e6b-4254-a0c1-08ea3a9b9c92",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Amber8423_10_2025__16_23_06",
+        "password": "kiheduvapo",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Amber8423_10_2025__16_23_06",
+        "password": "kiheduvapo",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Amber8423_10_2025__16_23_06","password":"kiheduvapo","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "7029ac00-0e6b-4254-a0c1-08ea3a9b9c92",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:23:08 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5CrvgPAmWd//GURUc4H4Zrm5zsP+3mIjOPi3OxWw9F+gQVMG2A9WtthlCxIcH9PLV0ilY3VBgK94u3eTz+ZD9WpA5Ud5EukYN3y4RrVVbDiKo1AxGHjG6CgiwP3qrQhy7g="
+    },
+    "json": {
+        "resource": {
+            "login": "Amber8423_10_2025__16_23_06",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:23:07.280846+00:00"
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "ab7248f9-35b3-4499-8e8c-01e94b03c5be",
+    "method": "DELETE",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5CrvgPAmWd//GURUc4H4Zrm5zsP+3mIjOPi3OxWw9F+gQVMG2A9WtthlCxIcH9PLV0ilY3VBgK94u3eTz+ZD9WpA5Ud5EukYN3y4RrVVbDiKo1AxGHjG6CgiwP3qrQhy7g="
+    }
+}
+curl -X DELETE 'http://5.63.153.31:5051/v1/account/login' -H 'x-dm-auth-token: IQJh+zgzF5CrvgPAmWd//GURUc4H4Zrm5zsP+3mIjOPi3OxWw9F+gQVMG2A9WtthlCxIcH9PLV0ilY3VBgK94u3eTz+ZD9WpA5Ud5EukYN3y4RrVVbDiKo1AxGHjG6CgiwP3qrQhy7g='
+{
+    "event": "Response",
+    "eventId": "ab7248f9-35b3-4499-8e8c-01e94b03c5be",
+    "status_code": 204,
+    "headers": {
+        "date": "Thu, 23 Oct 2025 16:23:09 GMT",
+        "server": "Kestrel"
+    },
+    "json": {}
+}
+APIResponse: 204 No Content
+  Date: Thu, 23 Oct 2025 16:23:09 GMT
+  Server: Kestrel

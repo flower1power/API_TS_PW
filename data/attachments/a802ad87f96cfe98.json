@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "2939feff-3057-4452-a850-edf268f3d577",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Anibal.Kertzmann23_10_2025__16_23_06",
+        "password": "yaviqariva",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Anibal.Kertzmann23_10_2025__16_23_06",
+        "password": "yaviqariva",
+        "rememberMe": true
+    }
+}

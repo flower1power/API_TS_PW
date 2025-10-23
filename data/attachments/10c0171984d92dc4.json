@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "8e89c87f-1d72-468e-9abe-3821c39ebfc0",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Curtis.Strosin1623_10_2025__16_23_06",
+        "password": "sobedenuju",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Curtis.Strosin1623_10_2025__16_23_06",
+        "password": "sobedenuju",
+        "rememberMe": true
+    }
+}

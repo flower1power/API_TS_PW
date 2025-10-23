@@ -1,0 +1,1 @@
+curl -X POST 'http://5.63.153.31:5051/v1/account/password' -H 'x-dm-auth-token: IQJh+zgzF5B3KTCW57DqRNrpwefhFIJtadCUBkoQrW09SiAcSThnDwXnPkVlpDEUslfwFL53OKGRGPv/8d01MCCfk7oSsJeF09tPcvUpEi2PttqNmUvcHufTFISWcbQtpwOg/FV8obQ=' -d '{"login":"Lora7123_10_2025__16_23_06","email":"Lora7123_10_2025__16_23_06_Johns@gmail.com"}'

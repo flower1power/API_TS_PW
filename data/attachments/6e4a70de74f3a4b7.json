@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "7029ac00-0e6b-4254-a0c1-08ea3a9b9c92",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Amber8423_10_2025__16_23_06",
+        "password": "kiheduvapo",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Amber8423_10_2025__16_23_06",
+        "password": "kiheduvapo",
+        "rememberMe": true
+    }
+}
