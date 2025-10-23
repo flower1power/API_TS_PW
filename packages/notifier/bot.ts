@@ -38,7 +38,10 @@ export async function sendTelegramReport(): Promise<void> {
   const token = process.env.TELEGRAM_BOT_ACCESS_TOKEN;
   const chatId = process.env.TELEGRAM_BOT_CHAT_ID;
 
-  if (!token || !chatId) return;
+  if (!token || !chatId) {
+    console.error('❌ TELEGRAM_BOT_ACCESS_TOKEN или TELEGRAM_BOT_CHAT_ID не установлены');
+    return;
+  }
 
   const bot = new Bot(token);
   const root = path.resolve(__dirname, '../..');
@@ -48,8 +51,14 @@ export async function sendTelegramReport(): Promise<void> {
 
   try {
     data = JSON.parse(fs.readFileSync(summaryPath, 'utf-8'));
-  } catch {
-    await bot.api.sendMessage(chatId, '❌ Не удалось прочитать Allure summary.json');
+  } catch (error) {
+    console.error('❌ Ошибка чтения summary.json:', error);
+    await bot.api.sendMessage(
+      chatId,
+      '❌ Не удалось прочитать Allure summary.json\n' +
+        `Возможно, тесты не завершились или отчет не сгенерировался.\n\n` +
+        (process.env.WORKFLOW_URL ? `🔗 Workflow: ${process.env.WORKFLOW_URL}` : ''),
+    );
     return;
   }
 
@@ -58,40 +67,50 @@ export async function sendTelegramReport(): Promise<void> {
   const total = st.total ?? st.passed + st.failed + st.skipped + st.broken + st.unknown;
   const failedAll = (st.failed || 0) + (st.broken || 0);
 
+  // Определяем статус и эмодзи
+  const status = process.env.DEPLOYMENT_STATUS || 'unknown';
+  const statusEmoji = status === 'success' ? '✅' : status === 'failed' ? '❌' : '⚠️';
+  const isSuccess = failedAll === 0 && total > 0;
+
   const lines = [
-    '---------- Test report ----------',
-    '🕘 Datetime start testing:',
-    fmtDate(time.start),
-    '🕙 Datetime end testing:',
-    fmtDate(time.stop),
-    '🕙 Test duration:',
-    fmtDur((time.stop || 0) - (time.start || 0)),
+    `${statusEmoji} ========== Test Report ==========`,
     '',
-    `🎮 Count tests: ${total}`,
-    `🔴 Tests failed: ${failedAll}`,
-    `🟢 Tests passed: ${st.passed || 0}`,
-    `🟢 Tests skipped: ${st.skipped || 0}`,
+    '📊 **Результаты тестирования:**',
+    `🎮 Всего тестов: ${total}`,
+    `${isSuccess ? '✅' : '❌'} Passed: ${st.passed || 0} (${percent(st.passed || 0, total)}%)`,
+    `${failedAll > 0 ? '🔴' : '⚪'} Failed: ${failedAll} (${percent(failedAll, total)}%)`,
+    `⏭️ Skipped: ${st.skipped || 0} (${percent(st.skipped || 0, total)}%)`,
     '',
-    `# Percentage of tests passed: ${percent(st.passed || 0, total)}%`,
-    `# Percentage of tests failed: ${percent(failedAll, total)}%`,
-    `# Percentage of tests skipped: ${percent(st.skipped || 0, total)}%`,
+    '⏱️ **Время выполнения:**',
+    `📅 Начало: ${fmtDate(time.start)}`,
+    `📅 Конец: ${fmtDate(time.stop)}`,
+    `⏳ Длительность: ${fmtDur((time.stop || 0) - (time.start || 0))}`,
     '',
-    '',
-    '------- Additional fields -------',
-    'report: https://flower1power.github.io/API_TS_PW/',
+    '🔧 **Конфигурация:**',
   ];
 
-  if (process.env.REPORT_ENV) lines.push(`▪ enviroment: ${process.env.REPORT_ENV}`);
-  if (process.env.REPORT_URL) lines.push(`▪ report: ${process.env.REPORT_URL}`);
-  if (process.env.DEPLOYMENT_STATUS) lines.push(`▪ Status: ${process.env.DEPLOYMENT_STATUS}`);
-  if (process.env.WORKFLOW_URL) lines.push(`▪ Workflow: ${process.env.WORKFLOW_URL}`);
+  if (process.env.REPORT_ENV) lines.push(`▪️ Environment: ${process.env.REPORT_ENV}`);
+  if (process.env.PROJECT) lines.push(`▪️ Project: ${process.env.PROJECT}`);
+  if (process.env.WORKERS) lines.push(`▪️ Workers: ${process.env.WORKERS}`);
+  if (process.env.GITHUB_ACTOR) lines.push(`▪️ Запустил: @${process.env.GITHUB_ACTOR}`);
 
-  lines.push('', 'I CALL: -');
+  lines.push('', '🔗 **Ссылки:**');
+  if (process.env.REPORT_URL) lines.push(`📊 Отчет: ${process.env.REPORT_URL}`);
+  if (process.env.WORKFLOW_URL) lines.push(`🔄 Workflow: ${process.env.WORKFLOW_URL}`);
+
+  lines.push('', `${statusEmoji} Статус: ${status.toUpperCase()}`);
 
   const stickerOk = 'CAACAgIAAxkBAAEHLwhuj9603ykDs1koRNLhtXScXBl-ygACNwADxrpkA4PqaByeU1kyLQQ';
   const stickerFail = 'CAACAgIAAxkBAAEHLwzju96jPuGKRaneTpNOu-Rh0jtiAACMgADxrpkA-VxdzgJnnpLQQ';
-  await bot.api.sendSticker(chatId, failedAll > 0 ? stickerFail : stickerOk);
-  await bot.api.sendMessage(chatId, lines.join('\n'));
+
+  try {
+    await bot.api.sendSticker(chatId, isSuccess ? stickerOk : stickerFail);
+    await bot.api.sendMessage(chatId, lines.join('\n'), { parse_mode: 'Markdown' });
+    console.log('✅ Уведомление отправлено в Telegram');
+  } catch (error) {
+    console.error('❌ Ошибка отправки в Telegram:', error);
+    throw error;
+  }
 }
 
 if (require.main === module) {
