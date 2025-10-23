@@ -33,11 +33,16 @@ jobs:
   api-tests:
     runs-on: ubuntu-latest
     environment: ${{inputs.ENV}}
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Checkout code page
+        continue-on-error: true
         uses: actions/checkout@v4
         with:
           ref: gh-pages
@@ -80,4 +85,7 @@ jobs:
           clean: false
 
       - name: Push TG
-        run: ts-node packages/notifier/bot.ts
+        env:
+          TELEGRAM_BOT_CHAT_ID: ${{secrets.TELEGRAM_BOT_CHAT_ID}}
+          TELEGRAM_BOT_ACCESS_TOKEN: ${{secrets.TELEGRAM_BOT_ACCESS_TOKEN}}
+        run: docker compose run --rm tests ts-node packages/notifier/bot.ts
