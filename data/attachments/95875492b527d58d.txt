@@ -1,0 +1,40 @@
+{
+    "event": "Request",
+    "eventId": "e8c679a1-8acd-4a29-bef4-f0f1496f31ab",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "LeoCruickshank_23.10.2025,_16_31_56",
+        "email": "Angela3gmail.com",
+        "password": "PoFR4FB8NW"
+    },
+    "data": {
+        "login": "LeoCruickshank_23.10.2025,_16_31_56",
+        "email": "Angela3gmail.com",
+        "password": "PoFR4FB8NW"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"LeoCruickshank_23.10.2025,_16_31_56","email":"Angela3gmail.com","password":"PoFR4FB8NW"}'
+{
+    "event": "Response",
+    "eventId": "e8c679a1-8acd-4a29-bef4-f0f1496f31ab",
+    "status_code": 400,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:31:56 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "type": "https://tools.ietf.org/html/rfc7231#section-6.5.1",
+        "title": "Validation failed",
+        "status": 400,
+        "traceId": "00-6a00955df90733e73c51ccab061d6df3-a492fb8fe4ce91b7-01",
+        "errors": {
+            "Email": [
+                "Invalid"
+            ]
+        }
+    }
+}

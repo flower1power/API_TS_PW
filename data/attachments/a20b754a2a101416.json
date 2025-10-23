@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "639c3cc4-e820-4db7-bb41-caf821c22e1c",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Jed.Feest23_10_2025__16_31_49",
+        "email": "Jed.Feest23_10_2025__16_31_494@yahoo.com",
+        "password": "yalijilali"
+    },
+    "data": {
+        "login": "Jed.Feest23_10_2025__16_31_49",
+        "email": "Jed.Feest23_10_2025__16_31_494@yahoo.com",
+        "password": "yalijilali"
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "event": "Request",
+    "eventId": "90cc298b-9b40-4e8d-92cb-5062d2f999b4",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5D3uprNvqzID67Edeki+B/ZNKY0NjGY7w0wQ1q0UhPsYGdgSrYWxo8JylRDpY93Pv5OOQFQom4Y0KSTGmQqild2os6NGXXID7G5b7j/rYP/gtcpiuXEn60iRmhFyyIG1Pg="
+    },
+    "json": {
+        "login": "Riley.Carroll23_10_2025__16_31_49",
+        "password": "fixatejaxi",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Riley.Carroll23_10_2025__16_31_49",
+        "password": "fixatejaxi",
+        "rememberMe": true
+    }
+}

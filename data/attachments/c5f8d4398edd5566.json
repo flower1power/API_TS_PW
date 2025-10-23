@@ -1,0 +1,27 @@
+{
+    "event": "Response",
+    "eventId": "37b3c813-d129-455e-9e72-2488d7c070db",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:31:55 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5AHC8kiDk4eiuAGed6ncnQOIBzF4KHsgMQZMVT7FCDlvYrThUJd+/kchFBe8R9TRzBqG5GhBJ3surGBDr1YsF6vyr9a46WP7mvX4LZ5ItsWwhDzshWqdhyqV6eAqGcmwFE="
+    },
+    "json": {
+        "resource": {
+            "login": "Abdullah_Hodkiewicz6323_10_2025__16_31_49",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:31:50.14382+00:00"
+        }
+    }
+}

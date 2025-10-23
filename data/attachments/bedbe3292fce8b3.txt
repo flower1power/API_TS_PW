@@ -1,0 +1,270 @@
+{
+    "event": "Request",
+    "eventId": "639c3cc4-e820-4db7-bb41-caf821c22e1c",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Jed.Feest23_10_2025__16_31_49",
+        "email": "Jed.Feest23_10_2025__16_31_494@yahoo.com",
+        "password": "yalijilali"
+    },
+    "data": {
+        "login": "Jed.Feest23_10_2025__16_31_49",
+        "email": "Jed.Feest23_10_2025__16_31_494@yahoo.com",
+        "password": "yalijilali"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"Jed.Feest23_10_2025__16_31_49","email":"Jed.Feest23_10_2025__16_31_494@yahoo.com","password":"yalijilali"}'
+{
+    "event": "Response",
+    "eventId": "639c3cc4-e820-4db7-bb41-caf821c22e1c",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:31:54 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Jed.Feest23_10_2025__16_31_49"
+    },
+    "json": {}
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "7e5688a5-7a2a-4d80-a0dc-a11eba4c6b01",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/64713858-ea76-4e2d-86e0-85794fb41e92",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/64713858-ea76-4e2d-86e0-85794fb41e92' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "7e5688a5-7a2a-4d80-a0dc-a11eba4c6b01",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:31:54 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Jed.Feest23_10_2025__16_31_49",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "01c70cb2-2e7c-4db8-8ca3-7804df6777df",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Jed.Feest23_10_2025__16_31_49",
+        "password": "yalijilali",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Jed.Feest23_10_2025__16_31_49",
+        "password": "yalijilali",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Jed.Feest23_10_2025__16_31_49","password":"yalijilali","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "01c70cb2-2e7c-4db8-8ca3-7804df6777df",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:31:55 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5DQzuCj3TCWX7FCXntymgkCBpVmosSMTvbZro5HlskzaZgbxcWnZzsUu4rsf+E2HLhGfm1fv2l/xfe0APayZmVa0bcv89oHeFs0p5JtzwV3JNJDeWC+T6NjndsoCXIMy1I="
+    },
+    "json": {
+        "resource": {
+            "login": "Jed.Feest23_10_2025__16_31_49",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:31:50.139641+00:00"
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "f6f02e5b-d7ef-4f3a-a258-44345bfa5d43",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/email",
+    "headers": {},
+    "json": {
+        "login": "Jed.Feest23_10_2025__16_31_49",
+        "password": "yalijilali",
+        "email": "Jed.Feest23_10_2025__16_31_49NJ@mail.ru"
+    },
+    "data": {
+        "login": "Jed.Feest23_10_2025__16_31_49",
+        "password": "yalijilali",
+        "email": "Jed.Feest23_10_2025__16_31_49NJ@mail.ru"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/email' -d '{"login":"Jed.Feest23_10_2025__16_31_49","password":"yalijilali","email":"Jed.Feest23_10_2025__16_31_49NJ@mail.ru"}'
+{
+    "event": "Response",
+    "eventId": "f6f02e5b-d7ef-4f3a-a258-44345bfa5d43",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:31:55 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Jed.Feest23_10_2025__16_31_49",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "fb947026-9cfe-41c2-ac6b-e21e40572b17",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Jed.Feest23_10_2025__16_31_49",
+        "password": "yalijilali",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Jed.Feest23_10_2025__16_31_49",
+        "password": "yalijilali",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Jed.Feest23_10_2025__16_31_49","password":"yalijilali","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "fb947026-9cfe-41c2-ac6b-e21e40572b17",
+    "status_code": 403,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:31:55 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "type": "https://tools.ietf.org/html/rfc7231#section-6.5.3",
+        "title": "User is inactive. Address the technical support for more details",
+        "status": 403,
+        "traceId": "00-e721c84ae232d083239240d399fe6b96-f04284bd6e567f54-01"
+    }
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "9f22a9fa-072d-45c3-ba3b-37bb239af84e",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/bd849343-04ed-463d-8bb1-7a5c42ed970b",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/bd849343-04ed-463d-8bb1-7a5c42ed970b' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "9f22a9fa-072d-45c3-ba3b-37bb239af84e",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:31:56 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Jed.Feest23_10_2025__16_31_49",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "06f0f11a-97d9-465a-8b70-9ed450e626d5",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Jed.Feest23_10_2025__16_31_49",
+        "password": "yalijilali",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Jed.Feest23_10_2025__16_31_49",
+        "password": "yalijilali",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Jed.Feest23_10_2025__16_31_49","password":"yalijilali","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "06f0f11a-97d9-465a-8b70-9ed450e626d5",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:31:56 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5DQzuCj3TCWX7FCXntymgkCBpVmosSMTvbZro5HlskzaZgbxcWnZzsUu4rsf+E2HLgIDQkZyjP6DdLCeU1D9pdboIX7Mvtd9cF6htLZK+AFWx08ewt2p7exYdWpe4mi0N4="
+    },
+    "json": {
+        "resource": {
+            "login": "Jed.Feest23_10_2025__16_31_49",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:31:50.139641+00:00"
+        }
+    }
+}

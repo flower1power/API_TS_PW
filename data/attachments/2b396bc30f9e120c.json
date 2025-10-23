@@ -1,0 +1,27 @@
+{
+    "event": "Response",
+    "eventId": "0c2aa4a6-751a-4cb8-9b0c-78601ca1cccb",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:31:58 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5AHmzhDoYJFZKQnqbBZ7uZmKCzoHZbVnU4VDdTE/zCpWjcXTyGkUcNxW13TLg8bDAfkXqLcKd2P8fdL6jJIinyOCLt+qWePPitItec58xJiPgN9HGKbxh0JJxjp+Z9tmK0="
+    },
+    "json": {
+        "resource": {
+            "login": "Shania.Johnston23_10_2025__16_31_56",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:31:57.113485+00:00"
+        }
+    }
+}

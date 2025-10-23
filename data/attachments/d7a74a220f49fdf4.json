@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "f6f02e5b-d7ef-4f3a-a258-44345bfa5d43",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/email",
+    "headers": {},
+    "json": {
+        "login": "Jed.Feest23_10_2025__16_31_49",
+        "password": "yalijilali",
+        "email": "Jed.Feest23_10_2025__16_31_49NJ@mail.ru"
+    },
+    "data": {
+        "login": "Jed.Feest23_10_2025__16_31_49",
+        "password": "yalijilali",
+        "email": "Jed.Feest23_10_2025__16_31_49NJ@mail.ru"
+    }
+}

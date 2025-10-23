@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "5dadb272-99b6-4183-809e-8a777d559da5",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Riley.Carroll23_10_2025__16_31_49",
+        "password": "luhobotoha",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Riley.Carroll23_10_2025__16_31_49",
+        "password": "luhobotoha",
+        "rememberMe": true
+    }
+}

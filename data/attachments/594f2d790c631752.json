@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "cab22eaa-8fb7-416c-9c60-756c5b94901a",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Riley.Carroll23_10_2025__16_31_49",
+        "email": "Riley.Carroll23_10_2025__16_31_49.Torp@yahoo.com",
+        "password": "luhobotoha"
+    },
+    "data": {
+        "login": "Riley.Carroll23_10_2025__16_31_49",
+        "email": "Riley.Carroll23_10_2025__16_31_49.Torp@yahoo.com",
+        "password": "luhobotoha"
+    }
+}

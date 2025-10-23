@@ -1,0 +1,1 @@
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"R","email":"Joan30@gmail.com","password":"oP4tsKOKZR"}'

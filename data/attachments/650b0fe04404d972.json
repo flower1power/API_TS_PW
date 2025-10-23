@@ -1,0 +1,21 @@
+{
+    "event": "Request",
+    "eventId": "0f3e0d03-d089-4265-ab08-9e65f2f298c1",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/password",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5D3uprNvqzID67Edeki+B/ZNKY0NjGY7w0wQ1q0UhPsYGdgSrYWxo8JylRDpY93Pv5OOQFQom4Y0KSTGmQqild2os6NGXXID7G5b7j/rYP/gtcpiuXEn60iRmhFyyIG1Pg="
+    },
+    "json": {
+        "login": "Riley.Carroll23_10_2025__16_31_49",
+        "token": "bc0069b6-5f41-4bee-84d2-397594a473f3",
+        "oldPassword": "luhobotoha",
+        "newPassword": "fixatejaxi"
+    },
+    "data": {
+        "login": "Riley.Carroll23_10_2025__16_31_49",
+        "token": "bc0069b6-5f41-4bee-84d2-397594a473f3",
+        "oldPassword": "luhobotoha",
+        "newPassword": "fixatejaxi"
+    }
+}

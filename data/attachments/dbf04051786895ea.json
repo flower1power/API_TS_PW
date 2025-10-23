@@ -1,0 +1,17 @@
+{
+    "event": "Response",
+    "eventId": "8653847d-33c5-455d-aa8c-ed13dcd0dd70",
+    "status_code": 401,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:31:56 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "type": "https://tools.ietf.org/html/rfc7235#section-3.1",
+        "title": "User must be authenticated",
+        "status": 401,
+        "traceId": "00-77c2da68d5355ea93462ff4a7de86c56-f59990a294724694-01"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "37b3c813-d129-455e-9e72-2488d7c070db",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Abdullah_Hodkiewicz6323_10_2025__16_31_49",
+        "password": "jumejudaki",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Abdullah_Hodkiewicz6323_10_2025__16_31_49",
+        "password": "jumejudaki",
+        "rememberMe": true
+    }
+}

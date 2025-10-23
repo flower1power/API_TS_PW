@@ -1,0 +1,258 @@
+{
+    "event": "Request",
+    "eventId": "cab22eaa-8fb7-416c-9c60-756c5b94901a",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Riley.Carroll23_10_2025__16_31_49",
+        "email": "Riley.Carroll23_10_2025__16_31_49.Torp@yahoo.com",
+        "password": "luhobotoha"
+    },
+    "data": {
+        "login": "Riley.Carroll23_10_2025__16_31_49",
+        "email": "Riley.Carroll23_10_2025__16_31_49.Torp@yahoo.com",
+        "password": "luhobotoha"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"Riley.Carroll23_10_2025__16_31_49","email":"Riley.Carroll23_10_2025__16_31_49.Torp@yahoo.com","password":"luhobotoha"}'
+{
+    "event": "Response",
+    "eventId": "cab22eaa-8fb7-416c-9c60-756c5b94901a",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:31:54 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Riley.Carroll23_10_2025__16_31_49"
+    },
+    "json": {}
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "b73e5eea-2ef8-4167-a654-b53560fad350",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/961898f7-4677-4bb5-9878-10e252dddd85",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/961898f7-4677-4bb5-9878-10e252dddd85' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "b73e5eea-2ef8-4167-a654-b53560fad350",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:31:54 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Riley.Carroll23_10_2025__16_31_49",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "5dadb272-99b6-4183-809e-8a777d559da5",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Riley.Carroll23_10_2025__16_31_49",
+        "password": "luhobotoha",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Riley.Carroll23_10_2025__16_31_49",
+        "password": "luhobotoha",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Riley.Carroll23_10_2025__16_31_49","password":"luhobotoha","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "5dadb272-99b6-4183-809e-8a777d559da5",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:31:55 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5D3uprNvqzID67Edeki+B/ZNKY0NjGY7w0wQ1q0UhPsYGdgSrYWxo8JylRDpY93Pv5OOQFQom4Y0KSTGmQqild2os6NGXXID7G5b7j/rYP/gtcpiuXEn60iRmhFyyIG1Pg="
+    },
+    "json": {
+        "resource": {
+            "login": "Riley.Carroll23_10_2025__16_31_49",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:31:50.157012+00:00"
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "4ea4c873-2ad3-40a1-8ad3-f48cc4c952ca",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/password",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5D3uprNvqzID67Edeki+B/ZNKY0NjGY7w0wQ1q0UhPsYGdgSrYWxo8JylRDpY93Pv5OOQFQom4Y0KSTGmQqild2os6NGXXID7G5b7j/rYP/gtcpiuXEn60iRmhFyyIG1Pg="
+    },
+    "json": {
+        "login": "Riley.Carroll23_10_2025__16_31_49",
+        "email": "Riley.Carroll23_10_2025__16_31_49.Torp@yahoo.com"
+    },
+    "data": {
+        "login": "Riley.Carroll23_10_2025__16_31_49",
+        "email": "Riley.Carroll23_10_2025__16_31_49.Torp@yahoo.com"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/password' -H 'x-dm-auth-token: IQJh+zgzF5D3uprNvqzID67Edeki+B/ZNKY0NjGY7w0wQ1q0UhPsYGdgSrYWxo8JylRDpY93Pv5OOQFQom4Y0KSTGmQqild2os6NGXXID7G5b7j/rYP/gtcpiuXEn60iRmhFyyIG1Pg=' -d '{"login":"Riley.Carroll23_10_2025__16_31_49","email":"Riley.Carroll23_10_2025__16_31_49.Torp@yahoo.com"}'
+{
+    "event": "Response",
+    "eventId": "4ea4c873-2ad3-40a1-8ad3-f48cc4c952ca",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:31:55 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5D3uprNvqzID67Edeki+B/ZNKY0NjGY7w0wQ1q0UhPsYGdgSrYWxo8JylRDpY93Pv5OOQFQom4Y0KSTGmQqild2os6NGXXID7G5b7j/rYP/gtcpiuXEn60iRmhFyyIG1Pg="
+    },
+    "json": {
+        "resource": {
+            "login": "Riley.Carroll23_10_2025__16_31_49",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "online": "2025-10-23T16:31:55.370034+00:00",
+            "registration": "2025-10-23T16:31:50.157012+00:00"
+        },
+        "metadata": {
+            "email": "Ri..p@ya..m"
+        }
+    }
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "0f3e0d03-d089-4265-ab08-9e65f2f298c1",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/password",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5D3uprNvqzID67Edeki+B/ZNKY0NjGY7w0wQ1q0UhPsYGdgSrYWxo8JylRDpY93Pv5OOQFQom4Y0KSTGmQqild2os6NGXXID7G5b7j/rYP/gtcpiuXEn60iRmhFyyIG1Pg="
+    },
+    "json": {
+        "login": "Riley.Carroll23_10_2025__16_31_49",
+        "token": "bc0069b6-5f41-4bee-84d2-397594a473f3",
+        "oldPassword": "luhobotoha",
+        "newPassword": "fixatejaxi"
+    },
+    "data": {
+        "login": "Riley.Carroll23_10_2025__16_31_49",
+        "token": "bc0069b6-5f41-4bee-84d2-397594a473f3",
+        "oldPassword": "luhobotoha",
+        "newPassword": "fixatejaxi"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/password' -H 'x-dm-auth-token: IQJh+zgzF5D3uprNvqzID67Edeki+B/ZNKY0NjGY7w0wQ1q0UhPsYGdgSrYWxo8JylRDpY93Pv5OOQFQom4Y0KSTGmQqild2os6NGXXID7G5b7j/rYP/gtcpiuXEn60iRmhFyyIG1Pg=' -d '{"login":"Riley.Carroll23_10_2025__16_31_49","token":"bc0069b6-5f41-4bee-84d2-397594a473f3","oldPassword":"luhobotoha","newPassword":"fixatejaxi"}'
+{
+    "event": "Response",
+    "eventId": "0f3e0d03-d089-4265-ab08-9e65f2f298c1",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:31:56 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5D3uprNvqzID67Edeki+B/ZNKY0NjGY7w0wQ1q0UhPsYGdgSrYWxo8JylRDpY93Pv5OOQFQom4Y0KSTGmQqild2os6NGXXID7G5b7j/rYP/gtcpiuXEn60iRmhFyyIG1Pg="
+    },
+    "json": {
+        "resource": {
+            "login": "Riley.Carroll23_10_2025__16_31_49",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "online": "2025-10-23T16:31:55.370034+00:00"
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "90cc298b-9b40-4e8d-92cb-5062d2f999b4",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5D3uprNvqzID67Edeki+B/ZNKY0NjGY7w0wQ1q0UhPsYGdgSrYWxo8JylRDpY93Pv5OOQFQom4Y0KSTGmQqild2os6NGXXID7G5b7j/rYP/gtcpiuXEn60iRmhFyyIG1Pg="
+    },
+    "json": {
+        "login": "Riley.Carroll23_10_2025__16_31_49",
+        "password": "fixatejaxi",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Riley.Carroll23_10_2025__16_31_49",
+        "password": "fixatejaxi",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -H 'x-dm-auth-token: IQJh+zgzF5D3uprNvqzID67Edeki+B/ZNKY0NjGY7w0wQ1q0UhPsYGdgSrYWxo8JylRDpY93Pv5OOQFQom4Y0KSTGmQqild2os6NGXXID7G5b7j/rYP/gtcpiuXEn60iRmhFyyIG1Pg=' -d '{"login":"Riley.Carroll23_10_2025__16_31_49","password":"fixatejaxi","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "90cc298b-9b40-4e8d-92cb-5062d2f999b4",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:31:56 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5D3uprNvqzID67Edeki+B/ZNKY0NjGY7w0wQ1q0UhPsYGdgSrYWxo8JylRDpY93Pv6M6aqh/q8qMPb7Abi65AZo0Pf5yF3p5JdRlRbrh82Ap0Gexzt+Vhzvo353L6BapGA="
+    },
+    "json": {
+        "resource": {
+            "login": "Riley.Carroll23_10_2025__16_31_49",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "online": "2025-10-23T16:31:55.370034+00:00",
+            "registration": "2025-10-23T16:31:50.157012+00:00"
+        }
+    }
+}

@@ -1,0 +1,1 @@
+curl -X POST 'http://5.63.153.31:5051/v1/account/password' -H 'x-dm-auth-token: IQJh+zgzF5D3uprNvqzID67Edeki+B/ZNKY0NjGY7w0wQ1q0UhPsYGdgSrYWxo8JylRDpY93Pv5OOQFQom4Y0KSTGmQqild2os6NGXXID7G5b7j/rYP/gtcpiuXEn60iRmhFyyIG1Pg=' -d '{"login":"Riley.Carroll23_10_2025__16_31_49","email":"Riley.Carroll23_10_2025__16_31_49.Torp@yahoo.com"}'

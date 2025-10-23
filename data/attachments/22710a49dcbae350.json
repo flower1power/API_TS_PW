@@ -1,0 +1,9 @@
+{
+    "event": "Request",
+    "eventId": "0dd71b63-b3eb-41b5-abc3-5dea2da19bff",
+    "method": "DELETE",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login/all",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5AHC8kiDk4eiuAGed6ncnQOIBzF4KHsgMQZMVT7FCDlvYrThUJd+/kchFBe8R9TRzBqG5GhBJ3surGBDr1YsF6vyr9a46WP7mvX4LZ5ItsWwhDzshWqdhyqV6eAqGcmwFE="
+    }
+}

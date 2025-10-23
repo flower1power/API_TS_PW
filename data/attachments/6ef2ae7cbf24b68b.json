@@ -1,0 +1,10 @@
+{
+    "event": "Response",
+    "eventId": "4188f416-6f09-43fe-b806-3d8f0d3afb4a",
+    "status_code": 204,
+    "headers": {
+        "date": "Thu, 23 Oct 2025 16:31:55 GMT",
+        "server": "Kestrel"
+    },
+    "json": {}
+}

@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "0c2aa4a6-751a-4cb8-9b0c-78601ca1cccb",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Shania.Johnston23_10_2025__16_31_56",
+        "password": "jamoqulupi",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Shania.Johnston23_10_2025__16_31_56",
+        "password": "jamoqulupi",
+        "rememberMe": true
+    }
+}

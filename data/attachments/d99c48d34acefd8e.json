@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "36489ad8-8931-4a6f-a875-cc718c905d35",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Jolie4923_10_2025__16_31_56",
+        "email": "Jolie4923_10_2025__16_31_56_Collins-Brown99@yahoo.com",
+        "password": "hamepoqemi"
+    },
+    "data": {
+        "login": "Jolie4923_10_2025__16_31_56",
+        "email": "Jolie4923_10_2025__16_31_56_Collins-Brown99@yahoo.com",
+        "password": "hamepoqemi"
+    }
+}

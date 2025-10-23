@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "e8c679a1-8acd-4a29-bef4-f0f1496f31ab",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "LeoCruickshank_23.10.2025,_16_31_56",
+        "email": "Angela3gmail.com",
+        "password": "PoFR4FB8NW"
+    },
+    "data": {
+        "login": "LeoCruickshank_23.10.2025,_16_31_56",
+        "email": "Angela3gmail.com",
+        "password": "PoFR4FB8NW"
+    }
+}

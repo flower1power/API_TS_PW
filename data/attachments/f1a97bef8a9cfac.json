@@ -1,0 +1,27 @@
+{
+    "event": "Response",
+    "eventId": "0f3e0d03-d089-4265-ab08-9e65f2f298c1",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:31:56 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5D3uprNvqzID67Edeki+B/ZNKY0NjGY7w0wQ1q0UhPsYGdgSrYWxo8JylRDpY93Pv5OOQFQom4Y0KSTGmQqild2os6NGXXID7G5b7j/rYP/gtcpiuXEn60iRmhFyyIG1Pg="
+    },
+    "json": {
+        "resource": {
+            "login": "Riley.Carroll23_10_2025__16_31_49",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "online": "2025-10-23T16:31:55.370034+00:00"
+        }
+    }
+}

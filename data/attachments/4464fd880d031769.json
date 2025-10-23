@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "c5e96699-bc92-4d59-9c35-98ab7f91be44",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Forest6623_10_2025__16_31_55",
+        "email": "Forest6623_10_2025__16_31_55.Abernathy99@gmail.com",
+        "password": "debetubada"
+    },
+    "data": {
+        "login": "Forest6623_10_2025__16_31_55",
+        "email": "Forest6623_10_2025__16_31_55.Abernathy99@gmail.com",
+        "password": "debetubada"
+    }
+}

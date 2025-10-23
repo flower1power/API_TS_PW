@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "bb2a0eba-f629-454a-a73a-a80c825e3eb4",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Lonny3223_10_2025__16_31_49",
+        "email": "Lonny3223_10_2025__16_31_49.Hermann98@gmail.com",
+        "password": "dojugizeqe"
+    },
+    "data": {
+        "login": "Lonny3223_10_2025__16_31_49",
+        "email": "Lonny3223_10_2025__16_31_49.Hermann98@gmail.com",
+        "password": "dojugizeqe"
+    }
+}

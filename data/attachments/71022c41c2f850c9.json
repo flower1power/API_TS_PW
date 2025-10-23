@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "f0a5db66-6e96-467b-837e-566f8b81dd27",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "NewtonMcClure_23.10.2025,_16_31_56",
+        "email": "Melissa.Price64@gmail.com",
+        "password": "bIRE1"
+    },
+    "data": {
+        "login": "NewtonMcClure_23.10.2025,_16_31_56",
+        "email": "Melissa.Price64@gmail.com",
+        "password": "bIRE1"
+    }
+}

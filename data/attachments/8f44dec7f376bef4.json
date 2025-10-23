@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "bb2a0eba-f629-454a-a73a-a80c825e3eb4",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:31:54 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Lonny3223_10_2025__16_31_49"
+    },
+    "json": {}
+}

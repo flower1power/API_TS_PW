@@ -1,0 +1,132 @@
+{
+    "event": "Request",
+    "eventId": "33a28538-1959-492a-a1fb-b93c975225c5",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Abdullah_Hodkiewicz6323_10_2025__16_31_49",
+        "email": "Abdullah_Hodkiewicz6323_10_2025__16_31_49.Mosciski@yahoo.com",
+        "password": "jumejudaki"
+    },
+    "data": {
+        "login": "Abdullah_Hodkiewicz6323_10_2025__16_31_49",
+        "email": "Abdullah_Hodkiewicz6323_10_2025__16_31_49.Mosciski@yahoo.com",
+        "password": "jumejudaki"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"Abdullah_Hodkiewicz6323_10_2025__16_31_49","email":"Abdullah_Hodkiewicz6323_10_2025__16_31_49.Mosciski@yahoo.com","password":"jumejudaki"}'
+{
+    "event": "Response",
+    "eventId": "33a28538-1959-492a-a1fb-b93c975225c5",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:31:54 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Abdullah_Hodkiewicz6323_10_2025__16_31_49"
+    },
+    "json": {}
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "96f729e7-eb18-4273-bf9b-5d06f37c0f5c",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/03ebcaf5-685a-461c-af32-8df3276a8da3",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/03ebcaf5-685a-461c-af32-8df3276a8da3' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "96f729e7-eb18-4273-bf9b-5d06f37c0f5c",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:31:54 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Abdullah_Hodkiewicz6323_10_2025__16_31_49",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "37b3c813-d129-455e-9e72-2488d7c070db",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Abdullah_Hodkiewicz6323_10_2025__16_31_49",
+        "password": "jumejudaki",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Abdullah_Hodkiewicz6323_10_2025__16_31_49",
+        "password": "jumejudaki",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Abdullah_Hodkiewicz6323_10_2025__16_31_49","password":"jumejudaki","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "37b3c813-d129-455e-9e72-2488d7c070db",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:31:55 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5AHC8kiDk4eiuAGed6ncnQOIBzF4KHsgMQZMVT7FCDlvYrThUJd+/kchFBe8R9TRzBqG5GhBJ3surGBDr1YsF6vyr9a46WP7mvX4LZ5ItsWwhDzshWqdhyqV6eAqGcmwFE="
+    },
+    "json": {
+        "resource": {
+            "login": "Abdullah_Hodkiewicz6323_10_2025__16_31_49",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:31:50.14382+00:00"
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "0dd71b63-b3eb-41b5-abc3-5dea2da19bff",
+    "method": "DELETE",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login/all",
+    "headers": {
+        "x-dm-auth-token": "IQJh+zgzF5AHC8kiDk4eiuAGed6ncnQOIBzF4KHsgMQZMVT7FCDlvYrThUJd+/kchFBe8R9TRzBqG5GhBJ3surGBDr1YsF6vyr9a46WP7mvX4LZ5ItsWwhDzshWqdhyqV6eAqGcmwFE="
+    }
+}
+curl -X DELETE 'http://5.63.153.31:5051/v1/account/login/all' -H 'x-dm-auth-token: IQJh+zgzF5AHC8kiDk4eiuAGed6ncnQOIBzF4KHsgMQZMVT7FCDlvYrThUJd+/kchFBe8R9TRzBqG5GhBJ3surGBDr1YsF6vyr9a46WP7mvX4LZ5ItsWwhDzshWqdhyqV6eAqGcmwFE='
+{
+    "event": "Response",
+    "eventId": "0dd71b63-b3eb-41b5-abc3-5dea2da19bff",
+    "status_code": 204,
+    "headers": {
+        "date": "Thu, 23 Oct 2025 16:31:55 GMT",
+        "server": "Kestrel",
+        "x-dm-auth-token": "IQJh+zgzF5AHC8kiDk4eiuAGed6ncnQOIBzF4KHsgMQZMVT7FCDlvYrThUJd+/kchFBe8R9TRzBqG5GhBJ3surGBDr1YsF6vyr9a46WP7mvX4LZ5ItsWwhDzshWqdhyqV6eAqGcmwFE="
+    },
+    "json": {}
+}

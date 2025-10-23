@@ -1,0 +1,1 @@
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"Forest6623_10_2025__16_31_55","email":"Forest6623_10_2025__16_31_55.Abernathy99@gmail.com","password":"debetubada"}'

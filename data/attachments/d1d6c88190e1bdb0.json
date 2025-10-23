@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "af928d34-9f60-4a96-9843-a5373a28360e",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:31:57 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Shania.Johnston23_10_2025__16_31_56"
+    },
+    "json": {}
+}

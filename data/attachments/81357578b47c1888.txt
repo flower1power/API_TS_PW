@@ -1,0 +1,111 @@
+{
+    "event": "Request",
+    "eventId": "af928d34-9f60-4a96-9843-a5373a28360e",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Shania.Johnston23_10_2025__16_31_56",
+        "email": "Shania.Johnston23_10_2025__16_31_5663@hotmail.com",
+        "password": "jamoqulupi"
+    },
+    "data": {
+        "login": "Shania.Johnston23_10_2025__16_31_56",
+        "email": "Shania.Johnston23_10_2025__16_31_5663@hotmail.com",
+        "password": "jamoqulupi"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"Shania.Johnston23_10_2025__16_31_56","email":"Shania.Johnston23_10_2025__16_31_5663@hotmail.com","password":"jamoqulupi"}'
+{
+    "event": "Response",
+    "eventId": "af928d34-9f60-4a96-9843-a5373a28360e",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:31:57 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Shania.Johnston23_10_2025__16_31_56"
+    },
+    "json": {}
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "56190d63-e83d-463b-a341-379b1486aef0",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/17ff672e-8702-4b85-bc2f-3f1736fd2f49",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/17ff672e-8702-4b85-bc2f-3f1736fd2f49' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "56190d63-e83d-463b-a341-379b1486aef0",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:31:57 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Shania.Johnston23_10_2025__16_31_56",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "0c2aa4a6-751a-4cb8-9b0c-78601ca1cccb",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Shania.Johnston23_10_2025__16_31_56",
+        "password": "jamoqulupi",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Shania.Johnston23_10_2025__16_31_56",
+        "password": "jamoqulupi",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Shania.Johnston23_10_2025__16_31_56","password":"jamoqulupi","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "0c2aa4a6-751a-4cb8-9b0c-78601ca1cccb",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:31:58 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5AHmzhDoYJFZKQnqbBZ7uZmKCzoHZbVnU4VDdTE/zCpWjcXTyGkUcNxW13TLg8bDAfkXqLcKd2P8fdL6jJIinyOCLt+qWePPitItec58xJiPgN9HGKbxh0JJxjp+Z9tmK0="
+    },
+    "json": {
+        "resource": {
+            "login": "Shania.Johnston23_10_2025__16_31_56",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:31:57.113485+00:00"
+        }
+    }
+}

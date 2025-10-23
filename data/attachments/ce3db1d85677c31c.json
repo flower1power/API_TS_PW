@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "33a28538-1959-492a-a1fb-b93c975225c5",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Abdullah_Hodkiewicz6323_10_2025__16_31_49",
+        "email": "Abdullah_Hodkiewicz6323_10_2025__16_31_49.Mosciski@yahoo.com",
+        "password": "jumejudaki"
+    },
+    "data": {
+        "login": "Abdullah_Hodkiewicz6323_10_2025__16_31_49",
+        "email": "Abdullah_Hodkiewicz6323_10_2025__16_31_49.Mosciski@yahoo.com",
+        "password": "jumejudaki"
+    }
+}

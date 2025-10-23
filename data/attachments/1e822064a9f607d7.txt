@@ -1,0 +1,1 @@
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Abdullah_Hodkiewicz6323_10_2025__16_31_49","password":"jumejudaki","rememberMe":true}'

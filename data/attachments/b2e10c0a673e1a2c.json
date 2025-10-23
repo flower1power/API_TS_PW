@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "7c3d8fc0-2787-482a-b769-c710aee95d5a",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "R",
+        "email": "Joan30@gmail.com",
+        "password": "oP4tsKOKZR"
+    },
+    "data": {
+        "login": "R",
+        "email": "Joan30@gmail.com",
+        "password": "oP4tsKOKZR"
+    }
+}
