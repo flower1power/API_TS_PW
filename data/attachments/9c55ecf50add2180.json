@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "f5d7a570-10ed-4227-8f59-1ce3fe5ce248",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "HaroldZboncak_23.10.2025,_16_58_04",
+        "email": "Nona10@hotmail.com",
+        "password": "oqhRw"
+    },
+    "data": {
+        "login": "HaroldZboncak_23.10.2025,_16_58_04",
+        "email": "Nona10@hotmail.com",
+        "password": "oqhRw"
+    }
+}

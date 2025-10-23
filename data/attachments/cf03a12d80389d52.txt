@@ -1,0 +1,111 @@
+{
+    "event": "Request",
+    "eventId": "23edf90b-0a59-48f3-a67b-2da3c22803f6",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Ceasar1923_10_2025__16_58_05",
+        "email": "Ceasar1923_10_2025__16_58_05.Hodkiewicz@hotmail.com",
+        "password": "kisucugupe"
+    },
+    "data": {
+        "login": "Ceasar1923_10_2025__16_58_05",
+        "email": "Ceasar1923_10_2025__16_58_05.Hodkiewicz@hotmail.com",
+        "password": "kisucugupe"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"Ceasar1923_10_2025__16_58_05","email":"Ceasar1923_10_2025__16_58_05.Hodkiewicz@hotmail.com","password":"kisucugupe"}'
+{
+    "event": "Response",
+    "eventId": "23edf90b-0a59-48f3-a67b-2da3c22803f6",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:58:06 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Ceasar1923_10_2025__16_58_05"
+    },
+    "json": {}
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "0f65e63e-338e-49f3-bb0d-66a8c1392215",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/dabafaee-343a-4b09-aef1-af4dba261c60",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/dabafaee-343a-4b09-aef1-af4dba261c60' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "0f65e63e-338e-49f3-bb0d-66a8c1392215",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:58:07 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Ceasar1923_10_2025__16_58_05",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "335a3f05-21e9-4f91-a842-92e751ae97e8",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Ceasar1923_10_2025__16_58_05",
+        "password": "kisucugupe",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Ceasar1923_10_2025__16_58_05",
+        "password": "kisucugupe",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Ceasar1923_10_2025__16_58_05","password":"kisucugupe","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "335a3f05-21e9-4f91-a842-92e751ae97e8",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:58:08 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5CQQ3hNNyeN9xHL8w6KolIuURixVyOt3a0nLOofVc4yd8olA7N4gzMrdpp0jLNHvb1RgZyJ/An8v+foPBvDn5zeGPeEQgJNsbD1N+n/kjJTmJuIkrw3i23ZYYC6H73x5cs="
+    },
+    "json": {
+        "resource": {
+            "login": "Ceasar1923_10_2025__16_58_05",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:58:06.513022+00:00"
+        }
+    }
+}

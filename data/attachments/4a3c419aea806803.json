@@ -1,0 +1,7 @@
+{
+    "event": "Request",
+    "eventId": "01f003ab-8197-440a-bcdf-f0cb1ef9d155",
+    "method": "GET",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {}
+}

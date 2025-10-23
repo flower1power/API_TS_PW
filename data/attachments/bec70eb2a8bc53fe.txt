@@ -1,0 +1,111 @@
+{
+    "event": "Request",
+    "eventId": "daf0219f-1336-4311-b8e3-4dc00ef23abf",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Mabel_Powlowski6523_10_2025__16_58_06",
+        "email": "Mabel_Powlowski6523_10_2025__16_58_06.Kling38@hotmail.com",
+        "password": "kupasazofe"
+    },
+    "data": {
+        "login": "Mabel_Powlowski6523_10_2025__16_58_06",
+        "email": "Mabel_Powlowski6523_10_2025__16_58_06.Kling38@hotmail.com",
+        "password": "kupasazofe"
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account' -d '{"login":"Mabel_Powlowski6523_10_2025__16_58_06","email":"Mabel_Powlowski6523_10_2025__16_58_06.Kling38@hotmail.com","password":"kupasazofe"}'
+{
+    "event": "Response",
+    "eventId": "daf0219f-1336-4311-b8e3-4dc00ef23abf",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:58:07 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Mabel_Powlowski6523_10_2025__16_58_06"
+    },
+    "json": {}
+}
+Попытка 1 из 5
+{
+    "event": "Request",
+    "eventId": "6a48f184-377e-47c4-9fad-3efe1290558a",
+    "method": "PUT",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/99b244f3-1269-4148-a33b-759a1366db7d",
+    "headers": {
+        "accept": "text/plain"
+    }
+}
+curl -X PUT 'http://5.63.153.31:5051/v1/account/99b244f3-1269-4148-a33b-759a1366db7d' -H 'accept: text/plain'
+{
+    "event": "Response",
+    "eventId": "6a48f184-377e-47c4-9fad-3efe1290558a",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:58:08 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "resource": {
+            "login": "Mabel_Powlowski6523_10_2025__16_58_06",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            }
+        }
+    }
+}
+{
+    "event": "Request",
+    "eventId": "6e6aa220-a725-4010-af0a-5ef3b3de4652",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Mabel_Powlowski6523_10_2025__16_58_06",
+        "password": "kupasazofe",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Mabel_Powlowski6523_10_2025__16_58_06",
+        "password": "kupasazofe",
+        "rememberMe": true
+    }
+}
+curl -X POST 'http://5.63.153.31:5051/v1/account/login' -d '{"login":"Mabel_Powlowski6523_10_2025__16_58_06","password":"kupasazofe","rememberMe":true}'
+{
+    "event": "Response",
+    "eventId": "6e6aa220-a725-4010-af0a-5ef3b3de4652",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:58:08 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5A+kx9YKRbRU2aQ3wiPGmdczsFxw6LTDEicAeSWW+O9q1u+++J5xB26d1UR5189E9D33/O7B86BTCtp86W+JbaKNMwaPPooC2f6UtFZYOZhodRDO6QdryvqlBBVRJPjN6w="
+    },
+    "json": {
+        "resource": {
+            "login": "Mabel_Powlowski6523_10_2025__16_58_06",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:58:07.500494+00:00"
+        }
+    }
+}

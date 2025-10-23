@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "23edf90b-0a59-48f3-a67b-2da3c22803f6",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "Ceasar1923_10_2025__16_58_05",
+        "email": "Ceasar1923_10_2025__16_58_05.Hodkiewicz@hotmail.com",
+        "password": "kisucugupe"
+    },
+    "data": {
+        "login": "Ceasar1923_10_2025__16_58_05",
+        "email": "Ceasar1923_10_2025__16_58_05.Hodkiewicz@hotmail.com",
+        "password": "kisucugupe"
+    }
+}

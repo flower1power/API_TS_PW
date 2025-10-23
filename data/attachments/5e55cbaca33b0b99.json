@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "6e6aa220-a725-4010-af0a-5ef3b3de4652",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Mabel_Powlowski6523_10_2025__16_58_06",
+        "password": "kupasazofe",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Mabel_Powlowski6523_10_2025__16_58_06",
+        "password": "kupasazofe",
+        "rememberMe": true
+    }
+}

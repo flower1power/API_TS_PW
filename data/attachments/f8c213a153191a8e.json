@@ -1,0 +1,22 @@
+{
+    "event": "Response",
+    "eventId": "f5d7a570-10ed-4227-8f59-1ce3fe5ce248",
+    "status_code": 400,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:58:06 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "type": "https://tools.ietf.org/html/rfc7231#section-6.5.1",
+        "title": "Validation failed",
+        "status": 400,
+        "traceId": "00-9337f679e3b86ea194577d16a126b092-565479d55821b7f2-01",
+        "errors": {
+            "Password": [
+                "Short"
+            ]
+        }
+    }
+}

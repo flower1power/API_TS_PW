@@ -1,0 +1,25 @@
+{
+    "event": "Request",
+    "eventId": "01f003ab-8197-440a-bcdf-f0cb1ef9d155",
+    "method": "GET",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {}
+}
+curl -X GET 'http://5.63.153.31:5051/v1/account'
+{
+    "event": "Response",
+    "eventId": "01f003ab-8197-440a-bcdf-f0cb1ef9d155",
+    "status_code": 401,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:58:05 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked"
+    },
+    "json": {
+        "type": "https://tools.ietf.org/html/rfc7235#section-3.1",
+        "title": "User must be authenticated",
+        "status": 401,
+        "traceId": "00-e443b69f86464799ab6795efcfa52e8a-fcd533952b3b94da-01"
+    }
+}

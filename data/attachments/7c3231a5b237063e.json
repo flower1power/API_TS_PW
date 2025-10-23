@@ -1,0 +1,27 @@
+{
+    "event": "Response",
+    "eventId": "6e6aa220-a725-4010-af0a-5ef3b3de4652",
+    "status_code": 200,
+    "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "date": "Thu, 23 Oct 2025 16:58:08 GMT",
+        "server": "Kestrel",
+        "transfer-encoding": "chunked",
+        "x-dm-auth-token": "IQJh+zgzF5A+kx9YKRbRU2aQ3wiPGmdczsFxw6LTDEicAeSWW+O9q1u+++J5xB26d1UR5189E9D33/O7B86BTCtp86W+JbaKNMwaPPooC2f6UtFZYOZhodRDO6QdryvqlBBVRJPjN6w="
+    },
+    "json": {
+        "resource": {
+            "login": "Mabel_Powlowski6523_10_2025__16_58_06",
+            "roles": [
+                "Guest",
+                "Player"
+            ],
+            "rating": {
+                "enabled": true,
+                "quality": 0,
+                "quantity": 0
+            },
+            "registration": "2025-10-23T16:58:07.500494+00:00"
+        }
+    }
+}

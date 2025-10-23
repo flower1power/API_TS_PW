@@ -1,0 +1,12 @@
+{
+    "event": "Response",
+    "eventId": "23edf90b-0a59-48f3-a67b-2da3c22803f6",
+    "status_code": 201,
+    "headers": {
+        "content-length": "0",
+        "date": "Thu, 23 Oct 2025 16:58:06 GMT",
+        "server": "Kestrel",
+        "location": "http://5.63.153.31:5051/v1/users/Ceasar1923_10_2025__16_58_05"
+    },
+    "json": {}
+}

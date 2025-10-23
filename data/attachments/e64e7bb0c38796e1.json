@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "335a3f05-21e9-4f91-a842-92e751ae97e8",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account/login",
+    "headers": {},
+    "json": {
+        "login": "Ceasar1923_10_2025__16_58_05",
+        "password": "kisucugupe",
+        "rememberMe": true
+    },
+    "data": {
+        "login": "Ceasar1923_10_2025__16_58_05",
+        "password": "kisucugupe",
+        "rememberMe": true
+    }
+}

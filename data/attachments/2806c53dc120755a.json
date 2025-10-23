@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "23cc7f25-50fc-4ec7-bb76-f77ff271ff83",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "U",
+        "email": "Kaylee.Bauch48@yahoo.com",
+        "password": "676Q6xpFUK"
+    },
+    "data": {
+        "login": "U",
+        "email": "Kaylee.Bauch48@yahoo.com",
+        "password": "676Q6xpFUK"
+    }
+}

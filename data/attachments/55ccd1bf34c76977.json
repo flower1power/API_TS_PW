@@ -1,0 +1,17 @@
+{
+    "event": "Request",
+    "eventId": "0b1dc666-0c10-4846-acd9-a808c3cdb937",
+    "method": "POST",
+    "fullUrl": "http://5.63.153.31:5051/v1/account",
+    "headers": {},
+    "json": {
+        "login": "TrevaSchmidt_23.10.2025,_16_58_04",
+        "email": "Aaliyah96yahoo.com",
+        "password": "Dbp1jmcl3e"
+    },
+    "data": {
+        "login": "TrevaSchmidt_23.10.2025,_16_58_04",
+        "email": "Aaliyah96yahoo.com",
+        "password": "Dbp1jmcl3e"
+    }
+}
