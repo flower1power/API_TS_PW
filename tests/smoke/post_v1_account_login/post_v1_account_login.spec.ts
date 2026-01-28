@@ -1,4 +1,4 @@
-import { subSuite, test } from '../../../fixture/playwrightFixture';
+import { subSuite, test } from '../../../fixture/playwrightFixture.js';
 
 test.describe('Тесты на проверку метода POST v1/account/login', () => {
   test('Проверка авторизации пользователя', async ({ accountHelper, prepareUser }) => {
@@ -10,6 +10,6 @@ test.describe('Тесты на проверку метода POST v1/account/log
       prepareUser.email,
       true,
     );
-    await accountHelper.userLogin(prepareUser.login, prepareUser.password);
+    await accountHelper.userLogin(prepareUser.login, prepareUser.password, true, true);
   });
 });

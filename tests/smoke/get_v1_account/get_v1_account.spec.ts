@@ -1,6 +1,6 @@
-import { subSuite, suite, test } from '../../../fixture/playwrightFixture';
-import { checkStatusCodeHttp } from '../../../checkers/http_checkers';
-import { GetV1Account } from '../../../checkers/get_v1_account';
+import { subSuite, test } from '../../../fixture/playwrightFixture.js';
+import { checkStatusCodeHttp } from '../../../checkers/http_checkers.js';
+import { GetV1Account } from '../../../checkers/get_v1_account.js';
 
 test.describe('Тесты на проверку метода GET v1/account', () => {
   test('Проверка получения информации об авторизованном пользователе', async ({
@@ -10,7 +10,7 @@ test.describe('Тесты на проверку метода GET v1/account', ()
 
     await checkStatusCodeHttp(async () => {
       const response = await authAccountHelper.apiDmAccount.accountApi.getV1Account(false);
-      GetV1Account.checkResponseValues(await response.json());
+      await GetV1Account.checkResponseValues(await response.json());
       return response;
     });
   });

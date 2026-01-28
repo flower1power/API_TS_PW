@@ -1,7 +1,7 @@
 import { APIResponse } from 'playwright';
-import { isApiResponse } from './http_checkers';
-import { step, expect } from '../fixture/playwrightFixture';
-import { UserDetailsEnvelopeDTO } from '../clients/http/dm_api_account/models/userDetailsEnvelope';
+import { isApiResponse } from './http_checkers.js';
+import { step, expect } from '../fixture/playwrightFixture.js';
+import { UserDetailsEnvelopeDTO } from '../clients/http/dm_api_account/models/userDetailsEnvelope.js';
 
 export class PostV1Account {
   static async checkResponseValues(

@@ -4,7 +4,7 @@
   "description": "",
   "license": "ISC",
   "author": "LV",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",

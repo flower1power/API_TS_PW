@@ -1,6 +1,6 @@
 import { APIRequestContext, APIResponse } from 'playwright';
-import { RestClient } from '../../../../packages/rest_client/client';
-import { step } from '../../../../fixture/playwrightFixture';
+import { RestClient } from '../../../../packages/rest_client/client.js';
+import { step } from 'allure-js-commons';
 
 /**
  * API клиент для работы с Mailhog - почтовым сервисом для тестирования.
@@ -16,7 +16,7 @@ export class MailhogApi extends RestClient {
    * @returns {Promise<APIResponse | UserEnvelopeDTO>} Ответ сервера или DTO
    */
   async getApiV2Message(
-    limit = 50,
+    limit: number = 50,
     options?: Parameters<APIRequestContext['get']>[1],
   ): Promise<APIResponse> {
     return step('Получение писем из почтового ящика Mailhog', async () => {

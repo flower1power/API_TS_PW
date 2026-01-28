@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { subSuite, test } from '../../../fixture/playwrightFixture';
+import { subSuite, test } from '../../../fixture/playwrightFixture.js';
 
 test.describe('Тесты на проверку метода PUT v1/account/password', () => {
   test('Проверка смены пароля пользователя', async ({ accountHelper, prepareUser }) => {

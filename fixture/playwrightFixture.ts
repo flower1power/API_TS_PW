@@ -1,14 +1,11 @@
-import { test as base } from '@playwright/test';
+import { test as base, expect as baseExpect, APIResponse } from '@playwright/test';
 import * as allure from 'allure-js-commons';
-import { ApiMailhog } from '../service/api_mailhog';
-import { ApiDmAccount } from '../service/api_dm_account';
-import { AccountHelpers } from '../helpers/account_helpers';
-import { Configuration } from '../packages/rest_client/configuration';
+import { ApiMailhog } from '../service/api_mailhog.js';
+import { ApiDmAccount } from '../service/api_dm_account.js';
+import { AccountHelpers } from '../helpers/account_helpers.js';
+import { Configuration } from '../packages/rest_client/configuration.js';
 import { faker } from '@faker-js/faker';
-import path from 'path';
-let pactum: any;
-let psc: any;
-export { expect } from '@playwright/test';
+import { z } from 'zod';
 
 type MyFixtureType = {
   mailhogClient: ApiMailhog;
@@ -22,29 +19,29 @@ type MyFixtureType = {
 export const test = base.extend<MyFixtureType>({
   // eslint-disable-next-line no-empty-pattern
   mailhogClient: async ({}, use) => {
-    const config = new Configuration('http://5.63.153.31:5025', true);
+    const config = new Configuration('http://185.185.143.231:5025', true);
     const client = new ApiMailhog(config);
 
-    use(client);
+    await use(client);
   },
 
   // eslint-disable-next-line no-empty-pattern
   allure: async ({}, use) => {
-    use(allure);
+    await use(allure);
   },
 
   // eslint-disable-next-line no-empty-pattern
   accountClient: async ({}, use) => {
-    const config = new Configuration('http://5.63.153.31:5051');
+    const config = new Configuration('http://185.185.143.231:5051');
     const client = new ApiDmAccount(config);
 
-    use(client);
+    await use(client);
   },
 
   accountHelper: async ({ accountClient, mailhogClient }, use) => {
     const client = new AccountHelpers(accountClient, mailhogClient);
 
-    use(client);
+    await use(client);
   },
 
   authAccountHelper: async ({ mailhogClient }, use) => {
@@ -53,12 +50,12 @@ export const test = base.extend<MyFixtureType>({
     const accountHelper = new AccountHelpers(accountClient, mailhogClient);
 
     const login = 'DarrenDalton12_08_2025_22_43_04';
-    const email = 'DarrenDalton12_08_2025_22_43_04@mail.ru';
+    // const email = 'DarrenDalton12_08_2025_22_43_04@mail.ru';
     const password = 'C^Uy3BbI8h';
 
     await accountHelper.authUser(login, password);
 
-    use(accountHelper);
+    await use(accountHelper);
   },
 
   // eslint-disable-next-line no-empty-pattern
@@ -85,6 +82,104 @@ export const test = base.extend<MyFixtureType>({
   },
 });
 
-export * from 'allure-js-commons';
+export const expect = baseExpect.extend({
+  async toHaveStatusCode(response: APIResponse, expectedStatus: number) {
+    const statusCode = response.status();
+    const pass = statusCode === expectedStatus;
 
-//
+    let responseBody = '';
+
+    try {
+      responseBody = JSON.stringify(await response.json());
+    } catch {
+      responseBody = 'Тело отсутствует';
+    }
+
+    const errorMessage = `
+Ожидаемый статус-код: ${expectedStatus}
+Полученный статус-код: ${statusCode}
+URL: ${response.url()}
+Тело ответа: ${responseBody}
+`;
+
+    if (!pass) {
+      return {
+        message: (): string => errorMessage,
+        pass: false,
+      };
+    }
+
+    return {
+      message: (): string => `Ответ вернул ожидаемый статус-код: ${statusCode}`,
+      pass: true,
+    };
+  },
+
+  async toMatchSchema(response: APIResponse, schema: z.ZodSchema) {
+    const body = await response.json();
+    const result = schema.safeParse(body);
+
+    if (!result.success) {
+      const errorMessage = `
+Ожидалось соответствие схеме:
+Ошибки валидации: ${JSON.stringify(result.error.issues, null, 2)}
+`;
+
+      return {
+        message: (): string => errorMessage,
+        pass: false,
+      };
+    }
+
+    return {
+      message: (): string => `Данные соответствуют схеме`,
+      pass: true,
+    };
+  },
+
+  async toHaveHeader(response: APIResponse, headerName: string, expectedValue?: string) {
+    const headers = response.headers();
+    const actualValue = headers[headerName.toLowerCase()];
+    const hasHeader = actualValue !== undefined;
+
+    if (expectedValue === undefined) {
+      const errorMessage = `
+Ожидалось наличие заголовка: ${headerName}
+Полученные заголовки: ${JSON.stringify(headers, null, 2)}
+`;
+
+      if (!hasHeader) {
+        return {
+          message: (): string => errorMessage,
+          pass: false,
+        };
+      }
+
+      return {
+        message: (): string => `Заголовок "${headerName}" присутствует`,
+        pass: true,
+      };
+    }
+
+    const pass = hasHeader && actualValue === expectedValue;
+
+    const errorMessage = `
+Ожидаемое значение заголовка "${headerName}": ${expectedValue}
+Полученное значение: ${actualValue || 'отсутствует'}
+`;
+
+    if (!pass) {
+      return {
+        message: (): string => errorMessage,
+        pass: false,
+      };
+    }
+
+    return {
+      message: (): string => `Заголовок "${headerName}" имеет значение "${expectedValue}"`,
+      pass: true,
+    };
+  },
+});
+
+export * from 'allure-js-commons';

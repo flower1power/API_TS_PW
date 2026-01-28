@@ -1,13 +1,13 @@
 import { APIResponse } from 'playwright';
-import { isApiResponse } from './http_checkers';
-import { expect } from '../fixture/playwrightFixture';
+import { isApiResponse } from './http_checkers.js';
+import { expect } from 'playwright/test';
 import {
   UserDetailsEnvelopeDTO,
   UserRole,
   ColorSchema,
-} from '../clients/http/dm_api_account/models/userDetailsEnvelope';
+} from '../clients/http/dm_api_account/models/userDetailsEnvelope.js';
 import { ok } from 'assert/strict';
-import { step } from '../fixture/playwrightFixture';
+import { step } from 'allure-js-commons';
 
 export class GetV1Account {
   static async checkResponseValues(response: APIResponse | UserDetailsEnvelopeDTO): Promise<void> {

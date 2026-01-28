@@ -1,8 +1,9 @@
 import { APIRequestContext, APIResponse } from 'playwright';
-import { LoginCredentialsDTO } from '../models/loginCredentials';
-import { UserEnvelopeDTO, UserEnvelopeSchema } from '../models/userDetails';
-import { RestClient } from '../../../../packages/rest_client/client';
-import { step } from '../../../../fixture/playwrightFixture';
+import { LoginCredentialsDTO } from '../models/loginCredentials.js';
+import { UserEnvelopeDTO, UserEnvelopeSchema } from '../models/userDetails.js';
+import { RestClient } from '../../../../packages/rest_client/client.js';
+import { step } from 'allure-js-commons';
+import { expect } from '../../../../fixture/playwrightFixture.js';
 
 /**
  * API клиент для аутентификации пользователей.
@@ -13,6 +14,7 @@ export class LoginApi extends RestClient {
   /**
    * Аутентификация пользователя.
    * @param {LoginCredentialsDTO} jsonData - DTO
+   * @param validateResponse
    * @param {Parameters<APIRequestContext['post']>[1]} options - Параметры POST запроса
    * @returns {Promise<APIResponse | UserEnvelopeDTO>} Ответ сервера или DTO
    */
@@ -29,7 +31,11 @@ export class LoginApi extends RestClient {
       });
 
       if (validateResponse) {
-        return UserEnvelopeSchema.parse(await response.json());
+        await expect(response).toHaveStatusCode(200);
+        await expect(response).toMatchSchema(UserEnvelopeSchema);
+
+        const responseData = await response.json();
+        return UserEnvelopeSchema.parse(responseData);
       }
 
       return response;
@@ -53,8 +59,7 @@ export class LoginApi extends RestClient {
    * Выход пользователя из системы на всех устройствах.
    * Требует предварительной авторизации пользователя
    * (токен должен быть установлен в заголовках сессии)
-   * @param {LoginCredentialsDTO} jsonData - DTO
-   * @param {Parameters<APIRequestContext['delete']>[1]} options - Параметры POST запроса
+   * @param {Parameters<APIRequestContext['delete']>[1]} options - Параметры DELETE запроса
    * @returns {Promise<APIResponse>} Ответ сервера
    */
   async deleteV1AccountLoginAll(

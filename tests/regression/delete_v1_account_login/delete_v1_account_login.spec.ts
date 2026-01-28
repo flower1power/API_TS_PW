@@ -1,4 +1,4 @@
-import { subSuite, test } from '../../../fixture/playwrightFixture';
+import { subSuite, test } from '../../../fixture/playwrightFixture.js';
 
 test.describe('Тесты на проверку метода DELETE v1/account/login', async () => {
   test('Проверка выхода пользователя из системы', async ({ accountHelper, prepareUser }) => {

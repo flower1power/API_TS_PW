@@ -1,12 +1,15 @@
 import { APIRequestContext, APIResponse } from 'playwright';
-import { RegistrationDTO, RegistrationSchema } from '../models/registration';
-import { UserDetailsEnvelopeDTO, UserDetailsEnvelopeSchema } from '../models/userDetailsEnvelope';
-import { UserEnvelopeDTO, UserEnvelopeSchema } from '../models/userDetails';
-import { ResetPasswordDTO } from '../models/resetPassword';
-import { ChangePasswordDTO } from '../models/changePassword';
-import { ChangeEmailDTO } from '../models/changeEmail';
-import { RestClient } from '../../../../packages/rest_client/client';
-import { step } from '../../../../fixture/playwrightFixture';
+import { RegistrationDTO } from '../models/registration.js';
+import {
+  UserDetailsEnvelopeDTO,
+  UserDetailsEnvelopeSchema,
+} from '../models/userDetailsEnvelope.js';
+import { UserEnvelopeDTO, UserEnvelopeSchema } from '../models/userDetails.js';
+import { ResetPasswordDTO } from '../models/resetPassword.js';
+import { ChangePasswordDTO } from '../models/changePassword.js';
+import { ChangeEmailDTO } from '../models/changeEmail.js';
+import { RestClient } from '../../../../packages/rest_client/client.js';
+import { step } from 'allure-js-commons';
 
 /**
  * API клиент для работы с аккаунтами пользователей.

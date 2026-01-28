@@ -1,12 +1,12 @@
-import { ChangeEmailDTO } from '../clients/http/dm_api_account/models/changeEmail';
-import { ChangePasswordDTO } from '../clients/http/dm_api_account/models/changePassword';
-import { LoginCredentialsDTO } from '../clients/http/dm_api_account/models/loginCredentials';
-import { RegistrationDTO } from '../clients/http/dm_api_account/models/registration';
-import { ResetPasswordDTO } from '../clients/http/dm_api_account/models/resetPassword';
-import { UserEnvelopeDTO } from '../clients/http/dm_api_account/models/userDetails';
-import { step } from '../fixture/playwrightFixture';
-import { ApiDmAccount } from '../service/api_dm_account';
-import { ApiMailhog } from '../service/api_mailhog';
+import { ChangeEmailDTO } from '../clients/http/dm_api_account/models/changeEmail.js';
+import { ChangePasswordDTO } from '../clients/http/dm_api_account/models/changePassword.js';
+import { LoginCredentialsDTO } from '../clients/http/dm_api_account/models/loginCredentials.js';
+import { RegistrationDTO } from '../clients/http/dm_api_account/models/registration.js';
+import { ResetPasswordDTO } from '../clients/http/dm_api_account/models/resetPassword.js';
+import { UserEnvelopeDTO } from '../clients/http/dm_api_account/models/userDetails.js';
+import { step } from 'allure-js-commons';
+import { ApiDmAccount } from '../service/api_dm_account.js';
+import { ApiMailhog } from '../service/api_mailhog.js';
 import { APIResponse, expect } from 'playwright/test';
 
 /**
@@ -30,6 +30,7 @@ export class AccountHelpers {
    * @param login - Логин пользователя
    * @param password - Пароль пользователя
    * @param email - Email адрес пользователя
+   * @param validateResponse
    * @returns HTTP ответ от сервера после активации пользователя
    */
   async registerNewUser(
@@ -83,6 +84,8 @@ export class AccountHelpers {
    * @param login - Логин пользователя
    * @param password - Пароль пользователя
    * @param rememberMe - Флаг "запомнить меня". По умолчанию true
+   * @param validateResponse
+   * @param validateHeader
    * @returns HTTP ответ от сервера с результатом авторизации
    */
   async userLogin(
@@ -134,6 +137,7 @@ export class AccountHelpers {
    *
    * @param login - Логин пользователя
    * @param password - Пароль пользователя
+   * @param rememberMe
    */
   async authUser(login: string, password: string, rememberMe = true): Promise<void> {
     return step('Авторизация клиента и установка токена аутентификации в заголовки', async () => {
@@ -171,8 +175,7 @@ export class AccountHelpers {
         const userLogin = userData.Login;
 
         if (userLogin === login) {
-          const token = userData.ConfirmationLinkUrl.split('/').at(-1);
-          return token;
+          return userData.ConfirmationLinkUrl.split('/').at(-1);
         }
       }
 
@@ -204,8 +207,7 @@ export class AccountHelpers {
 
         if (userLogin === login) {
           if ('ConfirmationLinkUri' in userData) {
-            const token = userData.ConfirmationLinkUri.split('/').at(-1);
-            return token;
+            return userData.ConfirmationLinkUri.split('/').at(-1);
           }
         }
       }
@@ -226,6 +228,7 @@ export class AccountHelpers {
    * @param email - Email адрес пользователя
    * @param oldPassword - Текущий пароль пользователя
    * @param newPassword - Новый пароль пользователя
+   * @param validateResponse
    * @returns HTTP ответ от сервера с результатом смены пароля
    */
   async changePassword(
@@ -279,6 +282,7 @@ export class AccountHelpers {
    * @param login - Логин пользователя
    * @param newEmail - Новый email адрес
    * @param password - Пароль пользователя
+   * @param validateResponse
    * @returns HTTP ответ от сервера с результатом изменения email
    */
   async changeEmail(
@@ -369,6 +373,7 @@ export class AccountHelpers {
    * Активация зарегистрированного пользователя по токену.
    *
    * @param token - Токен активации, полученный при регистрации
+   * @param validateResponse
    * @returns HTTP ответ от сервера с результатом активации
    */
   async activateUser(

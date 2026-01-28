@@ -1,7 +1,7 @@
 import { randomUUID } from 'crypto';
 import { APIRequestContext, APIResponse, request } from 'playwright';
-import { Configuration } from './configuration';
-import { attachment, ContentType } from '../../fixture/playwrightFixture';
+import { Configuration } from './configuration.js';
+import { attachment, ContentType } from 'allure-js-commons';
 
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
 
@@ -230,8 +230,6 @@ export class RestClient {
     console.log(textLog);
 
     await this._safeAttachment('Request', textLog, ContentType.JSON);
-
-    //
   }
 
   /**

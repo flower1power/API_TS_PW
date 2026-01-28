@@ -1,4 +1,4 @@
-import { subSuite, test } from '../../../fixture/playwrightFixture';
+import { subSuite, test } from '../../../fixture/playwrightFixture.js';
 
 test.describe('Тесты на проверку метода PUT v1/account/token', () => {
   test('Проверка активации пользователя по токену', async ({ accountHelper, prepareUser }) => {

@@ -1,5 +1,5 @@
 import { APIResponse } from 'playwright';
-import { step } from '../fixture/playwrightFixture';
+import { step } from 'allure-js-commons';
 
 type CheckStatusOptions = {
   expectedStatusCode?: number;

@@ -1,5 +1,5 @@
-import { checkStatusCodeHttp } from '../../../checkers/http_checkers';
-import { parameter, subSuite, test } from '../../../fixture/playwrightFixture';
+import { parameter, subSuite, test } from '../../../fixture/playwrightFixture.js';
+import { checkStatusCodeHttp } from '../../../checkers/http_checkers.js';
 import { faker } from '@faker-js/faker';
 
 const now = new Date();

@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
-import { subSuite, test } from '../../../fixture/playwrightFixture';
-import { checkStatusCodeHttp } from '../../../checkers/http_checkers';
+import { subSuite, test } from '../../../fixture/playwrightFixture.js';
+import { checkStatusCodeHttp } from '../../../checkers/http_checkers.js';
 
 test.describe('Тесты на проверку метода PUT v1/account/email', () => {
   test('Проверка смены почты пользователя', async ({ accountHelper, prepareUser }) => {
