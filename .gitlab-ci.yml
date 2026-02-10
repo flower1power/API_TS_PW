@@ -61,17 +61,22 @@ api-test:
         echo "No artifacts found, moving on…"
       fi          
   script:
-    - docker compose up tests
+    - docker compose run --name tests-container tests || true
+    - docker cp tests-container:/usr/workspace/allure-results ./allure-results
+    - docker cp tests-container:/usr/workspace/test-results ./test-results || true
+    - docker rm tests-container || true
   after_script:
-    - docker compose up report
+    - docker compose run --name report-container report
+    - docker cp report-container:/usr/workspace/allure-report ./allure-report
+    - docker rm report-container || true
   artifacts:
     when: always
     expire_in: 10 days
     paths:
       - allure-report
-      - test-results.xml
+      - test-results/junit.xml
     reports:
-      junit: test-results.xml
+      junit: test-results/junit.xml
     # rules:
     #   - if '$CI_COMMIT_REF_NAME == "main"'
 
