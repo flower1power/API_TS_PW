@@ -77,25 +77,25 @@ api-test:
       # Send success notification to Telegram
     - |
       if [ "$CI_JOB_STATUS" == "success" ]; then
-      export DEPLOYMENT_STATUS=success
-      export REPORT_URL=$CI_PAGES_URL
-      export REPORT_ENV=$ENV
-      export GITHUB_ACTOR=$GITLAB_USER_LOGIN
-      export WORKFLOW_URL=$CI_PIPELINE_URL
-      docker compose run --rm tests npm run notify
+        export DEPLOYMENT_STATUS=success
+        export REPORT_URL="https://${CI_PROJECT_NAMESPACE}.gitlab.io/${CI_PROJECT_NAME}"
+        export REPORT_ENV=$ENV
+        export GITHUB_ACTOR=$GITLAB_USER_LOGIN
+        export WORKFLOW_URL=$CI_PIPELINE_URL
+        docker compose run --rm tests npm run notify
       fi
       after_script:
         # Send failure notification to Telegram
     - |
       if [ "$CI_JOB_STATUS" == "failed" ]; then
-      export DEPLOYMENT_STATUS=failed
-      export REPORT_URL=$CI_PAGES_URL
-      export REPORT_ENV=$ENV
-      export PROJECT=$PROJECT
-      export WORKERS=$WORKERS
-      export GITHUB_ACTOR=$GITLAB_USER_LOGIN
-      export WORKFLOW_URL=$CI_PIPELINE_URL
-      docker compose run --rm tests npm run notify || true
+        export DEPLOYMENT_STATUS=failed
+        export REPORT_URL="https://${CI_PROJECT_NAMESPACE}.gitlab.io/${CI_PROJECT_NAME}"
+        export REPORT_ENV=$ENV
+        export PROJECT=$PROJECT
+        export WORKERS=$WORKERS
+        export GITHUB_ACTOR=$GITLAB_USER_LOGIN
+        export WORKFLOW_URL=$CI_PIPELINE_URL
+        docker compose run --rm tests npm run notify || true
       fi
   artifacts:
     paths:
