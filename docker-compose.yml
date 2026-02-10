@@ -17,7 +17,7 @@ services:
       REPORT_ENV: ${REPORT_ENV:-}
       GITHUB_ACTOR: ${GITHUB_ACTOR:-}
       WORKFLOW_URL: ${WORKFLOW_URL:-}
-    command: ['sh', '-c', 'npx playwright test --project=$$PROJECT --workers=$$WORKERS' --alluredir=allure-results --junitxml=test-results/junit.xml]
+    command: ['sh', '-c', 'npx playwright test --project=$$PROJECT --workers=$$WORKERS --alluredir=allure-results --junitxml=test-results/junit.xml']
     tty: true
 
   report:

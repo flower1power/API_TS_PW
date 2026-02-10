@@ -40,8 +40,6 @@ services:
 workflow:
   name: 'Test $ENV | $PROJECT marker | $WORKERS workers'
 
-
-
 api-test:
   stage: test
   image: docker:24.0.5
