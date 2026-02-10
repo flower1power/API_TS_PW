@@ -11,7 +11,7 @@ test.describe('Тесты на проверку метода PUT v1/account/emai
     const email = prepareUser.email;
     const newEmail = `${prepareUser.login}${faker.string.alpha({ length: { min: 1, max: 5 } })}@mail.ru`;
 
-    await accountHelper.registerNewUser(login, password, email, true);
+    await accountHelper.registerAndActivationNewUser(login, password, email, true);
     await accountHelper.userLogin(login, password);
     await accountHelper.changeEmail(login, password, newEmail);
 

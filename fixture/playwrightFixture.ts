@@ -1,4 +1,4 @@
-import { test as base, expect as baseExpect, APIResponse } from '@playwright/test';
+import { expect as baseExpect, test as base } from '@playwright/test';
 import * as allure from 'allure-js-commons';
 import { ApiMailhog } from '../service/api_mailhog.js';
 import { ApiDmAccount } from '../service/api_dm_account.js';
@@ -6,6 +6,7 @@ import { AccountHelpers } from '../helpers/account_helpers.js';
 import { Configuration } from '../packages/rest_client/configuration.js';
 import { faker } from '@faker-js/faker';
 import { z } from 'zod';
+import { ApiResponse } from '../packages/rest_client/api_response.js';
 
 type MyFixtureType = {
   mailhogClient: ApiMailhog;
@@ -45,13 +46,12 @@ export const test = base.extend<MyFixtureType>({
   },
 
   authAccountHelper: async ({ mailhogClient }, use) => {
-    const config = new Configuration('http://5.63.153.31:5051');
+    const config = new Configuration('http://185.185.143.231:5051');
     const accountClient = new ApiDmAccount(config);
     const accountHelper = new AccountHelpers(accountClient, mailhogClient);
 
-    const login = 'DarrenDalton12_08_2025_22_43_04';
-    // const email = 'DarrenDalton12_08_2025_22_43_04@mail.ru';
-    const password = 'C^Uy3BbI8h';
+    const login = 'Tyreek6609_02_2026__18_59_16';
+    const password = 'jiqajuhuha';
 
     await accountHelper.authUser(login, password);
 
@@ -83,23 +83,24 @@ export const test = base.extend<MyFixtureType>({
 });
 
 export const expect = baseExpect.extend({
-  async toHaveStatusCode(response: APIResponse, expectedStatus: number) {
-    const statusCode = response.status();
+  async toHaveStatusCodeAPI<T>(
+    status: number,
+    url: string,
+    body: T,
+    requestBody: unknown,
+    curl: string,
+    expectedStatus: number,
+  ) {
+    const statusCode = status;
     const pass = statusCode === expectedStatus;
-
-    let responseBody = '';
-
-    try {
-      responseBody = JSON.stringify(await response.json());
-    } catch {
-      responseBody = 'Тело отсутствует';
-    }
 
     const errorMessage = `
 Ожидаемый статус-код: ${expectedStatus}
 Полученный статус-код: ${statusCode}
-URL: ${response.url()}
-Тело ответа: ${responseBody}
+URL: ${url}
+CURL: ${curl}
+Тело запроса: ${JSON.stringify(requestBody)}
+Тело ответа: ${JSON.stringify(body)}
 `;
 
     if (!pass) {
@@ -115,8 +116,32 @@ URL: ${response.url()}
     };
   },
 
-  async toMatchSchema(response: APIResponse, schema: z.ZodSchema) {
-    const body = await response.json();
+  async toHaveStatusCode(response: ApiResponse, expectedStatus: number) {
+    const statusCode = response.status;
+    const pass = statusCode === expectedStatus;
+
+    const errorMessage = `
+Ожидаемый статус-код: ${expectedStatus}
+Полученный статус-код: ${statusCode}
+URL: ${response.url}
+Тело ответа: ${JSON.stringify(response.body)}
+Тело запроса: ${JSON.stringify(response.requestBody)}
+`;
+
+    if (!pass) {
+      return {
+        message: (): string => errorMessage,
+        pass: false,
+      };
+    }
+
+    return {
+      message: (): string => `Ответ вернул ожидаемый статус-код: ${statusCode}`,
+      pass: true,
+    };
+  },
+
+  async toMatchSchemaAPI(body: unknown, schema: z.ZodSchema) {
     const result = schema.safeParse(body);
 
     if (!result.success) {
@@ -137,8 +162,54 @@ URL: ${response.url()}
     };
   },
 
-  async toHaveHeader(response: APIResponse, headerName: string, expectedValue?: string) {
-    const headers = response.headers();
+  async toMatchSchema(response: ApiResponse, schema: z.ZodSchema) {
+    const result = schema.safeParse(response.body);
+
+    if (!result.success) {
+      const errorMessage = `
+Ожидалось соответствие схеме:
+Ошибки валидации: ${JSON.stringify(result.error.issues, null, 2)}
+`;
+
+      return {
+        message: (): string => errorMessage,
+        pass: false,
+      };
+    }
+
+    return {
+      message: (): string => `Данные соответствуют схеме`,
+      pass: true,
+    };
+  },
+
+  async checkErrorBody(body: any, data: ApiResponse<unknown>, expectedErrorMessage: string) {
+    const errorMessageBody = body.title;
+    const pass = errorMessageBody === expectedErrorMessage;
+
+    if (!pass) {
+      const errorMessage = `
+Ожидаемая ошибка: ${expectedErrorMessage}
+Полученная ошибка: ${errorMessageBody}
+URL: ${data.url}
+CURL: ${data.curl}
+Тело запроса: ${JSON.stringify(data.requestBody)}
+Тело ответа: ${JSON.stringify(body)}
+`;
+      return {
+        message: (): string => errorMessage,
+        pass: false,
+      };
+    }
+
+    return {
+      message: (): string => `Ошибка соответствует ${expectedErrorMessage}`,
+      pass: true,
+    };
+  },
+
+  async toHaveHeader(response: ApiResponse, headerName: string, expectedValue?: string) {
+    const headers = response.headers;
     const actualValue = headers[headerName.toLowerCase()];
     const hasHeader = actualValue !== undefined;
 

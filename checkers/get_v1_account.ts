@@ -1,4 +1,4 @@
-import { APIResponse } from 'playwright';
+import { ApiResponse } from '../packages/rest_client/api_response.js';
 import { isApiResponse } from './http_checkers.js';
 import { expect } from 'playwright/test';
 import {
@@ -10,13 +10,12 @@ import { ok } from 'assert/strict';
 import { step } from 'allure-js-commons';
 
 export class GetV1Account {
-  static async checkResponseValues(response: APIResponse | UserDetailsEnvelopeDTO): Promise<void> {
+  static async checkResponseValues(response: ApiResponse | UserDetailsEnvelopeDTO): Promise<void> {
     await step('Проверка ответа метода GET v1_account', async () => {
       let user: UserDetailsEnvelopeDTO['resource'];
 
       if (isApiResponse(response)) {
-        const json = await response.json();
-        user = json.resource;
+        user = (response.body as any).resource;
       } else {
         user = response.resource;
       }
@@ -34,7 +33,7 @@ export class GetV1Account {
       user.online = new Date(user.online);
       user.registration = new Date(user.registration);
 
-      expect(String(user.login).startsWith('DarrenDalton12_08_2025_22_43_04')).toBeTruthy();
+      expect(String(user.login).startsWith('Tyreek6609_02_2026__18_59_16')).toBeTruthy();
       expect(user.roles).toContain(UserRole.GUEST);
       expect(user.roles).toContain(UserRole.PLAYER);
       expect(user.roles).toHaveLength(2);

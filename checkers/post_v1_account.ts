@@ -1,4 +1,4 @@
-import { APIResponse } from 'playwright';
+import { ApiResponse } from '../packages/rest_client/api_response.js';
 import { isApiResponse } from './http_checkers.js';
 import { step, expect } from '../fixture/playwrightFixture.js';
 import { UserDetailsEnvelopeDTO } from '../clients/http/dm_api_account/models/userDetailsEnvelope.js';
@@ -6,14 +6,13 @@ import { UserDetailsEnvelopeDTO } from '../clients/http/dm_api_account/models/us
 export class PostV1Account {
   static async checkResponseValues(
     login: string,
-    response: APIResponse | UserDetailsEnvelopeDTO,
+    response: ApiResponse | UserDetailsEnvelopeDTO,
   ): Promise<void> {
     await step('Проверка ответа POST v1/account', async () => {
       let user: UserDetailsEnvelopeDTO['resource'];
 
       if (isApiResponse(response)) {
-        const json = await response.json();
-        user = json.resource;
+        user = (response.body as any).resource;
       } else {
         user = response.resource;
       }

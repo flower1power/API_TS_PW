@@ -1,4 +1,4 @@
-import { APIRequestContext, APIResponse } from 'playwright';
+import { APIRequestContext } from 'playwright';
 import { RegistrationDTO } from '../models/registration.js';
 import {
   UserDetailsEnvelopeDTO,
@@ -8,7 +8,7 @@ import { UserEnvelopeDTO, UserEnvelopeSchema } from '../models/userDetails.js';
 import { ResetPasswordDTO } from '../models/resetPassword.js';
 import { ChangePasswordDTO } from '../models/changePassword.js';
 import { ChangeEmailDTO } from '../models/changeEmail.js';
-import { RestClient } from '../../../../packages/rest_client/client.js';
+import { RestClient, ApiResponse } from '../../../../packages/rest_client/client.js';
 import { step } from 'allure-js-commons';
 
 /**
@@ -21,12 +21,12 @@ export class AccountApi extends RestClient {
    * Регистрация нового пользователя.
    * @param {RegistrationDTO} jsonData - Данные для регистрации
    * @param {Parameters<APIRequestContext['post']>[1]} options - Параметры POST запроса
-   * @returns {Promise<APIResponse>} Ответ сервера
+   * @returns {Promise<ApiResponse>} Ответ сервера
    */
   async postV1Account(
     jsonData: RegistrationDTO,
     options?: Parameters<APIRequestContext['post']>[1],
-  ): Promise<APIResponse> {
+  ): Promise<ApiResponse> {
     return step('Регистрация нового пользователя', async () => {
       return this.post(`/v1/account`, {
         headers: { ...options?.headers },
@@ -40,7 +40,7 @@ export class AccountApi extends RestClient {
    * Получение информации о текущем пользователе.
    * @param {boolean} validateResponse - Валидация ответа
    * @param {Parameters<APIRequestContext['get']>[1]} options - Параметры GET запроса
-   * @returns {Promise<APIResponse | UserDetailsEnvelopeDTO>} Ответ сервера или DTO
+   * @returns {Promise<ApiResponse | UserDetailsEnvelopeDTO>} Ответ сервера или DTO
    */
   async getV1Account(
     validateResponse: true,
@@ -49,16 +49,16 @@ export class AccountApi extends RestClient {
   async getV1Account(
     validateResponse: false,
     options?: Parameters<APIRequestContext['get']>[1],
-  ): Promise<APIResponse>;
+  ): Promise<ApiResponse>;
   async getV1Account(
     validateResponse: boolean,
     options?: Parameters<APIRequestContext['get']>[1],
-  ): Promise<APIResponse | UserDetailsEnvelopeDTO> {
+  ): Promise<ApiResponse | UserDetailsEnvelopeDTO> {
     return step('Получение информации о текущем пользователе', async () => {
       const response = await this.get(`/v1/account`, { ...options });
 
       if (validateResponse) {
-        return UserDetailsEnvelopeSchema.parse(await response.json());
+        return UserDetailsEnvelopeSchema.parse(response.body);
       }
 
       return response;
@@ -70,13 +70,13 @@ export class AccountApi extends RestClient {
    * @param {string} token - Валидация ответа
    * @param {boolean} validateResponse - Валидация ответа
    * @param {Parameters<APIRequestContext['put']>[1]} options - Параметры PUT запроса
-   * @returns {Promise<APIResponse | UserEnvelopeDTO>} Ответ сервера или DTO
+   * @returns {Promise<ApiResponse | UserEnvelopeDTO>} Ответ сервера или DTO
    */
   async putV1AccountToken(
     token: string,
     validateResponse = true,
     options?: Parameters<APIRequestContext['put']>[1],
-  ): Promise<APIResponse | UserEnvelopeDTO> {
+  ): Promise<ApiResponse | UserEnvelopeDTO> {
     return step('Активация зарегистрированного пользователя по токену', async () => {
       const response = await this.put(`/v1/account/${token}`, {
         headers: { accept: 'text/plain', ...options?.headers },
@@ -84,7 +84,7 @@ export class AccountApi extends RestClient {
       });
 
       if (validateResponse) {
-        return UserEnvelopeSchema.parse(await response.json());
+        return UserEnvelopeSchema.parse(response.body);
       }
 
       return response;
@@ -96,13 +96,13 @@ export class AccountApi extends RestClient {
    * @param {ResetPasswordDTO} loginData - DTO
    * @param {boolean} validateResponse - Валидация ответа
    * @param {Parameters<APIRequestContext['put']>[1]} options - Параметры PUT запроса
-   * @returns {Promise<APIResponse | UserEnvelopeDTO>} Ответ сервера или DTO
+   * @returns {Promise<ApiResponse | UserEnvelopeDTO>} Ответ сервера или DTO
    */
   async postV1AccountPassword(
     loginData: ResetPasswordDTO,
     validateResponse = true,
     options?: Parameters<APIRequestContext['post']>[1],
-  ): Promise<APIResponse | UserEnvelopeDTO> {
+  ): Promise<ApiResponse | UserEnvelopeDTO> {
     return step('Сброс пароля пользователя', async () => {
       const response = await this.post('/v1/account/password', {
         data: loginData,
@@ -110,7 +110,7 @@ export class AccountApi extends RestClient {
       });
 
       if (validateResponse) {
-        return UserEnvelopeSchema.parse(await response.json());
+        return UserEnvelopeSchema.parse(response.body);
       }
 
       return response;
@@ -122,13 +122,13 @@ export class AccountApi extends RestClient {
    * @param {ChangePasswordDTO} changePasswordData - DTO
    * @param {boolean} validateResponse - Валидация ответа
    * @param {Parameters<APIRequestContext['put']>[1]} options - Параметры PUT запроса
-   * @returns {Promise<APIResponse | UserEnvelopeDTO>} Ответ сервера или DTO
+   * @returns {Promise<ApiResponse | UserEnvelopeDTO>} Ответ сервера или DTO
    */
   async putV1AccountChangePassword(
     changePasswordData: ChangePasswordDTO,
     validateResponse = true,
     options?: Parameters<APIRequestContext['put']>[1],
-  ): Promise<APIResponse | UserEnvelopeDTO> {
+  ): Promise<ApiResponse | UserEnvelopeDTO> {
     return step('Изменение пароля пользователя', async () => {
       const response = await this.put(`/v1/account/password`, {
         data: changePasswordData,
@@ -136,7 +136,7 @@ export class AccountApi extends RestClient {
       });
 
       if (validateResponse) {
-        return UserEnvelopeSchema.parse(await response.json());
+        return UserEnvelopeSchema.parse(response.body);
       }
 
       return response;
@@ -148,13 +148,13 @@ export class AccountApi extends RestClient {
    * @param {ChangeEmailDTO} changeEmailData - DTO
    * @param {boolean} validateResponse - Валидация ответа
    * @param {Parameters<APIRequestContext['put']>[1]} options - Параметры PUT запроса
-   * @returns {Promise<APIResponse | UserEnvelopeDTO>} Ответ сервера или DTO
+   * @returns {Promise<ApiResponse | UserEnvelopeDTO>} Ответ сервера или DTO
    */
   async putV1AccountChangeEmail(
     changeEmailData: ChangeEmailDTO,
     validateResponse = true,
     options?: Parameters<APIRequestContext['put']>[1],
-  ): Promise<APIResponse | UserEnvelopeDTO> {
+  ): Promise<ApiResponse | UserEnvelopeDTO> {
     return step('Изменение email адреса зарегистрированного пользователя', async () => {
       const response = await this.put(`/v1/account/email`, {
         data: changeEmailData,
@@ -162,7 +162,7 @@ export class AccountApi extends RestClient {
       });
 
       if (validateResponse) {
-        return UserEnvelopeSchema.parse(await response.json());
+        return UserEnvelopeSchema.parse(response.body);
       }
 
       return response;

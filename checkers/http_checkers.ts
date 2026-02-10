@@ -1,4 +1,4 @@
-import { APIResponse } from 'playwright';
+import { ApiResponse } from '../packages/rest_client/api_response.js';
 import { step } from 'allure-js-commons';
 
 type CheckStatusOptions = {
@@ -10,49 +10,26 @@ type CheckStatusOptions = {
  * Проверяет статус и сообщение в ответе HTTP
  */
 export async function checkStatusCodeHttp<T>(
-  fn: () => Promise<APIResponse>,
+  fn: () => Promise<ApiResponse>,
   { expectedStatusCode = 200, expectedMessage }: CheckStatusOptions = {},
 ): Promise<void> {
   await step('Проверка ответа http', async () => {
-    try {
-      const result = await fn();
-      const status = result.status();
+    const result = await fn();
+    const status = result.status;
 
-      if (status !== expectedStatusCode) {
-        throw new Error(`Ожидаемый статус-код ${expectedStatusCode}, получен ${status}`);
-      }
+    if (status !== expectedStatusCode) {
+      throw new Error(`Ожидаемый статус-код ${expectedStatusCode}, получен ${status}`);
+    }
 
-      if (expectedMessage) {
-        const body = await result.json();
-        if (body?.title !== expectedMessage) {
-          throw new Error(`Ожидаемое сообщение "${expectedMessage}", получено "${body?.title}"`);
-        }
-      }
-    } catch (err: any) {
-      if (err?.response) {
-        const status = err.response.status();
-        const body = await err.response.json();
-        const title = body?.title;
-
-        if (status !== expectedStatusCode) {
-          throw new Error(`Ожидаемый статус-код ${expectedStatusCode}, получен ${status}`);
-        }
-
-        if (expectedMessage && title !== expectedMessage) {
-          throw new Error(`Ожидаемое сообщение "${expectedMessage}", получено "${title}"`);
-        }
-      } else {
-        throw err;
+    if (expectedMessage) {
+      const body = result.body as any;
+      if (body?.title !== expectedMessage) {
+        throw new Error(`Ожидаемое сообщение "${expectedMessage}", получено "${body?.title}"`);
       }
     }
   });
 }
 
-export function isApiResponse(value: unknown): value is APIResponse {
-  return (
-    typeof value === 'object' &&
-    value !== null &&
-    'status' in value &&
-    typeof (value as APIResponse).status === 'function'
-  );
+export function isApiResponse(value: unknown): value is ApiResponse {
+  return value instanceof ApiResponse;
 }

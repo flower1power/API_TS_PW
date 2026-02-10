@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig } from '@playwright/test';
 
 /**
  * Read environment variables from file.
@@ -39,14 +39,6 @@ export default defineConfig({
   projects: [
     {
       name: 'smoke',
-      testDir: './tests/smoke',
-    },
-    {
-      name: 'regression',
-      testDir: './tests/regression',
-    },
-    {
-      name: 'all',
       testDir: './tests',
     },
   ],

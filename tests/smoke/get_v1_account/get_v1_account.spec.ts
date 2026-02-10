@@ -8,9 +8,13 @@ test.describe('Тесты на проверку метода GET v1/account', ()
   }) => {
     await subSuite('Позитивные тесты');
 
+    // const response = await authAccountHelper.apiDmAccount.accountApi.getV1Account(false);
+
+    // console.log('AAAA', response);
+
     await checkStatusCodeHttp(async () => {
       const response = await authAccountHelper.apiDmAccount.accountApi.getV1Account(false);
-      await GetV1Account.checkResponseValues(await response.json());
+      await GetV1Account.checkResponseValues(response.body as any);
       return response;
     });
   });
@@ -19,9 +23,8 @@ test.describe('Тесты на проверку метода GET v1/account', ()
     accountHelper,
   }) => {
     await subSuite('Негативные тесты');
-    await checkStatusCodeHttp(() => accountHelper.apiDmAccount.accountApi.getV1Account(false), {
-      expectedMessage: 'User must be authenticated',
-      expectedStatusCode: 401,
-    });
+
+    const resp = await accountHelper.apiDmAccount.accountApi.getV1Account(false);
+    await resp.checkError(401, 'User must be authenticated');
   });
 });

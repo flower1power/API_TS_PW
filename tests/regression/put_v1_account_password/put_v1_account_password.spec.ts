@@ -8,7 +8,7 @@ test.describe('Тесты на проверку метода PUT v1/account/pass
     const user = prepareUser;
     const newPassword = faker.internet.password({ length: 10, memorable: true });
 
-    await accountHelper.registerNewUser(user.login, user.password, user.email, true);
+    await accountHelper.registerAndActivationNewUser(user.login, user.password, user.email, true);
     await accountHelper.authUser(user.login, user.password);
     await accountHelper.changePassword(user.login, user.email, user.password, newPassword);
     await accountHelper.authUser(user.login, newPassword);

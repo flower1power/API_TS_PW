@@ -4,7 +4,7 @@ test.describe('Тесты на проверку метода PUT v1/account/toke
   test('Проверка активации пользователя по токену', async ({ accountHelper, prepareUser }) => {
     await subSuite('Позитивные тесты');
 
-    await accountHelper.registerNewUser(
+    await accountHelper.registerAndActivationNewUser(
       prepareUser.login,
       prepareUser.password,
       prepareUser.email,

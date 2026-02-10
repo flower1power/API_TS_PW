@@ -1,5 +1,5 @@
-import { APIRequestContext, APIResponse } from 'playwright';
-import { RestClient } from '../../../../packages/rest_client/client.js';
+import { APIRequestContext } from 'playwright';
+import { RestClient, ApiResponse } from '../../../../packages/rest_client/client.js';
 import { step } from 'allure-js-commons';
 
 /**
@@ -13,12 +13,12 @@ export class MailhogApi extends RestClient {
    * Получение писем из почтового ящика Mailhog.
    * @param {number} limit - лимит
    * @param {Parameters<APIRequestContext['get']>[1]} options - Параметры GET запроса
-   * @returns {Promise<APIResponse | UserEnvelopeDTO>} Ответ сервера или DTO
+   * @returns {Promise<ApiResponse>} Ответ сервера
    */
   async getApiV2Message(
     limit: number = 50,
     options?: Parameters<APIRequestContext['get']>[1],
-  ): Promise<APIResponse> {
+  ): Promise<ApiResponse> {
     return step('Получение писем из почтового ящика Mailhog', async () => {
       const params = {
         limit: limit,

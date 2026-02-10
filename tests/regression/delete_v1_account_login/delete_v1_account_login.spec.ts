@@ -4,7 +4,7 @@ test.describe('Тесты на проверку метода DELETE v1/account/l
   test('Проверка выхода пользователя из системы', async ({ accountHelper, prepareUser }) => {
     await subSuite('Позитивные тесты');
 
-    await accountHelper.registerNewUser(
+    await accountHelper.registerAndActivationNewUser(
       prepareUser.login,
       prepareUser.password,
       prepareUser.email,

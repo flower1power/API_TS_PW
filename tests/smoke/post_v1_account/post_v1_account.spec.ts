@@ -1,5 +1,4 @@
 import { parameter, subSuite, test } from '../../../fixture/playwrightFixture.js';
-import { checkStatusCodeHttp } from '../../../checkers/http_checkers.js';
 import { faker } from '@faker-js/faker';
 
 const now = new Date();
@@ -30,13 +29,14 @@ test.describe('Тесты на проверку метода POST v1/account', (
   test('Проверка регистрации нового пользователя', async ({ accountHelper, prepareUser }) => {
     await subSuite('Позитивные тесты');
 
-    await accountHelper.registerNewUser(
+    await accountHelper.registerAndActivationNewUser(
       prepareUser.login,
       prepareUser.password,
       prepareUser.email,
       true,
     );
     await accountHelper.userLogin(prepareUser.login, prepareUser.password, true, true);
+    console.log(prepareUser.login, prepareUser.password, prepareUser.email);
   });
 
   negativeTestCase.forEach(({ login, password, email }, index) => {
@@ -48,13 +48,12 @@ test.describe('Тесты на проверку метода POST v1/account', (
       await parameter('password', password);
       await parameter('email', email);
 
-      await checkStatusCodeHttp(
-        async () => accountHelper.registerNewUser(login, password, email, false),
-        {
-          expectedStatusCode: 400,
-          expectedMessage: 'Validation failed',
-        },
-      );
+      const res = await accountHelper.registerNewUser({
+        login,
+        password,
+        email,
+      });
+      await res.checkError(400, 'Validation failed');
     });
   });
 });

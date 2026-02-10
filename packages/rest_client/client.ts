@@ -1,7 +1,10 @@
 import { randomUUID } from 'crypto';
-import { APIRequestContext, APIResponse, request } from 'playwright';
+import { APIRequestContext, request } from 'playwright';
 import { Configuration } from './configuration.js';
 import { attachment, ContentType } from 'allure-js-commons';
+import { ApiResponse } from './api_response.js';
+
+export { ApiResponse } from './api_response.js';
 
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
 
@@ -68,8 +71,11 @@ export class RestClient {
    * @param options - Дополнительные параметры для HTTP запроса (params, headers, timeout и т.д.)
    * @returns HTTP ответ от сервера
    */
-  async get(path: string, options?: Parameters<APIRequestContext['get']>[1]): Promise<APIResponse> {
-    return this._sendRequest('GET', path, options);
+  async get<T = unknown>(
+    path: string,
+    options?: Parameters<APIRequestContext['get']>[1],
+  ): Promise<ApiResponse<T>> {
+    return this._sendRequest<T>('GET', path, options);
   }
 
   /**
@@ -79,11 +85,11 @@ export class RestClient {
    * @param options - Дополнительные параметры для HTTP запроса (json, data, headers, timeout и т.д.)
    * @returns HTTP ответ от сервера
    */
-  async post(
+  async post<T = unknown>(
     path: string,
     options?: Parameters<APIRequestContext['post']>[1],
-  ): Promise<APIResponse> {
-    return this._sendRequest('POST', path, options);
+  ): Promise<ApiResponse<T>> {
+    return this._sendRequest<T>('POST', path, options);
   }
 
   /**
@@ -93,8 +99,11 @@ export class RestClient {
    * @param options - Дополнительные параметры для HTTP запроса (json, data, headers, timeout и т.д.)
    * @returns HTTP ответ от сервера
    */
-  async put(path: string, options?: Parameters<APIRequestContext['put']>[1]): Promise<APIResponse> {
-    return this._sendRequest('PUT', path, options);
+  async put<T = unknown>(
+    path: string,
+    options?: Parameters<APIRequestContext['put']>[1],
+  ): Promise<ApiResponse<T>> {
+    return this._sendRequest<T>('PUT', path, options);
   }
 
   /**
@@ -104,11 +113,11 @@ export class RestClient {
    * @param options - Дополнительные параметры для HTTP запроса (headers, timeout и т.д.)
    * @returns HTTP ответ от сервера
    */
-  async delete(
+  async delete<T = unknown>(
     path: string,
     options?: Parameters<APIRequestContext['delete']>[1],
-  ): Promise<APIResponse> {
-    return this._sendRequest('DELETE', path, options);
+  ): Promise<ApiResponse<T>> {
+    return this._sendRequest<T>('DELETE', path, options);
   }
 
   /**
@@ -122,11 +131,11 @@ export class RestClient {
    * @param options - Параметры для HTTP запроса
    * @returns HTTP ответ от сервера
    */
-  private async _sendRequest(
+  private async _sendRequest<T = unknown>(
     method: HttpMethod,
     path: string,
     options: Record<string, any> = {},
-  ): Promise<APIResponse> {
+  ): Promise<ApiResponse<T>> {
     const eventId = randomUUID();
     const fullUrl = this._buildFullUrl(path);
 
@@ -144,18 +153,7 @@ export class RestClient {
       },
     };
 
-    if (this.disableLog) {
-      const response = await this.context.fetch(path, { method, ...requestOptions });
-      if (!response.ok()) {
-        const error: any = new Error(`API Error: ${response.status()} ${response.statusText()}`);
-        error.response = response;
-        throw error;
-      }
-      return response;
-    }
-
-    // Логирование запроса
-    await this._logRequest(eventId, method, fullUrl, requestOptions);
+    const reqBody: unknown = options.data || options.json;
 
     // Генерация cURL команды
     const curl = this._toCurl(
@@ -164,22 +162,66 @@ export class RestClient {
       requestOptions.headers,
       requestOptions.data || requestOptions.json,
     );
-    console.log(curl);
 
+    if (this.disableLog) {
+      console.log(curl);
+      await this._safeAttachment('Curl', curl, ContentType.TEXT);
+
+      const response = await this.context.fetch(path, { method, ...requestOptions });
+
+      let responseBody: any;
+      try {
+        responseBody = await response.json();
+      } catch {
+        responseBody = {};
+      }
+
+      // if (!apiResponse.ok()) {
+      //   const error: any = new Error(`API Error: ${apiResponse.status} ${apiResponse.statusText}`);
+      //   error.response = apiResponse;
+      //   throw error;
+      // }
+
+      return new ApiResponse<T>(
+        response.status(),
+        response.statusText(),
+        response.headers(),
+        response.url(),
+        responseBody as T,
+        reqBody,
+        curl,
+      );
+    }
+
+    // Логирование запроса
+    await this._logRequest(eventId, method, fullUrl, requestOptions);
+
+    console.log(curl);
     await this._safeAttachment('Curl', curl, ContentType.TEXT);
 
     const response = await this.context.fetch(path, { method, ...requestOptions });
 
-    // Логирование ответа
-    await this._logResponse(eventId, response);
-
-    if (!response.ok()) {
-      const error: any = new Error(`API Error: ${response.status()} ${response.statusText()}`);
-      error.response = response;
-      throw error;
+    let responseBody: any;
+    try {
+      responseBody = await response.json();
+    } catch {
+      responseBody = {};
     }
 
-    return response;
+    const apiResponse = new ApiResponse<T>(
+      response.status(),
+      response.statusText(),
+      response.headers(),
+      response.url(),
+      responseBody as T,
+      reqBody,
+      curl,
+    );
+
+    // Логирование ответа
+    await this._logResponse(eventId, apiResponse);
+
+    return apiResponse;
   }
 
   /**
@@ -238,21 +280,14 @@ export class RestClient {
    * @param eventId - Уникальный идентификатор события
    * @param response - HTTP ответ
    */
-  private async _logResponse(eventId: string, response: APIResponse): Promise<void> {
-    let responseJson: any;
-    try {
-      responseJson = await response.json();
-    } catch (e) {
-      responseJson = {};
-    }
-
+  private async _logResponse(eventId: string, response: ApiResponse): Promise<void> {
     const textLog = JSON.stringify(
       {
         event: 'Response',
         eventId,
-        status_code: response.status(),
-        headers: response.headers(),
-        json: responseJson,
+        status_code: response.status,
+        headers: response.headers,
+        json: response.body,
       },
       null,
       4,
