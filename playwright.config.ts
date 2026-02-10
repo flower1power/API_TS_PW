@@ -39,6 +39,14 @@ export default defineConfig({
   projects: [
     {
       name: 'smoke',
+      testDir: './tests/smoke',
+    },
+    {
+      name: 'regression',
+      testDir: './tests/regression',
+    },
+    {
+      name: 'all',
       testDir: './tests',
     },
   ],
